@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 0.2.0
 
 - Mythic NPCs: a Make Mythic template for any NPC following the War of Immortals ability table, with Mythic
   Resistance and Immunity automated against non-mythic Strikes; Remove Mythic Template reverts it.
