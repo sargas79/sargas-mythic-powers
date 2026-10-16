@@ -8,6 +8,7 @@ import { esc, notify, t } from "../foundry/i18n.js";
 import { getSetting } from "../foundry/settings.js";
 import { onceAsActiveGM } from "../foundry/socket.js";
 import { ASSIST_AWARD, KILLER_AWARD } from "../rules/awards.js";
+import { deferKillForUndying } from "../services/npc-points.js";
 import { activeMythicCharacters, awardKill } from "../services/points.js";
 import { isMythicActive } from "../state/flags.js";
 import {
@@ -159,7 +160,16 @@ function onUpdateActor(actor: ActorPF2e, changes: Record<string, unknown>): void
   }
   if (defeated.has(key) || !isMythicNpc(actor) || !inCombat(actor)) return;
   defeated.add(key);
-  const once = `kill:${key}:${actor._stats?.modifiedTime ?? ""}`;
+  // Undying Myth first: the npc-mythic feature calls promptMythicKill if the GM lets the creature fall.
+  if (deferKillForUndying(actor)) return;
+  promptMythicKill(actor, `kill:${key}:${actor._stats?.modifiedTime ?? ""}`);
+}
+
+/**
+ * Posts the kill card for a defeated mythic NPC, after a short delay so the last blow is in chat. Runs on one
+ * GM client per `once` key; callers that already run on a single client can use the default key.
+ */
+export function promptMythicKill(actor: ActorPF2e, once = `kill:${actor.uuid}:${Date.now()}`): void {
   setTimeout(() => {
     onceAsActiveGM(once, () => promptKill(actor)).catch((error) =>
       notify.error("automation.kill.failed", {}, error),

@@ -868,3 +868,133 @@ li.slot .item-controls .smp-slot-choose {
 .smp-progression-card .smp-progression-body {
   margin: 0;
 }
+
+/* ---- x-npc-template.css ---- */
+/* Make Mythic NPC template dialog (agent X). */
+.smp-npct-dialog .smp-npct {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.smp-npct-dialog fieldset {
+  border: 1px solid var(--smp-line);
+  border-radius: 4px;
+  padding: 6px 8px;
+  margin: 0;
+}
+.smp-npct-dialog legend {
+  font-weight: 700;
+  color: var(--smp-myth-2);
+  padding: 0 4px;
+}
+.smp-npct-dialog .smp-npct-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+}
+.smp-npct-dialog .smp-npct-radio {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.smp-npct-dialog .smp-npct-fixed {
+  font-weight: 600;
+}
+.smp-npct-dialog .smp-npct-sub {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+}
+.smp-npct-dialog .smp-npct-sub[hidden] {
+  display: none;
+}
+.smp-npct-dialog .smp-npct-sub label {
+  flex: 0 0 auto;
+  color: var(--smp-muted);
+}
+.smp-npct-dialog .smp-npct-sub select {
+  flex: 1 1 0;
+  min-width: 0;
+}
+.smp-npct-dialog .smp-npct-note {
+  border-left: 3px solid var(--smp-myth);
+  background: var(--smp-myth-soft);
+  color: #2b1d3d;
+  padding: 6px 8px;
+  margin: 0;
+  border-radius: 3px;
+}
+.smp-npct-dialog .smp-npct-intro {
+  margin: 0;
+}
+.smp-npct-dialog .smp-npct-summary ul,
+.smp-npct-dialog .smp-npct-applied {
+  margin: 0;
+  padding-left: 18px;
+}
+.smp-npct-dialog .smp-npct-remove {
+  color: var(--smp-bad);
+}
+
+/* ---- y-npc-mythic.css ---- */
+/* Agent Y: mythic NPC cards, the Spend Mythic Point block on item cards and the console Encounter section. */
+.smp-npc-card .smp-npc-used {
+  color: var(--smp-ok);
+}
+.smp-npc-card .smp-npc-fell {
+  color: var(--smp-bad);
+}
+.smp-npc-card .smp-npc-rerolled {
+  color: var(--smp-myth);
+}
+.smp-npc-warning p {
+  margin: 4px 0;
+  border-left: 3px solid var(--smp-gold);
+  padding-left: 6px;
+}
+
+.smp-npc-spend {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 6px;
+  padding-top: 4px;
+  border-top: 1px dashed var(--smp-myth-2);
+}
+.smp-npc-spend .smp-npc-spend-btn {
+  flex: 1 1 auto;
+  line-height: 24px;
+  background: var(--smp-myth);
+  border-color: var(--smp-myth);
+  color: var(--smp-myth-ink);
+}
+.smp-npc-spend .smp-npc-spend-btn:disabled {
+  opacity: 0.5;
+}
+.smp-npc-spend .smp-npc-spend-points {
+  font-size: 11px;
+  color: var(--smp-muted);
+  white-space: nowrap;
+}
+.smp-npc-spend .smp-npc-spend-used {
+  margin: 0;
+  font-weight: 700;
+  color: var(--smp-myth);
+}
+
+.smp-npc-encounter h3 {
+  margin: 0 0 4px;
+  font-size: 13px;
+  color: var(--smp-myth);
+  border-bottom: 1px solid var(--smp-line);
+}
+.smp-npc-encounter .smp-npc-ability {
+  display: inline-block;
+  margin: 1px 4px 1px 0;
+  padding: 0 6px;
+  border-radius: 8px;
+  font-size: 11px;
+  background: var(--smp-myth-soft);
+  color: var(--smp-myth);
+}

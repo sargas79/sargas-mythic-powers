@@ -1,0 +1,376 @@
+{
+  "0zvUNv8hRTdwXmhF": {
+    "_id": "0zvUNv8hRTdwXmhF",
+    "name": "(Mythic) Mythic Resilience",
+    "type": "action",
+    "img": "systems/pf2e/icons/actions/Passive.webp",
+    "system": {
+      "actionType": {
+        "value": "passive"
+      },
+      "actions": {
+        "value": null
+      },
+      "category": "defensive",
+      "description": {
+        "value": "<p>The creature treats its saving throws with the associated save as one degree of success better than it rolled. This is not cumulative wit"
+      },
+      "rules": [
+        {
+          "itemId": "{item|id}",
+          "key": "ItemAlteration",
+          "mode": "override",
+          "property": "name",
+          "value": "PF2E.NPCAbility.Mythic.MythicResilience.Name"
+        },
+        {
+          "adjustment": {
+            "all": "one-degree-better"
+          },
+          "key": "AdjustDegreeOfSuccess",
+          "selector": "fortitude"
+        },
+        {
+          "adjustment": {
+            "all": "one-degree-better"
+          },
+          "key": "AdjustDegreeOfSuccess",
+          "selector": "reflex"
+        },
+        {
+          "adjustment": {
+            "all": "one-degree-better"
+          },
+          "key": "AdjustDegreeOfSuccess",
+          "selector": "will"
+        }
+      ],
+      "traits": {
+        "value": []
+      },
+      "slug": "mythic-mythic-resilience"
+    }
+  },
+  "anjtXUW6krim20UM": {
+    "_id": "anjtXUW6krim20UM",
+    "name": "(Mythic) Mythic Resistance",
+    "type": "action",
+    "img": "systems/pf2e/icons/actions/Passive.webp",
+    "system": {
+      "actionType": {
+        "value": "passive"
+      },
+      "actions": {
+        "value": null
+      },
+      "category": "defensive",
+      "description": {
+        "value": "<p>The creature gains resistance to all Strikes made by non-mythic creatures equal to half its level. If it gains mythic resistance a second"
+      },
+      "rules": [
+        {
+          "itemId": "{item|id}",
+          "key": "ItemAlteration",
+          "mode": "override",
+          "property": "name",
+          "value": "PF2E.NPCAbility.Mythic.MythicResistance.Name"
+        }
+      ],
+      "traits": {
+        "value": []
+      },
+      "slug": "mythic-mythic-resistance"
+    }
+  },
+  "jNW79frpM2miwJvD": {
+    "_id": "jNW79frpM2miwJvD",
+    "name": "(Mythic) Mythic Power",
+    "type": "action",
+    "img": "systems/pf2e/icons/actions/Passive.webp",
+    "system": {
+      "actionType": {
+        "value": "passive"
+      },
+      "actions": {
+        "value": null
+      },
+      "category": "offensive",
+      "description": {
+        "value": "<p>The creature has a pool of 3 Mythic Points, and can spend those Mythic Points for any of the actions it has.</p>"
+      },
+      "rules": [
+        {
+          "itemId": "{item|id}",
+          "key": "ItemAlteration",
+          "mode": "override",
+          "property": "name",
+          "value": "PF2E.NPCAbility.Mythic.MythicPower.Name"
+        }
+      ],
+      "traits": {
+        "value": []
+      },
+      "slug": "mythic-mythic-power"
+    }
+  },
+  "gNxphcYARRn2bZ1i": {
+    "_id": "gNxphcYARRn2bZ1i",
+    "name": "(Mythic) Mythic Skill",
+    "type": "action",
+    "img": "systems/pf2e/icons/actions/FreeAction.webp",
+    "system": {
+      "actionType": {
+        "value": "free"
+      },
+      "actions": {
+        "value": null
+      },
+      "category": "offensive",
+      "description": {
+        "value": "<p><strong>Cost</strong> 1 Mythic Point</p><hr /><p><strong>Effect</strong> The creature attempts its next skill check with a +4 bonus and i"
+      },
+      "rules": [
+        {
+          "itemId": "{item|id}",
+          "key": "ItemAlteration",
+          "mode": "override",
+          "property": "name",
+          "value": "PF2E.NPCAbility.Mythic.MythicSkill.Name"
+        },
+        {
+          "key": "RollOption",
+          "option": "mythic-skill",
+          "toggleable": true
+        },
+        {
+          "key": "FlatModifier",
+          "predicate": ["mythic-skill"],
+          "selector": ["skill-check"],
+          "slug": "mythic-skill-bonus",
+          "value": 4
+        }
+      ],
+      "traits": {
+        "value": []
+      },
+      "slug": "mythic-mythic-skill"
+    }
+  },
+  "Amur69xCgfyCsY34": {
+    "_id": "Amur69xCgfyCsY34",
+    "name": "(Mythic) Recharge",
+    "type": "action",
+    "img": "systems/pf2e/icons/actions/OneAction.webp",
+    "system": {
+      "actionType": {
+        "value": "action"
+      },
+      "actions": {
+        "value": 1
+      },
+      "category": "offensive",
+      "description": {
+        "value": "<p><strong>Cost</strong> 1 Mythic Point</p><hr /><p><strong>Effect</strong> The creature gains one additional use of a spell or ability that"
+      },
+      "rules": [
+        {
+          "itemId": "{item|id}",
+          "key": "ItemAlteration",
+          "mode": "override",
+          "property": "name",
+          "value": "PF2E.NPCAbility.Mythic.Recharge.Name"
+        }
+      ],
+      "traits": {
+        "value": ["concentrate"]
+      },
+      "slug": "mythic-recharge"
+    }
+  },
+  "HhD6EWTdYOyH6Rbr": {
+    "_id": "HhD6EWTdYOyH6Rbr",
+    "name": "(Mythic) Recharge Spell",
+    "type": "action",
+    "img": "systems/pf2e/icons/actions/OneAction.webp",
+    "system": {
+      "actionType": {
+        "value": "action"
+      },
+      "actions": {
+        "value": 1
+      },
+      "category": "interaction",
+      "description": {
+        "value": "<p><strong>Cost</strong> 1 Mythic Point</p><hr /><p>A mythic caster of any level gains the Recharge mythic power action for spells.</p>"
+      },
+      "rules": [
+        {
+          "itemId": "{item|id}",
+          "key": "ItemAlteration",
+          "mode": "override",
+          "property": "name",
+          "value": "PF2E.NPCAbility.Mythic.RechargeSpell.Name"
+        }
+      ],
+      "traits": {
+        "value": ["concentrate"]
+      },
+      "slug": "mythic-recharge-spell"
+    }
+  },
+  "ta5reS33mtwBHWzX": {
+    "_id": "ta5reS33mtwBHWzX",
+    "name": "(Mythic) Remove a Condition",
+    "type": "action",
+    "img": "systems/pf2e/icons/actions/OneAction.webp",
+    "system": {
+      "actionType": {
+        "value": "action"
+      },
+      "actions": {
+        "value": 1
+      },
+      "category": "interaction",
+      "description": {
+        "value": "<p><strong>Cost</strong> 1 Mythic Point</p><hr /><p><strong>Effect</strong> The creature ends one condition affecting it.</p>"
+      },
+      "rules": [
+        {
+          "itemId": "{item|id}",
+          "key": "ItemAlteration",
+          "mode": "override",
+          "property": "name",
+          "value": "PF2E.NPCAbility.Mythic.RemoveACondition.Name"
+        }
+      ],
+      "traits": {
+        "value": ["concentrate"]
+      },
+      "slug": "mythic-remove-a-condition"
+    }
+  },
+  "MFADnbvNMY9AQNzG": {
+    "_id": "MFADnbvNMY9AQNzG",
+    "name": "(Mythic) Reroll",
+    "type": "action",
+    "img": "systems/pf2e/icons/actions/FreeAction.webp",
+    "system": {
+      "actionType": {
+        "value": "free"
+      },
+      "actions": {
+        "value": null
+      },
+      "category": "offensive",
+      "description": {
+        "value": "<p><strong>Cost</strong> 1 Mythic Point</p>\n<p><strong>Trigger</strong> The creature fails a check</p><hr /><p><strong>Effect</strong> The c"
+      },
+      "rules": [
+        {
+          "itemId": "{item|id}",
+          "key": "ItemAlteration",
+          "mode": "override",
+          "property": "name",
+          "value": "PF2E.NPCAbility.Mythic.Reroll.Name"
+        }
+      ],
+      "traits": {
+        "value": ["fortune"]
+      },
+      "slug": "mythic-reroll"
+    }
+  },
+  "fnwTADEGOKtTxDPu": {
+    "_id": "fnwTADEGOKtTxDPu",
+    "name": "(Mythic) Undying Myth",
+    "type": "action",
+    "img": "systems/pf2e/icons/actions/FreeAction.webp",
+    "system": {
+      "actionType": {
+        "value": "free"
+      },
+      "actions": {
+        "value": null
+      },
+      "category": "defensive",
+      "description": {
+        "value": "<p><strong>Cost</strong> all the creature's Mythic Points</p>\n<p><strong>Trigger</strong> The creature would die and has at least 1 Mythic P"
+      },
+      "rules": [
+        {
+          "itemId": "{item|id}",
+          "key": "ItemAlteration",
+          "mode": "override",
+          "property": "name",
+          "value": "PF2E.NPCAbility.Mythic.UndyingMyth.Name"
+        }
+      ],
+      "traits": {
+        "value": []
+      },
+      "slug": "mythic-undying-myth"
+    }
+  },
+  "exNN1xhUYQXMRN7x": {
+    "_id": "exNN1xhUYQXMRN7x",
+    "name": "(Mythic) Mythic Defenses",
+    "type": "action",
+    "img": "systems/pf2e/icons/actions/Passive.webp",
+    "system": {
+      "actionType": {
+        "value": "passive"
+      },
+      "actions": {
+        "value": null
+      },
+      "category": "defensive",
+      "description": {
+        "value": "<p>Whenever an attacker rolls a critical hit against a creature with mythic defenses, the attacker must reroll the attack roll and take the "
+      },
+      "rules": [
+        {
+          "itemId": "{item|id}",
+          "key": "ItemAlteration",
+          "mode": "override",
+          "property": "name",
+          "value": "PF2E.NPCAbility.Mythic.MythicDefenses.Name"
+        }
+      ],
+      "traits": {
+        "value": []
+      },
+      "slug": "mythic-mythic-defenses"
+    }
+  },
+  "CvKc38D8oaZEq0Xu": {
+    "_id": "CvKc38D8oaZEq0Xu",
+    "name": "(Mythic) Mythic Immunity",
+    "type": "action",
+    "img": "systems/pf2e/icons/actions/Passive.webp",
+    "system": {
+      "actionType": {
+        "value": "passive"
+      },
+      "actions": {
+        "value": null
+      },
+      "category": "defensive",
+      "description": {
+        "value": "<p>The creature is immune to either harmful spells cast by non-mythic creatures, or Strikes made with non-mythic weapons and unarmed Strikes"
+      },
+      "rules": [
+        {
+          "itemId": "{item|id}",
+          "key": "ItemAlteration",
+          "mode": "override",
+          "property": "name",
+          "value": "PF2E.NPCAbility.Mythic.MythicImmunity.Name"
+        }
+      ],
+      "traits": {
+        "value": []
+      },
+      "slug": "mythic-mythic-immunity"
+    }
+  }
+}

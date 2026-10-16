@@ -37,6 +37,18 @@
       "lateStartPerSession": {
         "name": "Late start: feats released per session",
         "hint": "How many catch-up mythic feat slots open for a late-start character at each Start Session."
+      },
+      "npcResetOnCombat": {
+        "name": "Mythic NPCs: reset Mythic Points at combat start",
+        "hint": "When a combat starts, every mythic NPC in it goes back to its maximum Mythic Points."
+      },
+      "undyingPrompt": {
+        "name": "Mythic NPCs: Undying Myth prompt",
+        "hint": "When a mythic NPC with Undying Myth and at least 1 Mythic Point drops to 0 HP, ask the GM whether it uses Undying Myth."
+      },
+      "defensesPrompt": {
+        "name": "Mythic NPCs: Mythic Defenses prompt",
+        "hint": "When an attack critically hits a creature with Mythic Defenses, ask the GM to have the attack rerolled."
       }
     },
     "grant": {
@@ -458,6 +470,154 @@
         "caughtUp": "{name} has already caught up on late-start mythic feats.",
         "nowCaughtUp": "{name} has caught up and now gains mythic feats normally.",
         "sessionError": "Mythic progression for {name} failed at Start Session. See the console for details."
+      }
+    },
+    "npcTemplate": {
+      "menu": {
+        "make": "Make Mythic…",
+        "remove": "Remove Mythic Template"
+      },
+      "header": {
+        "label": "Mythic"
+      },
+      "dialog": {
+        "title": "Make Mythic: {name}",
+        "intro": "Mythic monster template for {name} (level {level}). Choose the basic mythic abilities for each level step.",
+        "noSteps": "This creature is below level 1: it gains only the mythic trait and Mythic Points.",
+        "save": "Save",
+        "skills": "Skills",
+        "summary": "Will be added",
+        "apply": "Make Mythic",
+        "remove": "Remove Mythic Template",
+        "appliedNote": "{name} has the mythic template (applied at level {level}). Removing it deletes these abilities and the mythic trait if the template added it.",
+        "bestiaryNote": "{name} is already mythic (it has the mythic trait from its statistics). The template is only for non-mythic creatures, so nothing will be changed."
+      },
+      "steps": {
+        "l1": "Level {level}: mythic defense",
+        "l4": "Level {level}: Mythic Power",
+        "l7": "Level {level}: mythic defense",
+        "l10": "Level {level}: Mythic Power",
+        "l13": "Level {level}: mythic defense",
+        "l17": "Level {level}: Mythic Power",
+        "l20": "Level {level}: Mythic Power",
+        "l23": "Level {level}: Mythic Immunity"
+      },
+      "options": {
+        "resilience": "Mythic Resilience (one save)",
+        "resistance": "Mythic Resistance",
+        "skill": "Mythic Skill",
+        "removeCondition": "Remove a Condition",
+        "recharge": "Recharge",
+        "rechargeSpell": "Recharge Spell",
+        "undyingMyth": "Undying Myth",
+        "reroll": "Reroll",
+        "defenses": "Mythic Defenses",
+        "strikes": "Strikes",
+        "spells": "Spells",
+        "both": "Strikes and spells (level 25 creatures)"
+      },
+      "immunity": {
+        "strikes": "Strikes",
+        "spells": "Spells"
+      },
+      "labels": {
+        "resistance": "Mythic Resistance (non-mythic Strikes)",
+        "strikes": "Mythic Immunity (non-mythic Strikes)",
+        "spells": "Mythic Immunity (spells from non-mythic creatures)"
+      },
+      "summary": {
+        "power": "Mythic Power (3 Mythic Points)",
+        "resilience": "Mythic Resilience: {saves}",
+        "resistance": "Mythic Resistance {value} against Strikes from non-mythic creatures",
+        "skill": "Mythic Skill: {skills}",
+        "skillAny": "Mythic Skill (any skill: the NPC lists no skills)",
+        "immunity": "Mythic Immunity: {kinds}",
+        "trait": "The mythic trait",
+        "points": "Mythic Points set to 3"
+      },
+      "remove": {
+        "title": "Remove Mythic Template: {name}",
+        "content": "Remove the mythic abilities the template added to {name}?"
+      },
+      "notify": {
+        "applied": "{name} is now mythic.",
+        "removed": "Removed the mythic template from {name}."
+      },
+      "ledger": {
+        "apply": "{name}: mythic template applied (level {level}): {abilities}.",
+        "remove": "{name}: mythic template removed ({count} abilities deleted)."
+      },
+      "errors": {
+        "notNpc": "The mythic template is only for NPCs.",
+        "applied": "{name} already has the mythic template.",
+        "notApplied": "{name} doesn't have the mythic template.",
+        "bestiary": "{name} is already mythic from its statistics; the template was not applied.",
+        "failed": "Mythic template for {name} failed. See the console for details."
+      }
+    },
+    "npcMythic": {
+      "speaker": "Mythic foe",
+      "reroll": {
+        "label": "Reroll (Mythic Point)"
+      },
+      "reason": {
+        "reroll": "Reroll",
+        "skill": "Mythic Skill",
+        "removed": "{ability}: removed {condition}",
+        "combat": "combat start",
+        "set": "set by the GM",
+        "reset": "reset to max"
+      },
+      "ledger": {
+        "spent": "{name} (NPC): spent 1 Mythic Point on {reason} ({before} → {after})",
+        "set": "{name} (NPC): Mythic Points {before} → {after} ({reason})",
+        "undying": "{name} (NPC): Undying Myth, back up with {hp} HP (Mythic Points {before} → 0)"
+      },
+      "skill": {
+        "noPoints": "{name} used Mythic Skill with no Mythic Points left. The +4 bonus should not apply; the toggle was turned off."
+      },
+      "spend": {
+        "label": "Spend Mythic Point",
+        "tooltip": "GM only: spend 1 of this creature's Mythic Points on this ability.",
+        "used": "Mythic Point spent.",
+        "usedRemoved": "Mythic Point spent: removed {condition}."
+      },
+      "remove": {
+        "title": "Remove a Condition: {name}",
+        "label": "Condition",
+        "ok": "Remove and spend 1 point"
+      },
+      "undying": {
+        "title": "Undying Myth",
+        "body": "{name} dropped to 0 HP. Undying Myth: stand up with {hp} HP (spends all Mythic Points).",
+        "use": "Use",
+        "fall": "Let it fall",
+        "used": "{name} stood back up with {hp} HP.",
+        "fell": "{name} fell."
+      },
+      "defenses": {
+        "title": "Mythic Defenses",
+        "body": "{attacker} critically hit {target}. Mythic Defenses: the attack must be rerolled.",
+        "reroll": "Reroll attack",
+        "ignore": "Ignore",
+        "rerolled": "The attack was rerolled.",
+        "ignored": "Ignored."
+      },
+      "console": {
+        "title": "Encounter: mythic creatures",
+        "creature": "Creature",
+        "points": "Mythic Points",
+        "abilities": "Mythic abilities",
+        "level": "Level {level}",
+        "pointsLabel": "{value}/{max} Mythic Points",
+        "noAbilities": "No mythic abilities found"
+      },
+      "notify": {
+        "noPoints": "{name} has no Mythic Points left.",
+        "noConditions": "{name} has no condition to remove.",
+        "attackGone": "The attack message no longer exists.",
+        "actorGone": "{name} no longer exists.",
+        "failed": "Mythic Powers: a mythic NPC action failed. See the console for details."
       }
     }
   }
