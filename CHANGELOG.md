@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+- Mythic NPCs: a Make Mythic template for any NPC following the War of Immortals ability table, with Mythic
+  Resistance and Immunity automated against non-mythic Strikes; Remove Mythic Template reverts it.
+- NPC Mythic Points: Reroll (Mythic Point) chat option, automatic Mythic Skill spend, Spend buttons on Recharge
+  and Remove a Condition cards, and a reset at combat start.
+- GM prompts for Undying Myth (the mythic kill prompt waits for it) and Mythic Defenses.
+- Mythic Console: Encounter section for mythic NPCs in the current combat.
 - A GM with the game open in two tabs (or two browsers) no longer gets every GM action twice. The GM's
   clients elect one of them to run socket requests and the GM-only automation (feat requests, daily regain
   and mythic kill prompts, first-Calling points). When that tab closes, another takes over within about

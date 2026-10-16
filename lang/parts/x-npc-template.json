@@ -21,11 +21,11 @@
         "bestiaryNote": "{name} is already mythic (it has the mythic trait from its statistics). The template is only for non-mythic creatures, so nothing will be changed."
       },
       "steps": {
-        "l1": "Level {level}: mythic defense",
+        "l1": "Level {level}: Mythic defense",
         "l4": "Level {level}: Mythic Power",
-        "l7": "Level {level}: mythic defense",
+        "l7": "Level {level}: Mythic defense",
         "l10": "Level {level}: Mythic Power",
-        "l13": "Level {level}: mythic defense",
+        "l13": "Level {level}: Mythic defense",
         "l17": "Level {level}: Mythic Power",
         "l20": "Level {level}: Mythic Power",
         "l23": "Level {level}: Mythic Immunity"

@@ -937,6 +937,20 @@ li.slot .item-controls .smp-slot-choose {
   color: var(--smp-bad);
 }
 
+/* Keep the dialog inside the screen: the steps scroll, the footer stays visible. */
+.smp-npct-dialog {
+  max-height: calc(100vh - 32px);
+}
+.smp-npct-dialog .window-content {
+  overflow-y: auto;
+}
+.smp-npct-dialog .window-content > .form-footer {
+  position: sticky;
+  bottom: 0;
+  padding-block: 8px;
+  background: var(--background, #1c1a24);
+}
+
 /* ---- y-npc-mythic.css ---- */
 /* Agent Y: mythic NPC cards, the Spend Mythic Point block on item cards and the console Encounter section. */
 .smp-npc-card .smp-npc-used {

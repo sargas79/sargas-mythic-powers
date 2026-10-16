@@ -123,8 +123,12 @@ export function savesByModifier(saves: Record<SaveSlug, number>): SaveSlug[] {
 }
 
 /** Skill slugs sorted by modifier, highest first (ties alphabetical). */
+/** Regular skills before Lore skills, each group highest modifier first. */
 export function skillsByModifier(skills: Record<string, number>): string[] {
-  return Object.keys(skills).sort((a, b) => (skills[b] ?? 0) - (skills[a] ?? 0) || a.localeCompare(b));
+  const isLore = (s: string) => (s.endsWith("-lore") ? 1 : 0);
+  return Object.keys(skills).sort(
+    (a, b) => isLore(a) - isLore(b) || (skills[b] ?? 0) - (skills[a] ?? 0) || a.localeCompare(b),
+  );
 }
 
 export function skillCount(level: number): number {
