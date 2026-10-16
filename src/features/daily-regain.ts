@@ -6,7 +6,7 @@
 import { MODULE_ID } from "../constants.js";
 import { esc, notify, t } from "../foundry/i18n.js";
 import { getSetting } from "../foundry/settings.js";
-import { isActiveGM, registerGMAction, runAsGM } from "../foundry/socket.js";
+import { onceAsActiveGM, registerGMAction, runAsGM } from "../foundry/socket.js";
 import { callingSlug, regainMatches, worldDateKey } from "../rules/calling-actions.js";
 import { changePoints } from "../services/points.js";
 import { callingItem } from "../state/actor-mythic.js";
@@ -219,9 +219,11 @@ export const feature: Feature = {
   register() {
     registerGMAction(GM_ACTION, handleRegain);
     Hooks.on("createChatMessage", (message: Doc) => {
-      if (!isActiveGM() || !getSetting("regainPrompt")) return;
+      if (!game.user.isGM || !getSetting("regainPrompt")) return;
       if (cardFlag(message)) return;
-      onCreateMessage(message).catch((error) => notify.error("automation.regain.failed", {}, error));
+      onceAsActiveGM(`regain:${message.id}`, () => onCreateMessage(message)).catch((error) =>
+        notify.error("automation.regain.failed", {}, error),
+      );
     });
     Hooks.on("renderChatMessageHTML", onRender);
   },

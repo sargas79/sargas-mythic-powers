@@ -5,7 +5,7 @@
 import { openCallingPicker } from "../apps/calling-picker.js";
 import { HOOKS, MODULE_ID, PF2E } from "../constants.js";
 import { esc, notify, t } from "../foundry/i18n.js";
-import { isActiveGM } from "../foundry/socket.js";
+import { onceAsActiveGM } from "../foundry/socket.js";
 import { shouldFillPoints, showChooseCalling } from "../rules/suspend.js";
 import {
   disableMythic,
@@ -164,7 +164,7 @@ function headerButtons(sheet: { actor?: ActorPF2e }, buttons: Record<string, unk
 // ---------------------------------------------------------------------------------------------------------
 
 async function onCreateItem(item: ItemPF2e): Promise<void> {
-  if (!isActiveGM()) return;
+  if (!game.user.isGM) return;
   if (item?.type !== "feat" || item.system?.category !== PF2E.callingCategory) return;
   const actor = item.parent;
   if (!actor || !isCharacter(actor)) return;
@@ -172,8 +172,10 @@ async function onCreateItem(item: ItemPF2e): Promise<void> {
   const meta = getGrantMeta(actor);
   if (!state.granted || !state.enabled || !meta || meta.firstCallingDone) return;
   const fill = shouldFillPoints({ granted: state.granted, enabled: state.enabled, meta });
-  await setGrantMeta(actor, { firstCallingDone: true, startWithFullPoints: !!meta.startWithFullPoints });
-  if (fill) await setMythicPoints(actor, 3);
+  await onceAsActiveGM(`firstCalling:${item.uuid}`, async () => {
+    await setGrantMeta(actor, { firstCallingDone: true, startWithFullPoints: !!meta.startWithFullPoints });
+    if (fill) await setMythicPoints(actor, 3);
+  });
 }
 
 // ---------------------------------------------------------------------------------------------------------
