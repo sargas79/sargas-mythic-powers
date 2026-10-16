@@ -1,8 +1,8 @@
 {
   "id": "sargas-mythic-powers",
   "title": "Sargas - Mythic Powers",
-  "description": "Pathfinder Second Edition mythic power, granted by the GM one character at a time. Calling picker, mythic feat picker, GM Mythic Console, Mythic Point awards, mythic trials, late start and mythic death. Characters without a grant see nothing mythic.",
-  "version": "0.1.1",
+  "description": "Pathfinder Second Edition mythic power, granted by the GM one character at a time. Calling picker, mythic feat picker, GM Mythic Console, Mythic Point awards, mythic trials, late start, mythic death and Mythic NPCs (monster template, NPC Mythic Points, Undying Myth). Characters without a grant see nothing mythic.",
+  "version": "0.2.0",
   "authors": [
     {
       "name": "Diego Vescovini",
