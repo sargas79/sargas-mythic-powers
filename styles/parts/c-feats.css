@@ -1,0 +1,147 @@
+/* Agent C: mythic feat picker (M4) and GM request card. */
+.smp-feat-picker-app .window-content {
+  padding: 0;
+}
+.smp-feat-picker {
+  display: grid;
+  grid-template-columns: 190px 1fr;
+  grid-template-rows: 1fr auto;
+  height: 100%;
+  min-height: 0;
+}
+.smp-fp-filters {
+  padding: 10px;
+  border-right: 1px solid var(--smp-line);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.smp-fp-label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--smp-muted);
+  margin-top: 8px;
+}
+.smp-fp-label:first-child {
+  margin-top: 0;
+}
+.smp-fp-check {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+}
+.smp-fp-main {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  padding: 10px;
+  gap: 8px;
+}
+.smp-fp-banner {
+  margin: 0;
+  padding: 6px 8px;
+  border-radius: 4px;
+  background: var(--smp-myth-soft);
+  color: var(--smp-myth);
+  font-size: 12px;
+}
+.smp-fp-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  flex: 1;
+  min-height: 0;
+}
+.smp-fp-row {
+  display: grid;
+  grid-template-columns: 26px 28px 1fr auto;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 6px;
+  border-bottom: 1px solid var(--smp-line);
+}
+.smp-fp-row[hidden] {
+  display: none;
+}
+.smp-fp-row[draggable="true"] {
+  cursor: grab;
+}
+.smp-fp-lv {
+  font-weight: 700;
+  text-align: center;
+  color: var(--smp-myth);
+}
+.smp-fp-img {
+  width: 28px;
+  height: 28px;
+  border: none;
+}
+.smp-fp-name {
+  font-weight: 600;
+  margin-right: 4px;
+  cursor: pointer;
+}
+.smp-fp-destiny {
+  background: var(--smp-gold);
+}
+.smp-fp-why {
+  font-size: 11px;
+  color: var(--smp-bad);
+}
+.smp-fp-warn {
+  font-size: 11px;
+  color: var(--smp-muted);
+}
+.smp-fp-ineligible .smp-fp-name,
+.smp-fp-owned .smp-fp-name {
+  opacity: 0.65;
+}
+.smp-fp-add {
+  background: var(--smp-myth);
+  color: var(--smp-myth-ink);
+  border: none;
+  padding: 2px 12px;
+  line-height: 22px;
+}
+.smp-fp-wait {
+  font-size: 11px;
+  font-style: italic;
+  color: var(--smp-muted);
+}
+.smp-fp-empty {
+  font-style: italic;
+  color: var(--smp-muted);
+  text-align: center;
+}
+.smp-fp-footer {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-top: 1px solid var(--smp-line);
+}
+.smp-fp-footer .smp-fp-note {
+  margin-right: auto;
+  font-size: 11.5px;
+  color: var(--smp-muted);
+}
+.smp-fp-footer button {
+  flex: 0 0 auto;
+  width: auto;
+}
+.smp-feat-request .smp-warnings {
+  margin: 4px 0;
+  padding-left: 16px;
+  font-size: 11px;
+  color: var(--smp-muted);
+}
+.smp-feat-request .smp-resolved {
+  font-style: italic;
+  color: var(--smp-muted);
+}

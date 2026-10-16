@@ -100,7 +100,9 @@ export function userHasActiveMythic(user: UserDoc = game.user): boolean {
 export async function setState(actor: ActorPF2e, patch: Partial<MythicState>): Promise<MythicState> {
   if (!game.user.isGM) throw new Error(`${MODULE_ID} | only a GM can change mythic state`);
   const next = { ...getState(actor), ...patch };
-  await actor.update({ [`flags.${MODULE_ID}.${FLAG_KEY}`]: next }, { diff: false, recursive: false });
+  // ForcedReplacement replaces only this key; `recursive: false` would replace the whole `flags` root in v14.
+  const replace = foundry.data.operators.ForcedReplacement.create(next);
+  await actor.update({ [`flags.${MODULE_ID}.${FLAG_KEY}`]: replace }, { diff: false });
   Hooks.callAll(HOOKS.stateChanged, actor, next);
   return next;
 }
@@ -108,7 +110,7 @@ export async function setState(actor: ActorPF2e, patch: Partial<MythicState>): P
 /** GM only. Removes all module flags from the actor. */
 export async function clearState(actor: ActorPF2e): Promise<void> {
   if (!game.user.isGM) throw new Error(`${MODULE_ID} | only a GM can change mythic state`);
-  await actor.update({ [`flags.-=${MODULE_ID}`]: null });
+  await actor.update({ [`flags.${MODULE_ID}`]: foundry.data.operators.ForcedDeletion.create() });
   Hooks.callAll(HOOKS.stateChanged, actor, defaultState());
 }
 

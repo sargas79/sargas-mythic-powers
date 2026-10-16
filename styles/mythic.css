@@ -60,3 +60,804 @@
   flex-wrap: wrap;
   margin-top: 6px;
 }
+
+/* ---- a-grant.css ---- */
+/* Grant dialog, directory badges and grant cards (agent A). */
+.smp-grant-dialog .smp-grant {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.smp-grant-dialog fieldset {
+  border: 1px solid var(--smp-line);
+  border-radius: 4px;
+  padding: 6px 8px;
+  margin: 0;
+}
+.smp-grant-dialog legend {
+  font-weight: 700;
+  color: var(--smp-myth-2);
+  padding: 0 4px;
+}
+.smp-grant-dialog .smp-grant-radio {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  padding: 3px 0;
+}
+.smp-grant-dialog .smp-grant-radio small {
+  display: block;
+  opacity: 0.8;
+  font-size: var(--font-size-11, 11px);
+}
+.smp-grant-dialog .smp-grant-row {
+  display: flex;
+  gap: 16px;
+}
+.smp-grant-dialog .smp-grant-check {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.smp-grant-dialog .smp-grant-calling-select select {
+  width: 100%;
+  margin-top: 4px;
+}
+.smp-grant-dialog .smp-grant-submit {
+  background: var(--smp-myth);
+  color: var(--smp-myth-ink);
+}
+
+.smp-dir-badge {
+  flex: 0 0 auto;
+  align-self: center;
+  margin-left: 4px;
+  padding: 1px 6px;
+  border-radius: 3px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--smp-myth-ink);
+}
+.smp-dir-badge.smp-dir-badge-on {
+  background: var(--smp-myth);
+}
+.smp-dir-badge.smp-dir-badge-off {
+  background: #5a5560;
+}
+
+.smp-grant-card .smp-choose-calling {
+  background: var(--smp-myth);
+  color: var(--smp-myth-ink);
+}
+
+/* ---- b-sheet.css ---- */
+/*
+ * Agent B: mythic banner, slot states and Feats tab badge on the PF2e character sheet (mockup M3), and the
+ * Calling picker (mockup M2).
+ */
+
+/* ---- Sheet banner ---- */
+.smp-banner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 4px 12px;
+  align-items: center;
+  margin: 0 0 8px;
+  padding: 8px 10px;
+  border: 1px solid var(--smp-myth-2);
+  border-left: 4px solid var(--smp-myth);
+  border-radius: 4px;
+  background: var(--smp-myth-soft);
+  color: #2b2b2b;
+  font-size: 12px;
+}
+.smp-banner-main {
+  min-width: 0;
+}
+.smp-banner-title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin: 0 0 2px;
+  color: var(--smp-myth);
+  font-size: 14px;
+  font-weight: 700;
+  border: none;
+}
+.smp-banner-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 12px;
+  color: var(--smp-muted);
+  font-size: 11px;
+}
+.smp-banner-points {
+  text-align: right;
+  white-space: nowrap;
+}
+.smp-banner-points .smp-banner-meta {
+  justify-content: flex-end;
+}
+.smp-banner-ea {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  font-size: 11px;
+}
+.smp-banner-ea > span {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.smp-banner-anathema b {
+  color: var(--smp-bad);
+}
+.smp-banner-nocalling {
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--smp-muted);
+}
+.smp-banner-choose,
+.smp-slot-choose {
+  flex: 0 0 auto;
+  width: auto;
+  height: auto;
+  min-height: 0;
+  margin: 0;
+  padding: 1px 8px;
+  line-height: 18px;
+  font-size: 11px;
+  border: 1px solid var(--smp-myth);
+  border-radius: 3px;
+  background: var(--smp-myth);
+  color: var(--smp-myth-ink);
+  cursor: pointer;
+  white-space: nowrap;
+}
+.smp-banner-choose:hover,
+.smp-slot-choose:hover {
+  background: var(--smp-myth-2);
+}
+
+/* ---- Feats tab badge ---- */
+nav.sheet-navigation [data-tab="feats"] {
+  position: relative;
+}
+.smp-tab-badge {
+  position: absolute;
+  top: -2px;
+  right: -4px;
+  min-width: 14px;
+  padding: 0 4px;
+  border-radius: 8px;
+  background: var(--smp-myth);
+  color: var(--smp-myth-ink);
+  font-size: 9px;
+  font-weight: 700;
+  line-height: 14px;
+  text-align: center;
+  pointer-events: none;
+}
+
+/* ---- Mythic slots ---- */
+li.slot.smp-slot-next {
+  box-shadow: inset 3px 0 0 var(--smp-myth);
+}
+li.slot.smp-slot-locked {
+  opacity: 0.6;
+}
+li.slot.smp-slot-locked .item-placeholder {
+  font-style: italic;
+  color: var(--smp-muted);
+}
+li.slot .item-controls .smp-slot-choose {
+  margin-right: 4px;
+}
+
+/* ---- Calling picker ---- */
+.smp-calling-picker .window-content {
+  padding: 0;
+}
+.smp-cp {
+  container-type: inline-size;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+}
+.smp-cp-body {
+  flex: 1 1 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 290px;
+  gap: 12px;
+  min-height: 0;
+  padding: 10px;
+}
+.smp-cp-list {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+.smp-cp-filters {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+.smp-cp-filters input {
+  flex: 1 1 auto;
+}
+.smp-cp-filters select {
+  flex: 0 0 200px;
+  max-width: 50%;
+}
+.smp-cp-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 6px;
+  align-content: start;
+  overflow-y: auto;
+  min-height: 0;
+}
+.smp-cp-card {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: auto;
+  margin: 0;
+  padding: 6px;
+  text-align: left;
+  border: 1px solid var(--smp-line);
+  border-radius: 4px;
+  background: transparent;
+  cursor: pointer;
+}
+.smp-cp-card[hidden] {
+  display: none;
+}
+.smp-cp-card img {
+  flex: 0 0 32px;
+  width: 32px;
+  height: 32px;
+  border: none;
+}
+.smp-cp-card-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.smp-cp-card-actions {
+  font-size: 11px;
+  color: var(--smp-muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.smp-cp-card.on {
+  border-color: var(--smp-myth);
+  box-shadow: 0 0 0 1px var(--smp-myth);
+  background: var(--smp-myth-soft);
+}
+.smp-cp-card.current b::after {
+  content: " ✓";
+  color: var(--smp-ok);
+}
+.smp-cp-detail {
+  overflow-y: auto;
+  min-height: 0;
+  padding: 8px 10px;
+  border: 1px solid var(--smp-line);
+  border-radius: 4px;
+}
+.smp-cp-detail h3 {
+  margin: 6px 0 2px;
+  border: none;
+  color: var(--smp-myth);
+}
+.smp-cp-source,
+.smp-cp-note {
+  font-size: 11.5px;
+  color: var(--smp-muted);
+}
+.smp-cp-summary {
+  font-style: italic;
+}
+.smp-cp-ea {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 6px;
+}
+.smp-cp-ea > div {
+  padding: 4px 6px;
+  border-left: 3px solid var(--smp-ok);
+  background: rgba(0, 0, 0, 0.03);
+}
+.smp-cp-ea > .smp-cp-anathema {
+  border-left-color: var(--smp-bad);
+}
+.smp-cp-ea b {
+  display: block;
+}
+.smp-cp-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 6px;
+  padding: 8px 10px;
+  border-top: 1px solid var(--smp-line);
+}
+.smp-cp-footer button {
+  flex: 0 0 auto;
+  width: auto;
+}
+.smp-cp-footer .smp-primary {
+  background: var(--smp-myth);
+  color: var(--smp-myth-ink);
+  border-color: var(--smp-myth);
+}
+.smp-cp-footer .smp-primary:disabled {
+  opacity: 0.5;
+}
+@container (max-width: 640px) {
+  .smp-cp-body {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---- c-feats.css ---- */
+/* Agent C: mythic feat picker (M4) and GM request card. */
+.smp-feat-picker-app .window-content {
+  padding: 0;
+}
+.smp-feat-picker {
+  display: grid;
+  grid-template-columns: 190px 1fr;
+  grid-template-rows: 1fr auto;
+  height: 100%;
+  min-height: 0;
+}
+.smp-fp-filters {
+  padding: 10px;
+  border-right: 1px solid var(--smp-line);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.smp-fp-label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--smp-muted);
+  margin-top: 8px;
+}
+.smp-fp-label:first-child {
+  margin-top: 0;
+}
+.smp-fp-check {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+}
+.smp-fp-main {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  padding: 10px;
+  gap: 8px;
+}
+.smp-fp-banner {
+  margin: 0;
+  padding: 6px 8px;
+  border-radius: 4px;
+  background: var(--smp-myth-soft);
+  color: var(--smp-myth);
+  font-size: 12px;
+}
+.smp-fp-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  flex: 1;
+  min-height: 0;
+}
+.smp-fp-row {
+  display: grid;
+  grid-template-columns: 26px 28px 1fr auto;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 6px;
+  border-bottom: 1px solid var(--smp-line);
+}
+.smp-fp-row[hidden] {
+  display: none;
+}
+.smp-fp-row[draggable="true"] {
+  cursor: grab;
+}
+.smp-fp-lv {
+  font-weight: 700;
+  text-align: center;
+  color: var(--smp-myth);
+}
+.smp-fp-img {
+  width: 28px;
+  height: 28px;
+  border: none;
+}
+.smp-fp-name {
+  font-weight: 600;
+  margin-right: 4px;
+  cursor: pointer;
+}
+.smp-fp-destiny {
+  background: var(--smp-gold);
+}
+.smp-fp-why {
+  font-size: 11px;
+  color: var(--smp-bad);
+}
+.smp-fp-warn {
+  font-size: 11px;
+  color: var(--smp-muted);
+}
+.smp-fp-ineligible .smp-fp-name,
+.smp-fp-owned .smp-fp-name {
+  opacity: 0.65;
+}
+.smp-fp-add {
+  background: var(--smp-myth);
+  color: var(--smp-myth-ink);
+  border: none;
+  padding: 2px 12px;
+  line-height: 22px;
+}
+.smp-fp-wait {
+  font-size: 11px;
+  font-style: italic;
+  color: var(--smp-muted);
+}
+.smp-fp-empty {
+  font-style: italic;
+  color: var(--smp-muted);
+  text-align: center;
+}
+.smp-fp-footer {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-top: 1px solid var(--smp-line);
+}
+.smp-fp-footer .smp-fp-note {
+  margin-right: auto;
+  font-size: 11.5px;
+  color: var(--smp-muted);
+}
+.smp-fp-footer button {
+  flex: 0 0 auto;
+  width: auto;
+}
+.smp-feat-request .smp-warnings {
+  margin: 4px 0;
+  padding-left: 16px;
+  font-size: 11px;
+  color: var(--smp-muted);
+}
+.smp-feat-request .smp-resolved {
+  font-style: italic;
+  color: var(--smp-muted);
+}
+
+/* ---- d-console.css ---- */
+/* Mythic Console (mockup M5), its launcher button and the neutral points card. Agent D. */
+.smp-console .window-content {
+  padding: 0;
+}
+.smp-console-root {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+}
+.smp-console-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--smp-line);
+}
+.smp-console-spacer {
+  flex: 1;
+}
+.smp-console-session,
+.smp-console-muted {
+  color: var(--smp-muted);
+  font-size: 11.5px;
+}
+.smp-console-scroll {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 0 10px 10px;
+}
+
+.smp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  width: auto;
+  padding: 3px 8px;
+  border: 1px solid var(--smp-line);
+  border-radius: 4px;
+  background: transparent;
+  font-size: 12px;
+  line-height: 1.4;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.smp-btn:hover {
+  border-color: var(--smp-myth-2);
+}
+.smp-btn-sm {
+  padding: 1px 6px;
+  font-size: 11px;
+}
+.smp-btn-primary {
+  background: var(--smp-myth);
+  border-color: var(--smp-myth);
+  color: var(--smp-myth-ink);
+}
+.smp-btn-danger {
+  color: var(--smp-bad);
+  border-color: var(--smp-bad);
+}
+.smp-btn-ok {
+  color: var(--smp-ok);
+  border-color: var(--smp-ok);
+}
+
+.smp-console-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 6px 0 10px;
+}
+.smp-console-table th {
+  text-align: left;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--smp-muted);
+  border-bottom: 1px solid var(--smp-line);
+  padding: 4px 6px;
+}
+.smp-console-table td {
+  padding: 6px;
+  border-bottom: 1px solid var(--smp-line);
+  vertical-align: middle;
+}
+.smp-console-row.is-disabled {
+  opacity: 0.75;
+}
+.smp-console-row.is-never {
+  opacity: 0.65;
+}
+
+.smp-console-who {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.smp-console-ava {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--smp-line);
+  object-fit: cover;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  flex: none;
+}
+.smp-console-name {
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.smp-toggle {
+  position: relative;
+  display: inline-block;
+  width: 34px;
+  height: 18px;
+  padding: 0;
+  border: none;
+  border-radius: 9px;
+  background: var(--smp-line);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.smp-toggle::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #fff;
+  transition: left 0.15s;
+}
+.smp-toggle.on {
+  background: var(--smp-myth);
+}
+.smp-toggle.on::after {
+  left: 18px;
+}
+.smp-toggle.smp-toggle-off {
+  cursor: default;
+  opacity: 0.5;
+}
+
+.smp-console-pips .smp-pip {
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+}
+.smp-console-pips .smp-pip.on {
+  background: radial-gradient(circle at 35% 35%, #c6a2f0, var(--smp-myth) 70%);
+}
+
+.smp-console-bar {
+  height: 5px;
+  margin: 3px 0;
+  max-width: 140px;
+  border-radius: 3px;
+  background: var(--smp-myth-soft);
+  overflow: hidden;
+}
+.smp-console-bar > span {
+  display: block;
+  height: 100%;
+  background: var(--smp-myth-2);
+}
+.smp-console-chip {
+  display: inline-block;
+  margin-left: 4px;
+  padding: 0 5px;
+  border-radius: 8px;
+  font-size: 10.5px;
+}
+.smp-console-warn {
+  background: var(--smp-gold);
+  color: #fff;
+}
+
+.smp-console-acts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+}
+.smp-console-pending {
+  margin-bottom: 4px;
+}
+.smp-console-pending-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11.5px;
+}
+.smp-console-pending-item > span {
+  flex: 1;
+}
+
+.smp-console-ledger h3 {
+  margin: 0 0 4px;
+  font-size: 13px;
+  color: var(--smp-myth);
+  border-bottom: 1px solid var(--smp-line);
+}
+.smp-console-ledger-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 12px;
+  padding: 2px 0;
+}
+.smp-console-ledger-msg {
+  flex: 1;
+}
+.smp-console-ledger-row.is-undone .smp-console-ledger-msg {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+.smp-console-time {
+  font-family: monospace;
+  color: var(--smp-muted);
+}
+
+.smp-console-sources {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+.smp-console-source {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.smp-console-launch {
+  flex: 0 0 100%;
+}
+
+.smp-points-card h3 {
+  margin: 0 0 4px;
+}
+.smp-points-card p {
+  margin: 0 0 2px;
+}
+.smp-points-card-value {
+  font-size: 11px;
+  opacity: 0.8;
+}
+
+/* ---- e-automation.css ---- */
+/* Agent E: automation chat cards (mythic kill, Calling daily regain, mythic death). */
+.smp-auto-card p {
+  margin: 4px 0;
+}
+.smp-auto-card .smp-buttons button {
+  flex: 1 1 auto;
+  min-width: 0;
+  line-height: 24px;
+}
+.smp-auto-card .smp-buttons .smp-auto-primary {
+  background: var(--smp-myth);
+  border-color: var(--smp-myth);
+  color: var(--smp-myth-ink);
+}
+.smp-auto-card .smp-auto-gm-note {
+  font-size: 11px;
+  font-style: italic;
+  color: var(--smp-muted);
+  border-left: 3px solid var(--smp-gold);
+  padding-left: 6px;
+}
+.smp-auto-card .smp-auto-status {
+  font-weight: 700;
+  color: var(--smp-muted);
+}
+.smp-auto-card .smp-auto-awarded,
+.smp-auto-card .smp-auto-restored {
+  color: var(--smp-ok);
+}
+.smp-auto-card .smp-auto-undone {
+  color: var(--smp-bad);
+}
+.smp-auto-death .smp-auto-doomed b {
+  color: var(--smp-bad);
+}
+
+/* ---- f-progression.css ---- */
+/* Progression chat card (trials, tiers, late start). Agent F. */
+.smp-progression-card {
+  border-left: 3px solid var(--smp-myth);
+  padding-left: 6px;
+}
+.smp-progression-card .smp-progression-body {
+  margin: 0;
+}

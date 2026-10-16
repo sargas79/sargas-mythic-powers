@@ -1,0 +1,81 @@
+{
+  "sargas-mythic-powers": {
+    "feats": {
+      "slotLabel": "mythic slot {level}",
+      "reason": {
+        "notMythic": "Not a mythic feat",
+        "owned": "Already taken",
+        "invalidSlot": "Not a mythic feat slot ({slot})",
+        "slotLocked": "This slot is still locked (late start)",
+        "slotNotOpen": "This slot isn't open yet",
+        "slotFilled": "This slot already has a feat",
+        "levelTooHigh": "Level {level} is above slot {slot}",
+        "destinySlotOnly": "Slot 12 takes a destiny dedication only",
+        "oneDestiny": "Only one destiny: you already have {name}",
+        "needsDestiny": "Requires {name}",
+        "needsCalling": "Requires {name}",
+        "needsFeat": "Requires {name}",
+        "needsAdvancedCompanion": "Requires a mature animal companion or an advanced construct companion",
+        "needsCompanion": "Requires an animal companion",
+        "needsSlotCasting": "Requires casting spells from spell slots",
+        "needsFocusPool": "Requires a focus pool"
+      },
+      "warning": {
+        "checkPrerequisite": "Check prerequisite: {text}"
+      },
+      "picker": {
+        "title": "Mythic Feats: slot {slot} · {actor}",
+        "level": "Level",
+        "show": "Show",
+        "eligible": "Can take now",
+        "ineligible": "Can't take (with reason)",
+        "owned": "Already owned",
+        "source": "Source",
+        "search": "Search…",
+        "destiny": "Destiny",
+        "add": "Add",
+        "waiting": "Waiting for GM",
+        "ownedTag": "Owned",
+        "empty": "No feats match these filters.",
+        "slotPending": "{feat} is waiting for the GM's approval.",
+        "slotFilled": "This slot already has a feat.",
+        "approvalOn": "GM approval is on. Your pick is sent to the GM.",
+        "close": "Close"
+      },
+      "card": {
+        "title": "Mythic feat",
+        "gmOnly": "To the GM only",
+        "requestTitle": "Mythic feat request",
+        "request": "{user} picked a feat for {actor} ({slot}):",
+        "approve": "Approve",
+        "reject": "Reject",
+        "rejectTitle": "Reject mythic feat",
+        "rejectReason": "Reason (optional)",
+        "resolved": "This request has been resolved.",
+        "sent": "{feat} for {actor} ({slot}) was sent to the GM.",
+        "alreadyPending": "{actor} already has a pick waiting for the GM; {feat} wasn't sent.",
+        "invalid": "{feat} can't be taken: {reasons}",
+        "approvedTitle": "Mythic feat approved",
+        "approved": "The GM approved {feat} for {actor} ({slot}).",
+        "rejectedTitle": "Mythic feat rejected",
+        "rejected": "The GM rejected {feat} for {actor} ({slot}).",
+        "reason": "Reason: {reason}"
+      },
+      "ledger": {
+        "approved": "{actor}: {feat} approved ({slot})",
+        "added": "{actor}: {feat} added ({slot})"
+      },
+      "notify": {
+        "sent": "Your pick was sent to the GM.",
+        "cannotAdd": "{feat} can't be added: {reasons}",
+        "addFailed": "The mythic feat couldn't be added. See the console for details.",
+        "noPending": "That request is no longer pending.",
+        "missingItem": "{feat} couldn't be found in the compendium.",
+        "slotFilled": "{slot} already has a feat. Clear it first or reject the request."
+      },
+      "errors": {
+        "notFeat": "Not a feat"
+      }
+    }
+  }
+}

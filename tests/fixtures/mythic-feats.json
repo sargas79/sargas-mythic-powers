@@ -1,0 +1,1877 @@
+[
+  {
+    "id": "6wxOKT9ApUAZMq1v",
+    "name": "Arms That Cut the Waves",
+    "level": 2,
+    "traits": ["mythic"],
+    "prerequisites": [],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "TTlZiNSIAO2R3lMQ",
+    "name": "Binds That Tie",
+    "level": 2,
+    "traits": ["mythic"],
+    "prerequisites": [],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "UbpSGpKNGucwIcHs",
+    "name": "Ears That Hear the Truth",
+    "level": 2,
+    "traits": ["mythic"],
+    "prerequisites": [],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "0Ahv8HKmJkll0wlq",
+    "name": "Feet That Stride the Sky",
+    "level": 2,
+    "traits": ["mythic"],
+    "prerequisites": ["Acrobat's Calling"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "ydE2WS8DAXLvhbDf",
+    "name": "Hands That Unweave Disaster",
+    "level": 2,
+    "traits": ["mythic"],
+    "prerequisites": ["Thief's Calling"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "tQvWDkatsuYsNkds",
+    "name": "Storied Companion",
+    "level": 2,
+    "traits": ["fortune", "mythic"],
+    "prerequisites": ["Handler's Calling", "you have an animal companion or pet"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "7tyjUicN4vh5U1zU",
+    "name": "We've Met Before",
+    "level": 2,
+    "traits": ["mythic"],
+    "prerequisites": [],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "hyTd3PoXueJ6vvyb",
+    "name": "Become Shadow",
+    "level": 4,
+    "traits": ["mythic"],
+    "prerequisites": [],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "mg8yScrzlUVsoWJc",
+    "name": "Cutting Rebuke",
+    "level": 4,
+    "traits": ["mythic"],
+    "prerequisites": ["Demagogue's Calling or Thespian's Calling"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "lNIHXCQ0Zc2gY5OH",
+    "name": "Fiery Rebirth",
+    "level": 4,
+    "traits": ["fire", "healing", "mythic"],
+    "prerequisites": [],
+    "publication": "Pathfinder #216: The Acropolis Pyre"
+  },
+  {
+    "id": "Mw4owPxaU6i2Dpgl",
+    "name": "Godspeed",
+    "level": 4,
+    "traits": ["mythic"],
+    "prerequisites": [],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "HnXZCpqRaj1nInjh",
+    "name": "Hydra's Bond",
+    "level": 4,
+    "traits": ["mythic"],
+    "prerequisites": [],
+    "publication": "Pathfinder #218: Titanbane"
+  },
+  {
+    "id": "Tf9RmqKU148OyQbz",
+    "name": "Prescience",
+    "level": 4,
+    "traits": ["mythic"],
+    "prerequisites": [],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "bBo2mOKrMXXjAY9f",
+    "name": "Read the Wind",
+    "level": 4,
+    "traits": ["mythic"],
+    "prerequisites": ["Hunter's Calling"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "V5Yz9cKe2Fj9LQbs",
+    "name": "Unbelievably Believable",
+    "level": 4,
+    "traits": ["mythic"],
+    "prerequisites": [],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "RR0p9E6GWt0CRA1q",
+    "name": "Unending Subsistence",
+    "level": 4,
+    "traits": ["mythic"],
+    "prerequisites": [],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "dmw79BbtUCJd300O",
+    "name": "Correct the Story",
+    "level": 6,
+    "traits": ["misfortune", "mythic"],
+    "prerequisites": [],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "rljiwL00XW1RcnyL",
+    "name": "Divert Destiny",
+    "level": 6,
+    "traits": ["mythic"],
+    "prerequisites": [],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "2eratRTKDhSYvrIZ",
+    "name": "Fling Into Action",
+    "level": 6,
+    "traits": ["mythic"],
+    "prerequisites": [],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "cKvGJCD8VdHOU0rq",
+    "name": "Fool's Fleeting Plan",
+    "level": 6,
+    "traits": ["mythic"],
+    "prerequisites": [],
+    "publication": "Pathfinder #218: Titanbane"
+  },
+  {
+    "id": "7GGvKGwLiUGpAxxH",
+    "name": "Mythic Counterspell",
+    "level": 6,
+    "traits": ["mythic"],
+    "prerequisites": ["Quick Recognition", "ability to cast spells from spell slots", "Sage's Calling"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "A1RcZ9mhYBZKzMUU",
+    "name": "Repel Assault",
+    "level": 6,
+    "traits": ["mythic"],
+    "prerequisites": ["Guardian's Calling"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "kUb7FtYlJPNy4tYv",
+    "name": "Unrivaled Retort",
+    "level": 6,
+    "traits": ["mythic"],
+    "prerequisites": [],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "5fu0H5ZpBxSOwtCL",
+    "name": "Arc of Destruction",
+    "level": 8,
+    "traits": ["mythic"],
+    "prerequisites": [],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "Lx7JtAhIn3aJ6WbP",
+    "name": "Mythic Allies",
+    "level": 8,
+    "traits": ["mythic"],
+    "prerequisites": [
+      "ability to cast spells from slots",
+      "at least one summon spell in your spellbook or repertoire"
+    ],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "d605yhbRoaVgisFG",
+    "name": "Mythic Magic",
+    "level": 8,
+    "traits": ["mythic"],
+    "prerequisites": [],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "Oef5B7jxmu5nFxLa",
+    "name": "Mythic Refocus",
+    "level": 8,
+    "traits": ["mythic"],
+    "prerequisites": ["You have a focus pool."],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "zJsu5JQGGOpyT6Xk",
+    "name": "Stages of Fate",
+    "level": 8,
+    "traits": ["mythic"],
+    "prerequisites": [],
+    "publication": "Pathfinder #218: Titanbane"
+  },
+  {
+    "id": "jsEMNIxcnfGIx7sX",
+    "name": "Steal Magic",
+    "level": 8,
+    "traits": ["mythic"],
+    "prerequisites": ["Mythic Counterspell"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "31Z6tFfSKWMe3OdR",
+    "name": "Summon Mythic Power",
+    "level": 8,
+    "traits": ["mythic"],
+    "prerequisites": [],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "Bgnr0hw52Efr8Ew8",
+    "name": "Unbelievable Interception",
+    "level": 8,
+    "traits": ["mythic"],
+    "prerequisites": [],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "fjk8VsNDkVv1rjiu",
+    "name": "Windborne Shove",
+    "level": 8,
+    "traits": ["mythic"],
+    "prerequisites": ["guardian's Calling"],
+    "publication": "Pathfinder #218: Titanbane"
+  },
+  {
+    "id": "XXHCdsptuHSwioYL",
+    "name": "Become Destiny",
+    "level": 10,
+    "traits": ["concentrate", "mythic"],
+    "prerequisites": [],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "24giyNqSjqrEnhN9",
+    "name": "Call From Death's Door",
+    "level": 10,
+    "traits": ["mythic"],
+    "prerequisites": ["Caretaker's Calling"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "vJupczSgvEfQKA2L",
+    "name": "Eyes That See Eternity",
+    "level": 10,
+    "traits": ["concentrate", "mythic"],
+    "prerequisites": [],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "ejOTX1ukDVNorpt2",
+    "name": "Mythic Casting",
+    "level": 10,
+    "traits": ["mythic", "spellshape"],
+    "prerequisites": [],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "y3E0V6Nmq7HElfDT",
+    "name": "Mythic Containment",
+    "level": 10,
+    "traits": ["mythic"],
+    "prerequisites": ["Artisan's Calling"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "toGkX6UVPq1Z1NjB",
+    "name": "Mythic Strike",
+    "level": 10,
+    "traits": ["mythic"],
+    "prerequisites": [],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "bNUNyR3FDkgEb0gJ",
+    "name": "Unbreaking Castle",
+    "level": 10,
+    "traits": ["mythic"],
+    "prerequisites": [],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "dpkGYM2QObR5QbBH",
+    "name": "Apocalypse Rider Dedication",
+    "level": 12,
+    "traits": ["destiny", "mythic"],
+    "prerequisites": [],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "HPav9ntIOl5WMmFY",
+    "name": "Archfiend Dedication",
+    "level": 12,
+    "traits": ["destiny", "mythic"],
+    "prerequisites": [],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "zDmc6JlvdVzHEtcE",
+    "name": "Ascended Celestial Dedication",
+    "level": 12,
+    "traits": ["destiny", "mythic"],
+    "prerequisites": [],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "Af7vcTToxetHThj4",
+    "name": "Avenging Runelord Dedication",
+    "level": 12,
+    "traits": ["destiny", "mythic"],
+    "prerequisites": [],
+    "publication": "Pathfinder #219: Lord of the Trinity Star"
+  },
+  {
+    "id": "DgYC8yxISZ6Dfmky",
+    "name": "Beast Lord Dedication",
+    "level": 12,
+    "traits": ["destiny", "mythic"],
+    "prerequisites": ["a mature animal companion or an advanced construct companion"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "4vR3Z6B60cjpQ7xW",
+    "name": "Broken Chain Dedication",
+    "level": 12,
+    "traits": ["destiny", "mythic"],
+    "prerequisites": [],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "ZI7WQ1en8s5VG6fk",
+    "name": "Eternal Legend Dedication",
+    "level": 12,
+    "traits": ["destiny", "mythic"],
+    "prerequisites": [],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "102gdaYHnMFoDRL1",
+    "name": "Godling Dedication",
+    "level": 12,
+    "traits": ["destiny", "mythic"],
+    "prerequisites": [],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "JbE823xBNt12IAD5",
+    "name": "Heroic Scion Dedication",
+    "level": 12,
+    "traits": ["destiny", "mythic"],
+    "prerequisites": [],
+    "publication": "Pathfinder #219: Lord of the Trinity Star"
+  },
+  {
+    "id": "Y1hwTaDIIBKtSCZe",
+    "name": "Prophesied Monarch Dedication",
+    "level": 12,
+    "traits": ["destiny", "mythic"],
+    "prerequisites": [],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "yrlwMnjLgKaWtq74",
+    "name": "Timewracked Dedication",
+    "level": 12,
+    "traits": ["destiny", "mythic"],
+    "prerequisites": [],
+    "publication": "Pathfinder #219: Lord of the Trinity Star"
+  },
+  {
+    "id": "GtohZQvFVZaIQD0S",
+    "name": "Warshard Warrior Dedication",
+    "level": 12,
+    "traits": ["destiny", "mythic"],
+    "prerequisites": [],
+    "publication": "Pathfinder #219: Lord of the Trinity Star"
+  },
+  {
+    "id": "QRnlCBpFkzqP1rBJ",
+    "name": "Wildspell Dedication",
+    "level": 12,
+    "traits": ["destiny", "mythic"],
+    "prerequisites": ["ability to cast spells from spell slots"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "oLTAAXumySFUPwND",
+    "name": "Aegis for the Innocent",
+    "level": 14,
+    "traits": ["manipulate", "mythic"],
+    "prerequisites": ["Ascended Celestial Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "ur1AMxxLAO3tPayn",
+    "name": "Ascend",
+    "level": 14,
+    "traits": ["mythic"],
+    "prerequisites": ["Ascended Celestial Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "ja2HDuEC42mpxMVP",
+    "name": "Athlete's Ally",
+    "level": 14,
+    "traits": ["magical", "mythic"],
+    "prerequisites": ["Warshard Warrior Dedication"],
+    "publication": "Pathfinder #219: Lord of the Trinity Star"
+  },
+  {
+    "id": "tlt6Q0uPqtFxOijg",
+    "name": "Avenger of Envy",
+    "level": 14,
+    "traits": ["mythic"],
+    "prerequisites": [],
+    "publication": "Pathfinder #220: Crypt of Runes"
+  },
+  {
+    "id": "exKu8ddKy2UhjZEK",
+    "name": "Avenger of Gluttony",
+    "level": 14,
+    "traits": ["mythic"],
+    "prerequisites": [],
+    "publication": "Pathfinder #220: Crypt of Runes"
+  },
+  {
+    "id": "8zejSGmHi353ZtpL",
+    "name": "Avenger of Greed",
+    "level": 14,
+    "traits": ["mythic"],
+    "prerequisites": [],
+    "publication": "Pathfinder #220: Crypt of Runes"
+  },
+  {
+    "id": "FRCcuxb604l6PfAC",
+    "name": "Avenger of Lust",
+    "level": 14,
+    "traits": ["mythic"],
+    "prerequisites": [],
+    "publication": "Pathfinder #220: Crypt of Runes"
+  },
+  {
+    "id": "4TWrnzTzVnHU8MGz",
+    "name": "Avenger of Sloth",
+    "level": 14,
+    "traits": ["mythic"],
+    "prerequisites": [],
+    "publication": "Pathfinder #220: Crypt of Runes"
+  },
+  {
+    "id": "kIqMLraYuE8y5F4A",
+    "name": "Avenger of Wrath",
+    "level": 14,
+    "traits": ["mythic"],
+    "prerequisites": [],
+    "publication": "Pathfinder #220: Crypt of Runes"
+  },
+  {
+    "id": "ImXaHm8KjL9lPfLT",
+    "name": "Avoid Fate's Gaze",
+    "level": 14,
+    "traits": ["mythic"],
+    "prerequisites": ["Heroic Scion Dedication"],
+    "publication": "Pathfinder #219: Lord of the Trinity Star"
+  },
+  {
+    "id": "WLtyRMV2phyW9Mu2",
+    "name": "Be Right Back",
+    "level": 14,
+    "traits": ["concentrate", "manipulate", "mythic", "occult"],
+    "prerequisites": ["Timewracked Dedication"],
+    "publication": "Pathfinder #219: Lord of the Trinity Star"
+  },
+  {
+    "id": "oO8Cj1PmuoKuwpit",
+    "name": "Behold, a Pale Horse",
+    "level": 14,
+    "traits": ["mythic"],
+    "prerequisites": ["Apocalypse Rider Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "2DEwoWN40EPosHtv",
+    "name": "Bloc Tactics",
+    "level": 14,
+    "traits": ["mythic"],
+    "prerequisites": ["Broken Chain Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "Fe5m807oeqJw3YUd",
+    "name": "Bloom of Health",
+    "level": 14,
+    "traits": ["auditory", "mythic"],
+    "prerequisites": ["Prophesied Monarch Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "BzHRE9O7GUnnARb2",
+    "name": "Break the Cycle",
+    "level": 14,
+    "traits": ["mythic"],
+    "prerequisites": ["Broken Chain Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "jJuRyhcqXGP0GJQe",
+    "name": "Burning Surge",
+    "level": 14,
+    "traits": ["mythic"],
+    "prerequisites": ["Wildspell Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "3MzFYTfhoSV6894n",
+    "name": "Channel Divine Spark",
+    "level": 14,
+    "traits": ["concentrate", "mythic"],
+    "prerequisites": ["Ascended Celestial Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "kTl67PlYRIOz5ptI",
+    "name": "Chosen Ward",
+    "level": 14,
+    "traits": ["mythic"],
+    "prerequisites": ["Beast Lord Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "6rGdm00nWbS267LF",
+    "name": "Claim Cardinal Domains",
+    "level": 14,
+    "traits": ["mythic"],
+    "prerequisites": ["Godling Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "BnBGDllQDfbOTBhZ",
+    "name": "Consult Celestial Advisor",
+    "level": 14,
+    "traits": ["exploration", "mythic"],
+    "prerequisites": ["Ascended Celestial Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "Tz796Pai2YX7RU41",
+    "name": "Decree of Banishment",
+    "level": 14,
+    "traits": ["incapacitation", "mythic"],
+    "prerequisites": ["Prophesied Monarch Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "O31zB7jxaW2487Q8",
+    "name": "Decree of Prosperity",
+    "level": 14,
+    "traits": ["mythic"],
+    "prerequisites": ["Prophesied Monarch Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "X5SZIwtYpx0r9MPx",
+    "name": "Demolishing Knockback",
+    "level": 14,
+    "traits": ["flourish", "mythic"],
+    "prerequisites": ["Eternal Legend Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "frPdltbxoYtAHpPX",
+    "name": "Divine Invulnerability",
+    "level": 14,
+    "traits": ["mythic"],
+    "prerequisites": ["Godling Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "hbDHgTwKsXiGFT1Z",
+    "name": "Don Thy Fervor",
+    "level": 14,
+    "traits": ["concentrate", "mythic"],
+    "prerequisites": ["Archfiend Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "5WMoaM7cH9aw3iAc",
+    "name": "Earth to Heavens Strike",
+    "level": 14,
+    "traits": ["mythic"],
+    "prerequisites": ["Eternal Legend Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "UTgVD8LwSjFVMlqc",
+    "name": "Expanded Runelord Magic",
+    "level": 14,
+    "traits": ["mythic"],
+    "prerequisites": ["Avenging Runelord Dedication"],
+    "publication": "Pathfinder #219: Lord of the Trinity Star"
+  },
+  {
+    "id": "nksxAtBmwDUmrTcS",
+    "name": "Extend Surge",
+    "level": 14,
+    "traits": ["concentrate", "mythic"],
+    "prerequisites": ["Wildspell Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "LZsVmDfGPGjWIoSS",
+    "name": "Faultless Defense",
+    "level": 14,
+    "traits": ["mythic"],
+    "prerequisites": ["Eternal Legend Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "N9kJPSRz1Ax9eFdD",
+    "name": "Flash of Omnipresence",
+    "level": 14,
+    "traits": ["archetype", "mythic", "teleportation"],
+    "prerequisites": ["Mortal Herald Dedication"],
+    "publication": "Pathfinder Lost Omens Divine Mysteries"
+  },
+  {
+    "id": "9odEaNZQYeOnZC0e",
+    "name": "Guarded Domain",
+    "level": 14,
+    "traits": ["mythic"],
+    "prerequisites": ["Beast Lord Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "4iEQ5zQSTRls3Kln",
+    "name": "Heroic Weakness",
+    "level": 14,
+    "traits": ["mythic"],
+    "prerequisites": ["Godling Dedication", "hero-god accomplishment"],
+    "publication": "Pathfinder #218: Titanbane"
+  },
+  {
+    "id": "T0LazeBYiLnUzQXC",
+    "name": "History of Violence",
+    "level": 14,
+    "traits": ["mythic", "void"],
+    "prerequisites": ["Apocalypse Rider Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "zjizIGArUSdE7hx8",
+    "name": "I've Been Here Before",
+    "level": 14,
+    "traits": ["exploration", "mythic"],
+    "prerequisites": ["Heroic Scion Dedication"],
+    "publication": "Pathfinder #219: Lord of the Trinity Star"
+  },
+  {
+    "id": "R8MaoG7CzHZmQYtM",
+    "name": "Immovable Object",
+    "level": 14,
+    "traits": ["mythic", "stance"],
+    "prerequisites": ["Eternal Legend Dedication", "master in Fortitude or Reflex saves"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "VB1UK3KA5uZcxC05",
+    "name": "Internal Dialogue",
+    "level": 14,
+    "traits": ["fortune", "mythic"],
+    "prerequisites": ["Heroic Scion Dedication"],
+    "publication": "Pathfinder #219: Lord of the Trinity Star"
+  },
+  {
+    "id": "mMboqxWsQmwUTQ6m",
+    "name": "Invigorating Surge",
+    "level": 14,
+    "traits": ["concentrate", "mythic"],
+    "prerequisites": ["Wildspell Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "tuhEOBeX0sVnRoWH",
+    "name": "Jousting Mount",
+    "level": 14,
+    "traits": ["mythic"],
+    "prerequisites": ["Apocalypse Rider Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "DgnUXfkcufJotxN9",
+    "name": "Lightless Sight",
+    "level": 14,
+    "traits": ["mythic"],
+    "prerequisites": ["Warshard Warrior Dedication"],
+    "publication": "Pathfinder #219: Lord of the Trinity Star"
+  },
+  {
+    "id": "keCkeRzBANPgUG8M",
+    "name": "Live Off Borrowed Time",
+    "level": 14,
+    "traits": ["mythic", "occult"],
+    "prerequisites": ["Timewracked Dedication"],
+    "publication": "Pathfinder #219: Lord of the Trinity Star"
+  },
+  {
+    "id": "apz0n3Q3gWvQVChT",
+    "name": "Lord of the Fiends",
+    "level": 14,
+    "traits": ["mythic"],
+    "prerequisites": ["Archfiend Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "mrHrIrZQkGMfnl1j",
+    "name": "Manipulate Realm",
+    "level": 14,
+    "traits": ["mythic"],
+    "prerequisites": ["Archfiend Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "yj70CxBMXuyjqiIU",
+    "name": "Might of the Realm",
+    "level": 14,
+    "traits": ["flourish", "mythic"],
+    "prerequisites": ["Prophesied Monarch Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "lcsfw4H9U6KofFtG",
+    "name": "My Reputation Precedes Me",
+    "level": 14,
+    "traits": ["mythic"],
+    "prerequisites": ["Heroic Scion Dedication"],
+    "publication": "Pathfinder #219: Lord of the Trinity Star"
+  },
+  {
+    "id": "53sHAxpDg9KrkcGk",
+    "name": "Myth of Quick-Thinking",
+    "level": 14,
+    "traits": ["mythic"],
+    "prerequisites": ["Godling Dedication", "hero-god accomplishment"],
+    "publication": "Pathfinder #218: Titanbane"
+  },
+  {
+    "id": "n7GdtqrIaQPGaptn",
+    "name": "Myth of Realm-Walking",
+    "level": 14,
+    "traits": ["mythic"],
+    "prerequisites": ["Godling Dedication", "hero-god accomplishment"],
+    "publication": "Pathfinder #218: Titanbane"
+  },
+  {
+    "id": "zox6jHcyZwkItalI",
+    "name": "Mythic Heightening",
+    "level": 14,
+    "traits": ["concentrate", "mythic", "spellshape"],
+    "prerequisites": ["Wildspell Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "IAnUKY3QI8K32yJw",
+    "name": "Now You See Me",
+    "level": 14,
+    "traits": ["flourish", "mythic", "occult"],
+    "prerequisites": ["Timewracked Dedication"],
+    "publication": "Pathfinder #219: Lord of the Trinity Star"
+  },
+  {
+    "id": "otELTaTnOCea7DZw",
+    "name": "One Among the Masses",
+    "level": 14,
+    "traits": ["mythic"],
+    "prerequisites": ["Apocalypse Rider Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "O0YJxlWgO1BPX7w5",
+    "name": "Putrefaction",
+    "level": 14,
+    "traits": ["concentrate", "mythic"],
+    "prerequisites": ["Apocalypse Rider Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "ttWl0hOh9cdk7Zko",
+    "name": "Receive Prayers",
+    "level": 14,
+    "traits": ["concentrate", "mental", "mythic"],
+    "prerequisites": ["Godling Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "z74e0oQxRSiviC91",
+    "name": "Reincarnated Companion",
+    "level": 14,
+    "traits": ["mythic"],
+    "prerequisites": ["Heroic Scion Dedication", "familiar or nimble or savage animal companion"],
+    "publication": "Pathfinder #219: Lord of the Trinity Star"
+  },
+  {
+    "id": "sqAwZeoNUFPj3Dxw",
+    "name": "Release Me!",
+    "level": 14,
+    "traits": ["flourish", "mythic"],
+    "prerequisites": ["Broken Chain Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "HKGO65wfxlBnobHN",
+    "name": "Reliable Magic",
+    "level": 14,
+    "traits": ["mythic"],
+    "prerequisites": ["Avenging Runelord Dedication"],
+    "publication": "Pathfinder #219: Lord of the Trinity Star"
+  },
+  {
+    "id": "vxHNj5PuYIdR5fEa",
+    "name": "Rites of Liberation",
+    "level": 14,
+    "traits": ["mythic"],
+    "prerequisites": ["Broken Chain Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "FvhVk79sEnSDTDtq",
+    "name": "Scattering Shout",
+    "level": 14,
+    "traits": ["mythic"],
+    "prerequisites": ["Eternal Legend Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "GBFHOgMDZlNas6DF",
+    "name": "Second Sight",
+    "level": 14,
+    "traits": ["mythic", "prediction"],
+    "prerequisites": ["Timewracked Dedication"],
+    "publication": "Pathfinder #219: Lord of the Trinity Star"
+  },
+  {
+    "id": "OZmR9ZSAZyPoJuDj",
+    "name": "Shining Runes",
+    "level": 14,
+    "traits": ["mythic"],
+    "prerequisites": ["Avenging Runelord Dedication"],
+    "publication": "Pathfinder #219: Lord of the Trinity Star"
+  },
+  {
+    "id": "kRti2i47YqG4zVp7",
+    "name": "Spell Network",
+    "level": 14,
+    "traits": ["mythic", "stance"],
+    "prerequisites": ["Wildspell Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "CmE9DKaqA4p9uYfQ",
+    "name": "Steadfast Grip",
+    "level": 14,
+    "traits": ["mythic"],
+    "prerequisites": ["Warshard Warrior Dedication"],
+    "publication": "Pathfinder #219: Lord of the Trinity Star"
+  },
+  {
+    "id": "eXPJTsu80nOYgzI3",
+    "name": "Temporal Fury",
+    "level": 14,
+    "traits": ["mythic", "occult"],
+    "prerequisites": ["Timewracked Dedication"],
+    "publication": "Pathfinder #219: Lord of the Trinity Star"
+  },
+  {
+    "id": "kJ3d0aFkddkbsJ0k",
+    "name": "To Thine Own Self",
+    "level": 14,
+    "traits": ["mythic"],
+    "prerequisites": ["Heroic Scion Dedication"],
+    "publication": "Pathfinder #219: Lord of the Trinity Star"
+  },
+  {
+    "id": "n7a7ltuY9C4qcAiT",
+    "name": "Transmute Weapon",
+    "level": 14,
+    "traits": ["mythic"],
+    "prerequisites": ["Warshard Warrior Dedication"],
+    "publication": "Pathfinder #219: Lord of the Trinity Star"
+  },
+  {
+    "id": "2s8sjTIDzMXXp1og",
+    "name": "United Front",
+    "level": 14,
+    "traits": ["mythic"],
+    "prerequisites": ["Broken Chain Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "MsNPLqPsWgOO0dqh",
+    "name": "Warshard Rune",
+    "level": 14,
+    "traits": ["mythic"],
+    "prerequisites": ["Warshard Warrior Dedication"],
+    "publication": "Pathfinder #219: Lord of the Trinity Star"
+  },
+  {
+    "id": "N46mQi4Av0HDJmfS",
+    "name": "We Are One",
+    "level": 14,
+    "traits": ["mythic"],
+    "prerequisites": ["Beast Lord Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "0eo9ESm9Rmd2ndQ6",
+    "name": "Willing Runes",
+    "level": 14,
+    "traits": ["mythic"],
+    "prerequisites": ["Avenging Runelord Dedication"],
+    "publication": "Pathfinder #219: Lord of the Trinity Star"
+  },
+  {
+    "id": "ABobcAdaA8p1nHRV",
+    "name": "Writhing Runelord Weapon",
+    "level": 14,
+    "traits": ["arcane", "flourish", "mythic"],
+    "prerequisites": ["Avenging Runelord Dedication"],
+    "publication": "Pathfinder #219: Lord of the Trinity Star"
+  },
+  {
+    "id": "4znZkQYxrSg7RMxb",
+    "name": "You Can't Hide From Us",
+    "level": 14,
+    "traits": ["mythic"],
+    "prerequisites": ["Beast Lord Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "2q8vzxnlYYWcUGJd",
+    "name": "You Can't Keep Us Down",
+    "level": 14,
+    "traits": ["healing", "mythic"],
+    "prerequisites": ["Broken Chain Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "roz8IxJrkvTV16ii",
+    "name": "A Thousand Cries for Help",
+    "level": 16,
+    "traits": ["mythic"],
+    "prerequisites": ["Ascended Celestial Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "oYdfO7j3vnNG7SYN",
+    "name": "Abjure Harm",
+    "level": 16,
+    "traits": ["mythic"],
+    "prerequisites": ["Ascended Celestial Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "sUMrRRFsHiJf4VXP",
+    "name": "Absolve Sins",
+    "level": 16,
+    "traits": ["concentrate", "mental", "mythic"],
+    "prerequisites": ["Godling Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "S817U6nx0ayhM5Rn",
+    "name": "Autonomous Arms",
+    "level": 16,
+    "traits": ["mythic"],
+    "prerequisites": ["Avenging Runelord Dedication", "expert proficiency in a spear or polearm"],
+    "publication": "Pathfinder #219: Lord of the Trinity Star"
+  },
+  {
+    "id": "QA3wy9DCOvn6UU0i",
+    "name": "Bat Around",
+    "level": 16,
+    "traits": ["mythic"],
+    "prerequisites": ["Beast Lord Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "Bb5Z9qpVom5fcrnh",
+    "name": "Bolstered Recovery",
+    "level": 16,
+    "traits": ["healing", "mythic"],
+    "prerequisites": ["Timewracked Dedication"],
+    "publication": "Pathfinder #219: Lord of the Trinity Star"
+  },
+  {
+    "id": "KX79TV93yznyhhMJ",
+    "name": "Bring Into the Fold",
+    "level": 16,
+    "traits": ["auditory", "emotion", "linguistic", "mental", "mythic"],
+    "prerequisites": ["Broken Chain Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "hSm66XVNVjPdbL2c",
+    "name": "Celestial Armaments",
+    "level": 16,
+    "traits": ["mythic"],
+    "prerequisites": ["Ascended Celestial Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "f5P6TYwCnf56iwX7",
+    "name": "Cleansing Spell",
+    "level": 16,
+    "traits": ["concentrate", "mythic", "spellshape"],
+    "prerequisites": ["Ascended Celestial Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "Qf5aimp36VcZJiYh",
+    "name": "Cry of Rebellion",
+    "level": 16,
+    "traits": ["auditory", "mythic", "sonic"],
+    "prerequisites": ["Broken Chain Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "7v6dG5QvXCmtm9FS",
+    "name": "Daunting Spell",
+    "level": 16,
+    "traits": ["concentrate", "mythic", "spellshape"],
+    "prerequisites": ["Heroic Scion Dedication"],
+    "publication": "Pathfinder #219: Lord of the Trinity Star"
+  },
+  {
+    "id": "95dHFM31VrUjn3d3",
+    "name": "Death from Above (Eternal Legend)",
+    "level": 16,
+    "traits": ["mythic"],
+    "prerequisites": ["Eternal Legend Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "JDF9LWZMReqiXIUi",
+    "name": "Defend Our Union",
+    "level": 16,
+    "traits": ["mythic"],
+    "prerequisites": ["Beast Lord Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "C10L7NG6dgsCqKG8",
+    "name": "Divide and Conquer",
+    "level": 16,
+    "traits": ["mythic"],
+    "prerequisites": ["Warshard Warrior Dedication"],
+    "publication": "Pathfinder #219: Lord of the Trinity Star"
+  },
+  {
+    "id": "0gOT5o3RfUfYKj8z",
+    "name": "Echoing Fury",
+    "level": 16,
+    "traits": ["mythic"],
+    "prerequisites": ["Temporal Fury"],
+    "publication": "Pathfinder #219: Lord of the Trinity Star"
+  },
+  {
+    "id": "KVF2c1ixGkbG6Idi",
+    "name": "Font of Life or Death",
+    "level": 16,
+    "traits": ["mythic"],
+    "prerequisites": ["Godling Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "pGIJ6iXyg2CRzQxb",
+    "name": "Gird Champion",
+    "level": 16,
+    "traits": ["mythic"],
+    "prerequisites": ["Godling Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "hcwSO3qeYLQtRLBa",
+    "name": "Imbue Spell",
+    "level": 16,
+    "traits": ["concentrate", "mythic"],
+    "prerequisites": ["Wildspell Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "XrvIHz2bkgdpJ8rI",
+    "name": "Indomitable Shot",
+    "level": 16,
+    "traits": ["attack", "mythic"],
+    "prerequisites": ["Warshard Warrior Dedication"],
+    "publication": "Pathfinder #219: Lord of the Trinity Star"
+  },
+  {
+    "id": "BxMMITENS6tncpCk",
+    "name": "Invisible Hand",
+    "level": 16,
+    "traits": ["archetype", "mythic"],
+    "prerequisites": ["Mortal Herald Dedication", "master in Stealth"],
+    "publication": "Pathfinder Lost Omens Divine Mysteries"
+  },
+  {
+    "id": "h0gwBDI61MxkvVPC",
+    "name": "Kneel Before the Rightful Heir",
+    "level": 16,
+    "traits": ["auditory", "linguistic", "mental", "mythic", "visual"],
+    "prerequisites": ["Prophesied Monarch Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "omhB14HQxJUZQvjj",
+    "name": "Leaping Hedgehog Strike",
+    "level": 16,
+    "traits": ["mythic"],
+    "prerequisites": ["Eternal Legend Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "nxoSp0GDiQ288BJa",
+    "name": "Let Death be my Weapon",
+    "level": 16,
+    "traits": ["mythic"],
+    "prerequisites": ["Heroic Scion Dedication"],
+    "publication": "Pathfinder #219: Lord of the Trinity Star"
+  },
+  {
+    "id": "indcWWwZ2Mg7j9eB",
+    "name": "Lose Your Chains",
+    "level": 16,
+    "traits": ["auditory", "linguistic", "mythic"],
+    "prerequisites": ["Broken Chain Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "oMwdv9ms12lT5e55",
+    "name": "Marshall Fiendish Forces",
+    "level": 16,
+    "traits": ["mythic"],
+    "prerequisites": ["Archfiend Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "IyWtJ1KSd6TTvfYQ",
+    "name": "Momentary Respite",
+    "level": 16,
+    "traits": ["healing", "mythic"],
+    "prerequisites": ["Heroic Scion Dedication"],
+    "publication": "Pathfinder #219: Lord of the Trinity Star"
+  },
+  {
+    "id": "zqGSwbm3jM2JGAy5",
+    "name": "My Kingdom, My Blood",
+    "level": 16,
+    "traits": ["manipulate", "mythic"],
+    "prerequisites": ["Prophesied Monarch Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "pkfa1pc72gOeyO4c",
+    "name": "Mystical Flare",
+    "level": 16,
+    "traits": ["concentrate", "light", "mythic", "spellshape", "visual"],
+    "prerequisites": ["Wildspell Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "XHbdG50JIO8pEaQ4",
+    "name": "Night Terror",
+    "level": 16,
+    "traits": ["mythic"],
+    "prerequisites": ["Apocalypse Rider Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "K0zDniOVUL4C77lk",
+    "name": "Noble Sacrifice",
+    "level": 16,
+    "traits": ["mythic"],
+    "prerequisites": ["Prophesied Monarch Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "18eGaH5rWEXpDlgk",
+    "name": "Pierce the Eye",
+    "level": 16,
+    "traits": ["mythic"],
+    "prerequisites": ["Eternal Legend Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "WYMbOaEvuAS5zCjH",
+    "name": "Prescient Parry",
+    "level": 16,
+    "traits": ["manipulate", "mythic"],
+    "prerequisites": ["Warshard Warrior Dedication"],
+    "publication": "Pathfinder #219: Lord of the Trinity Star"
+  },
+  {
+    "id": "vqgklLExo3HAVAm9",
+    "name": "Preserve the Moment",
+    "level": 16,
+    "traits": ["mythic", "occult"],
+    "prerequisites": ["Timewracked Dedication"],
+    "publication": "Pathfinder #219: Lord of the Trinity Star"
+  },
+  {
+    "id": "3KVFBmWPVSItUuq3",
+    "name": "Protect the Royal Line",
+    "level": 16,
+    "traits": ["mythic"],
+    "prerequisites": ["Prophesied Monarch Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "IIqNyX3Hwz5mmccL",
+    "name": "Rapid Switch",
+    "level": 16,
+    "traits": ["mythic"],
+    "prerequisites": ["Wildspell Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "DFA3qFdvSD5uHBKI",
+    "name": "Realm Strider",
+    "level": 16,
+    "traits": ["mythic"],
+    "prerequisites": ["Archfiend Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "LQVpSsUvzBQzpm4Q",
+    "name": "Recharging Transference",
+    "level": 16,
+    "traits": ["concentrate", "mythic"],
+    "prerequisites": ["Wildspell Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "JMIdEsQ0vVKP29bW",
+    "name": "Remember Their Names",
+    "level": 16,
+    "traits": ["auditory", "linguistic", "mental", "mythic"],
+    "prerequisites": ["Broken Chain Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "f8gIyes8j3A5GEzy",
+    "name": "Seat of Power",
+    "level": 16,
+    "traits": ["mythic"],
+    "prerequisites": ["Archfiend Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "OJLGFnmbT418dC18",
+    "name": "Stand Firm",
+    "level": 16,
+    "traits": ["auditory", "linguistic", "mythic"],
+    "prerequisites": ["Broken Chain Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "Kb28vpCQNvA6wS1O",
+    "name": "Steal Death",
+    "level": 16,
+    "traits": ["death", "mythic"],
+    "prerequisites": ["Apocalypse Rider Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "KYmr5eXZinLPevhm",
+    "name": "Subjugation",
+    "level": 16,
+    "traits": ["concentrate", "incapacitation", "mental", "mythic"],
+    "prerequisites": ["Avenging Runelord Dedication"],
+    "publication": "Pathfinder #219: Lord of the Trinity Star"
+  },
+  {
+    "id": "mvw7TJcuwAipUqB7",
+    "name": "Telepathic Union",
+    "level": 16,
+    "traits": ["linguistic", "mental", "mythic"],
+    "prerequisites": ["Beast Lord Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "Egx5NWOVhoaij7a3",
+    "name": "Terrifying Mien",
+    "level": 16,
+    "traits": ["mythic"],
+    "prerequisites": ["Eternal Legend Dedication", "master in Intimidation"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "2xwzmZVwi97hKtov",
+    "name": "Thundering Surge",
+    "level": 16,
+    "traits": ["mythic", "sonic", "spellshape"],
+    "prerequisites": ["Wildspell Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "1fH3M3XaUWWOJZFM",
+    "name": "To War!",
+    "level": 16,
+    "traits": ["mythic"],
+    "prerequisites": ["Apocalypse Rider Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "M2fjNnh8yRAnGFyH",
+    "name": "Unified Stance",
+    "level": 16,
+    "traits": ["mythic", "stance"],
+    "prerequisites": ["Beast Lord Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "SOXivCy3ko3jDewI",
+    "name": "Vigorous Victor",
+    "level": 16,
+    "traits": ["mythic"],
+    "prerequisites": ["Heroic Scion Dedication"],
+    "publication": "Pathfinder #219: Lord of the Trinity Star"
+  },
+  {
+    "id": "pDkIUYQh5GGW50r3",
+    "name": "Vindictive Thoughts",
+    "level": 16,
+    "traits": ["arcane", "mental", "mythic"],
+    "prerequisites": ["Avenging Runelord Dedication"],
+    "publication": "Pathfinder #219: Lord of the Trinity Star"
+  },
+  {
+    "id": "fns6SMiYrUeL6cnx",
+    "name": "Virulent Strike",
+    "level": 16,
+    "traits": ["flourish", "mythic"],
+    "prerequisites": ["Apocalypse Rider Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "iqAN2AqnQ6UqpQX6",
+    "name": "Weft and Warp",
+    "level": 16,
+    "traits": ["mythic"],
+    "prerequisites": ["Eternal Legend Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "hmpkzEQV6kTFxPan",
+    "name": "Wither Away",
+    "level": 16,
+    "traits": ["concentrate", "manipulate", "mythic", "void"],
+    "prerequisites": ["Apocalypse Rider Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "JL8t7JFnv1xygVrU",
+    "name": "Advanced Runelord Magic",
+    "level": 18,
+    "traits": ["mythic"],
+    "prerequisites": ["Expanded Runelord Magic"],
+    "publication": "Pathfinder #219: Lord of the Trinity Star"
+  },
+  {
+    "id": "ghiZ4DhdmHlBAeU0",
+    "name": "Apocalyptic Visions",
+    "level": 18,
+    "traits": ["arcane", "mental", "mythic"],
+    "prerequisites": ["Avenging Runelord Dedication"],
+    "publication": "Pathfinder #219: Lord of the Trinity Star"
+  },
+  {
+    "id": "0UhZ3UtSXx9qyoiZ",
+    "name": "Army of One",
+    "level": 18,
+    "traits": ["concentrate", "flourish", "mythic"],
+    "prerequisites": ["Ascended Celestial Dedication", "Celestial Armaments"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "nkYBSuqCWcIgqjj0",
+    "name": "Brandish Authority",
+    "level": 18,
+    "traits": ["auditory", "mythic", "visual"],
+    "prerequisites": ["Archfiend Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "ad5MsrMMu721NH59",
+    "name": "Contagious Spell",
+    "level": 18,
+    "traits": ["concentrate", "mythic", "spellshape"],
+    "prerequisites": ["Apocalypse Rider Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "FQzAifYHaMd9Qf1R",
+    "name": "Creature of Myth",
+    "level": 18,
+    "traits": ["mythic"],
+    "prerequisites": ["Beast Lord Dedication", "you have a united companion with a specialization"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "faIuxgeMG60cEa9J",
+    "name": "Deathless Servant",
+    "level": 18,
+    "traits": ["healing", "mythic"],
+    "prerequisites": ["Apocalypse Rider Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "2mxg4JxPE8k9jSkr",
+    "name": "Decree of Execution",
+    "level": 18,
+    "traits": ["death", "incapacitation", "mythic", "spirit"],
+    "prerequisites": ["Prophesied Monarch Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "OaDjzK0oaKAoV6EQ",
+    "name": "Decree of War",
+    "level": 18,
+    "traits": ["auditory", "mythic"],
+    "prerequisites": ["Prophesied Monarch Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "IySKTSfPO0Lzfm8r",
+    "name": "Exaltation Overwhelming",
+    "level": 18,
+    "traits": ["emotion", "fear", "mental", "mythic", "visual"],
+    "prerequisites": ["Eternal Legend Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "UHCWlIUcI3Sy9oaS",
+    "name": "Eyes Unclouded",
+    "level": 18,
+    "traits": ["mythic"],
+    "prerequisites": ["Ascended Celestial Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "iv80P6HbOpoNCoNj",
+    "name": "Fated Duel",
+    "level": 18,
+    "traits": ["mythic"],
+    "prerequisites": ["Prophesied Monarch Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "BndS11cLoHSIZc49",
+    "name": "Final Shot Knows the Way",
+    "level": 18,
+    "traits": ["mythic", "press"],
+    "prerequisites": ["Warshard Warrior Dedication"],
+    "publication": "Pathfinder #219: Lord of the Trinity Star"
+  },
+  {
+    "id": "VnpI3sPgwLlcCJy3",
+    "name": "Flash of Omniscience",
+    "level": 18,
+    "traits": ["archetype", "divine", "mythic"],
+    "prerequisites": ["Mortal Herald Dedication"],
+    "publication": "Pathfinder Lost Omens Divine Mysteries"
+  },
+  {
+    "id": "iUEYGMjvveC9sfUu",
+    "name": "Fracture Timeflow",
+    "level": 18,
+    "traits": ["incapacitation", "mythic", "occult"],
+    "prerequisites": ["Timewracked Dedication"],
+    "publication": "Pathfinder #219: Lord of the Trinity Star"
+  },
+  {
+    "id": "AP3k96JtJHsDk0G4",
+    "name": "Galvanize Spell",
+    "level": 18,
+    "traits": ["concentrate", "mythic", "spellshape"],
+    "prerequisites": ["Wildspell Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "GPIKvj8K2yk2eVOC",
+    "name": "Imprison Foe",
+    "level": 18,
+    "traits": ["mythic", "teleportation"],
+    "prerequisites": ["Archfiend Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "iUds1xfU9WtKGPMf",
+    "name": "Legend of Combat",
+    "level": 18,
+    "traits": ["mythic"],
+    "prerequisites": ["Eternal Legend Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "NHxSvYyIBChlAasG",
+    "name": "Liberty or Death",
+    "level": 18,
+    "traits": ["death", "incapacitation", "mythic"],
+    "prerequisites": ["Broken Chain Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "OljNnAAEwvD7qDOt",
+    "name": "Mana Detonation",
+    "level": 18,
+    "traits": ["mythic"],
+    "prerequisites": ["Wildspell Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "4F7suRtLfcurHqFI",
+    "name": "Memory of Nothing",
+    "level": 18,
+    "traits": ["manipulate", "mental", "mythic"],
+    "prerequisites": ["Apocalypse Rider Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "ht8q3CDn94Oq7njx",
+    "name": "Mythic Counter",
+    "level": 18,
+    "traits": ["mythic"],
+    "prerequisites": ["Wildspell Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "XHRD9gpm58gURMLP",
+    "name": "Mythic Weapon Specialization",
+    "level": 18,
+    "traits": ["mythic"],
+    "prerequisites": ["Eternal Legend Dedication", "greater weapon specialization"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "mdc30s4CuxR7HL3k",
+    "name": "Not This Time",
+    "level": 18,
+    "traits": ["mythic", "occult"],
+    "prerequisites": ["Timewracked Dedication"],
+    "publication": "Pathfinder #219: Lord of the Trinity Star"
+  },
+  {
+    "id": "lFNyIFWPPXpS0qRM",
+    "name": "On My Best Day",
+    "level": 18,
+    "traits": ["mythic"],
+    "prerequisites": ["Heroic Scion Dedication"],
+    "publication": "Pathfinder #219: Lord of the Trinity Star"
+  },
+  {
+    "id": "W3w7iGGsdkfO1GOn",
+    "name": "Pack of the Beast Lord",
+    "level": 18,
+    "traits": ["auditory", "concentrate", "mythic"],
+    "prerequisites": ["Beast Lord Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "lL5MxRUFqbzS6jDm",
+    "name": "Pass Vengeful Judgment",
+    "level": 18,
+    "traits": ["mythic", "sanctified"],
+    "prerequisites": ["Godling Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "CbCXvxKrGIRtI7jF",
+    "name": "Profane Bargain",
+    "level": 18,
+    "traits": ["divine", "mental", "mythic"],
+    "prerequisites": ["Archfiend Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "RhQshUC35MeiNg3h",
+    "name": "Rebellious Existence",
+    "level": 18,
+    "traits": ["mythic"],
+    "prerequisites": ["Broken Chain Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "oENdQsSog4pPugVA",
+    "name": "Reprisal of the Fallen",
+    "level": 18,
+    "traits": ["mythic"],
+    "prerequisites": ["Broken Chain Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "ZTI12qEjht0pQuaB",
+    "name": "Sanctified Relic",
+    "level": 18,
+    "traits": ["mythic"],
+    "prerequisites": ["Godling Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "v9HgQBsBiVmU5wAA",
+    "name": "Scouring Spark",
+    "level": 18,
+    "traits": ["mythic"],
+    "prerequisites": ["Ascended Celestial Dedication", "Channel Divine Spark"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "tKC06HYkt1XaWk78",
+    "name": "Shining Glory",
+    "level": 18,
+    "traits": ["concentrate", "mythic"],
+    "prerequisites": ["Ascended Celestial Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "drcZf55HVsTnnTcF",
+    "name": "Soul Vessel Mount",
+    "level": 18,
+    "traits": ["mythic"],
+    "prerequisites": ["Apocalypse Rider Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "YXuhZHEUXXi9Dhqx",
+    "name": "Sovereign's Blade",
+    "level": 18,
+    "traits": ["light", "mythic"],
+    "prerequisites": ["Prophesied Monarch Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "S2YTLXTvqaXhThG6",
+    "name": "Stymie the Gods",
+    "level": 18,
+    "traits": ["mythic"],
+    "prerequisites": ["Godling Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "QufAglrest3fr1iz",
+    "name": "Telling Blow",
+    "level": 18,
+    "traits": ["flourish", "mythic"],
+    "prerequisites": ["Heroic Scion Dedication"],
+    "publication": "Pathfinder #219: Lord of the Trinity Star"
+  },
+  {
+    "id": "nbwHIS38AgSDquNu",
+    "name": "Throw and Catch",
+    "level": 18,
+    "traits": ["mythic"],
+    "prerequisites": ["Warshard Warrior Dedication"],
+    "publication": "Pathfinder #219: Lord of the Trinity Star"
+  },
+  {
+    "id": "vb8DsfARkJGWd0GT",
+    "name": "To Me!",
+    "level": 18,
+    "traits": ["auditory", "emotion", "mental", "mythic", "visual"],
+    "prerequisites": ["Heroic Scion Dedication"],
+    "publication": "Pathfinder #219: Lord of the Trinity Star"
+  },
+  {
+    "id": "6xLDfQYA1pHzGRG2",
+    "name": "Unstoppable Force",
+    "level": 18,
+    "traits": ["mythic"],
+    "prerequisites": ["Eternal Legend Dedication", "Immovable Object"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "MfolzkTNi6V4XQ7J",
+    "name": "Assume Godhood",
+    "level": 20,
+    "traits": ["mythic"],
+    "prerequisites": ["Godling Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "wPwY6ybqAkmUGgvS",
+    "name": "Break the Causal Chain",
+    "level": 20,
+    "traits": ["concentrate", "mythic"],
+    "prerequisites": ["Broken Chain Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "AE1td51wdCoBuBDm",
+    "name": "Celestial Rebirth",
+    "level": 20,
+    "traits": ["mythic"],
+    "prerequisites": ["Ascended Celestial Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "gbBUxaWSD4nA9X7d",
+    "name": "Craft Runewell",
+    "level": 20,
+    "traits": ["mythic"],
+    "prerequisites": ["Avenging Runelord Dedication"],
+    "publication": "Pathfinder #219: Lord of the Trinity Star"
+  },
+  {
+    "id": "kmoigPZgEsJ2jsmp",
+    "name": "Eternal Hero",
+    "level": 20,
+    "traits": ["mythic"],
+    "prerequisites": ["Heroic Scion Dedication"],
+    "publication": "Pathfinder #219: Lord of the Trinity Star"
+  },
+  {
+    "id": "9qSlXRFNLX0y07EX",
+    "name": "Fiend Eternal",
+    "level": 20,
+    "traits": ["mythic"],
+    "prerequisites": ["Archfiend Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "fwdnRUW6TVwjiAoq",
+    "name": "Fight Through Oblivion",
+    "level": 20,
+    "traits": ["mythic"],
+    "prerequisites": [],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "PAsFP9jcVcHkBoRd",
+    "name": "Finish Their Story!",
+    "level": 20,
+    "traits": ["mythic"],
+    "prerequisites": ["Eternal Legend Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "v6d1N3yygUccisQL",
+    "name": "Flash of Omnipotence",
+    "level": 20,
+    "traits": ["archetype", "divine", "mythic"],
+    "prerequisites": ["Mortal Herald Dedication"],
+    "publication": "Pathfinder Lost Omens Divine Mysteries"
+  },
+  {
+    "id": "meZTsonAlueXihQU",
+    "name": "I am the Weapon",
+    "level": 20,
+    "traits": ["mythic"],
+    "prerequisites": ["Warshard Warrior Dedication"],
+    "publication": "Pathfinder #219: Lord of the Trinity Star"
+  },
+  {
+    "id": "Nn2vUOpKJpr6ps89",
+    "name": "Immortal Ruin",
+    "level": 20,
+    "traits": ["mythic"],
+    "prerequisites": ["Apocalypse Rider Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "aMp7crNLWFfMGLGO",
+    "name": "Legacy of Monarchs",
+    "level": 20,
+    "traits": ["mythic"],
+    "prerequisites": ["Prophesied Monarch Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "NKsNDA8rS9R5MmAX",
+    "name": "Living Epic",
+    "level": 20,
+    "traits": ["mythic"],
+    "prerequisites": ["Eternal Legend Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "FpaycWJyvksEiRc3",
+    "name": "Mystic Life Force",
+    "level": 20,
+    "traits": ["mythic"],
+    "prerequisites": ["Wildspell Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "kwYQ90zLGMSARX4O",
+    "name": "Once and Future",
+    "level": 20,
+    "traits": ["mythic"],
+    "prerequisites": ["Prophesied Monarch Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "lCn0QYOcjXHqpYea",
+    "name": "One Life, Two Vessels",
+    "level": 20,
+    "traits": ["mythic"],
+    "prerequisites": ["Beast Lord Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "R4GhrpXtcRIo6Cxx",
+    "name": "Spark of Immortality",
+    "level": 20,
+    "traits": ["archetype", "mythic"],
+    "prerequisites": ["Mortal Herald Dedication"],
+    "publication": "Pathfinder Lost Omens Divine Mysteries"
+  },
+  {
+    "id": "YtvnnUwh4IHPz0MW",
+    "name": "Surging Interference",
+    "level": 20,
+    "traits": ["mythic"],
+    "prerequisites": ["Wildspell Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  },
+  {
+    "id": "cSI344GrI2K2XMae",
+    "name": "Timelessness",
+    "level": 20,
+    "traits": ["mythic"],
+    "prerequisites": ["Timewracked Dedication"],
+    "publication": "Pathfinder #219: Lord of the Trinity Star"
+  },
+  {
+    "id": "R5oeNpNCOXU4OtIT",
+    "name": "You Can't Kill an Idea",
+    "level": 20,
+    "traits": ["mythic"],
+    "prerequisites": ["Broken Chain Dedication"],
+    "publication": "Pathfinder War of Immortals"
+  }
+]

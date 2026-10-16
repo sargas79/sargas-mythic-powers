@@ -1,0 +1,56 @@
+{
+  "sargas-mythic-powers": {
+    "visibility": {
+      "blockedFeat": "This feat can't be added to this character.",
+      "lockedSlot": "This slot unlocks at a later session.",
+      "callingGMOnly": "Only the GM can choose or change this character's Calling."
+    },
+    "sheet": {
+      "mythic": "Mythic",
+      "title": "Mythic: {calling}",
+      "noCalling": "No Calling yet",
+      "gmChoosesCalling": "The GM will choose your Calling.",
+      "chooseCalling": "Choose your Calling",
+      "chooseCallingSlot": "Choose Calling…",
+      "chooseFeat": "Choose feat…",
+      "lockedSlot": "Unlocks at a later session",
+      "source": "Source",
+      "progression": "Progression",
+      "progressionStandard": "Standard",
+      "progressionLateStart": "Late start ({done} of {owed} caught up)",
+      "progressionLateStartDone": "Late start (caught up)",
+      "progressionTrials": "Tier {tier}, {count} trials",
+      "points": "{value} / {max}",
+      "pointsLabel": "Mythic Points",
+      "edicts": "Edicts",
+      "anathema": "Anathema",
+      "openSlots": "{count} open mythic slot(s)"
+    },
+    "callingPicker": {
+      "title": "Choose your Mythic Calling: {actor}",
+      "search": "Search callings…",
+      "allSources": "All sources",
+      "none": "No Callings match.",
+      "loading": "Loading Callings…",
+      "selectPrompt": "Select a Calling to see its details.",
+      "proficiency": "Mythic proficiency",
+      "regain": "Daily regain",
+      "edicts": "Edicts",
+      "anathema": "Anathema",
+      "grants": "grants Rewrite Fate",
+      "callingTrait": "Calling",
+      "changeNote": "You can change your Calling later only after a major turning point in the story, with the GM's approval.",
+      "current": "Current Calling: {calling}",
+      "decideLater": "Decide later",
+      "take": "Take {calling}",
+      "replace": "Replace with {calling}",
+      "notActive": "This character can't choose a Calling.",
+      "notAllowed": "Only the GM can choose or change this character's Calling.",
+      "notFound": "That Calling could not be found.",
+      "noPack": "The PF2e class features compendium is not available.",
+      "taken": "{actor} took {calling}.",
+      "ledger": "{actor} took {calling}.",
+      "ledgerReplaced": "{actor} changed Calling from {old} to {calling}."
+    }
+  }
+}

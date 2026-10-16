@@ -1,0 +1,35 @@
+/* Agent E: automation chat cards (mythic kill, Calling daily regain, mythic death). */
+.smp-auto-card p {
+  margin: 4px 0;
+}
+.smp-auto-card .smp-buttons button {
+  flex: 1 1 auto;
+  min-width: 0;
+  line-height: 24px;
+}
+.smp-auto-card .smp-buttons .smp-auto-primary {
+  background: var(--smp-myth);
+  border-color: var(--smp-myth);
+  color: var(--smp-myth-ink);
+}
+.smp-auto-card .smp-auto-gm-note {
+  font-size: 11px;
+  font-style: italic;
+  color: var(--smp-muted);
+  border-left: 3px solid var(--smp-gold);
+  padding-left: 6px;
+}
+.smp-auto-card .smp-auto-status {
+  font-weight: 700;
+  color: var(--smp-muted);
+}
+.smp-auto-card .smp-auto-awarded,
+.smp-auto-card .smp-auto-restored {
+  color: var(--smp-ok);
+}
+.smp-auto-card .smp-auto-undone {
+  color: var(--smp-bad);
+}
+.smp-auto-death .smp-auto-doomed b {
+  color: var(--smp-bad);
+}

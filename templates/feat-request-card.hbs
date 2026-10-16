@@ -1,0 +1,27 @@
+<div class="smp-card smp-feat-request">
+  <div class="smp-whisper">{{localize "sargas-mythic-powers.feats.card.gmOnly"}}</div>
+  <h3>{{localize "sargas-mythic-powers.feats.card.requestTitle"}}</h3>
+  <p>
+    {{localize "sargas-mythic-powers.feats.card.request" user=userName actor=actorName slot=slot}}
+  </p>
+  <p>
+    <a class="content-link" draggable="true" data-link data-uuid="{{featUuid}}" data-type="Item"
+      ><i class="fa-solid fa-suitcase"></i>{{featName}}</a
+    >
+  </p>
+  {{#if warnings.length}}
+    <ul class="smp-warnings">
+      {{#each warnings}}
+        <li>{{this}}</li>
+      {{/each}}
+    </ul>
+  {{/if}}
+  <div class="smp-buttons">
+    <button type="button" data-smp-action="approve" data-actor-uuid="{{actorUuid}}" data-pending-id="{{pendingId}}">
+      <i class="fa-solid fa-check"></i> {{localize "sargas-mythic-powers.feats.card.approve"}}
+    </button>
+    <button type="button" data-smp-action="reject" data-actor-uuid="{{actorUuid}}" data-pending-id="{{pendingId}}">
+      <i class="fa-solid fa-xmark"></i> {{localize "sargas-mythic-powers.feats.card.reject"}}
+    </button>
+  </div>
+</div>

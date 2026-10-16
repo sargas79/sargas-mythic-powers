@@ -1,0 +1,276 @@
+/*
+ * Agent B: mythic banner, slot states and Feats tab badge on the PF2e character sheet (mockup M3), and the
+ * Calling picker (mockup M2).
+ */
+
+/* ---- Sheet banner ---- */
+.smp-banner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 4px 12px;
+  align-items: center;
+  margin: 0 0 8px;
+  padding: 8px 10px;
+  border: 1px solid var(--smp-myth-2);
+  border-left: 4px solid var(--smp-myth);
+  border-radius: 4px;
+  background: var(--smp-myth-soft);
+  color: #2b2b2b;
+  font-size: 12px;
+}
+.smp-banner-main {
+  min-width: 0;
+}
+.smp-banner-title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin: 0 0 2px;
+  color: var(--smp-myth);
+  font-size: 14px;
+  font-weight: 700;
+  border: none;
+}
+.smp-banner-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 12px;
+  color: var(--smp-muted);
+  font-size: 11px;
+}
+.smp-banner-points {
+  text-align: right;
+  white-space: nowrap;
+}
+.smp-banner-points .smp-banner-meta {
+  justify-content: flex-end;
+}
+.smp-banner-ea {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  font-size: 11px;
+}
+.smp-banner-ea > span {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.smp-banner-anathema b {
+  color: var(--smp-bad);
+}
+.smp-banner-nocalling {
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--smp-muted);
+}
+.smp-banner-choose,
+.smp-slot-choose {
+  flex: 0 0 auto;
+  width: auto;
+  height: auto;
+  min-height: 0;
+  margin: 0;
+  padding: 1px 8px;
+  line-height: 18px;
+  font-size: 11px;
+  border: 1px solid var(--smp-myth);
+  border-radius: 3px;
+  background: var(--smp-myth);
+  color: var(--smp-myth-ink);
+  cursor: pointer;
+  white-space: nowrap;
+}
+.smp-banner-choose:hover,
+.smp-slot-choose:hover {
+  background: var(--smp-myth-2);
+}
+
+/* ---- Feats tab badge ---- */
+nav.sheet-navigation [data-tab="feats"] {
+  position: relative;
+}
+.smp-tab-badge {
+  position: absolute;
+  top: -2px;
+  right: -4px;
+  min-width: 14px;
+  padding: 0 4px;
+  border-radius: 8px;
+  background: var(--smp-myth);
+  color: var(--smp-myth-ink);
+  font-size: 9px;
+  font-weight: 700;
+  line-height: 14px;
+  text-align: center;
+  pointer-events: none;
+}
+
+/* ---- Mythic slots ---- */
+li.slot.smp-slot-next {
+  box-shadow: inset 3px 0 0 var(--smp-myth);
+}
+li.slot.smp-slot-locked {
+  opacity: 0.6;
+}
+li.slot.smp-slot-locked .item-placeholder {
+  font-style: italic;
+  color: var(--smp-muted);
+}
+li.slot .item-controls .smp-slot-choose {
+  margin-right: 4px;
+}
+
+/* ---- Calling picker ---- */
+.smp-calling-picker .window-content {
+  padding: 0;
+}
+.smp-cp {
+  container-type: inline-size;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+}
+.smp-cp-body {
+  flex: 1 1 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 290px;
+  gap: 12px;
+  min-height: 0;
+  padding: 10px;
+}
+.smp-cp-list {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+.smp-cp-filters {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+.smp-cp-filters input {
+  flex: 1 1 auto;
+}
+.smp-cp-filters select {
+  flex: 0 0 200px;
+  max-width: 50%;
+}
+.smp-cp-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 6px;
+  align-content: start;
+  overflow-y: auto;
+  min-height: 0;
+}
+.smp-cp-card {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: auto;
+  margin: 0;
+  padding: 6px;
+  text-align: left;
+  border: 1px solid var(--smp-line);
+  border-radius: 4px;
+  background: transparent;
+  cursor: pointer;
+}
+.smp-cp-card[hidden] {
+  display: none;
+}
+.smp-cp-card img {
+  flex: 0 0 32px;
+  width: 32px;
+  height: 32px;
+  border: none;
+}
+.smp-cp-card-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.smp-cp-card-actions {
+  font-size: 11px;
+  color: var(--smp-muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.smp-cp-card.on {
+  border-color: var(--smp-myth);
+  box-shadow: 0 0 0 1px var(--smp-myth);
+  background: var(--smp-myth-soft);
+}
+.smp-cp-card.current b::after {
+  content: " ✓";
+  color: var(--smp-ok);
+}
+.smp-cp-detail {
+  overflow-y: auto;
+  min-height: 0;
+  padding: 8px 10px;
+  border: 1px solid var(--smp-line);
+  border-radius: 4px;
+}
+.smp-cp-detail h3 {
+  margin: 6px 0 2px;
+  border: none;
+  color: var(--smp-myth);
+}
+.smp-cp-source,
+.smp-cp-note {
+  font-size: 11.5px;
+  color: var(--smp-muted);
+}
+.smp-cp-summary {
+  font-style: italic;
+}
+.smp-cp-ea {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 6px;
+}
+.smp-cp-ea > div {
+  padding: 4px 6px;
+  border-left: 3px solid var(--smp-ok);
+  background: rgba(0, 0, 0, 0.03);
+}
+.smp-cp-ea > .smp-cp-anathema {
+  border-left-color: var(--smp-bad);
+}
+.smp-cp-ea b {
+  display: block;
+}
+.smp-cp-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 6px;
+  padding: 8px 10px;
+  border-top: 1px solid var(--smp-line);
+}
+.smp-cp-footer button {
+  flex: 0 0 auto;
+  width: auto;
+}
+.smp-cp-footer .smp-primary {
+  background: var(--smp-myth);
+  color: var(--smp-myth-ink);
+  border-color: var(--smp-myth);
+}
+.smp-cp-footer .smp-primary:disabled {
+  opacity: 0.5;
+}
+@container (max-width: 640px) {
+  .smp-cp-body {
+    grid-template-columns: 1fr;
+  }
+}

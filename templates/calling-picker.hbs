@@ -1,0 +1,60 @@
+<div class="smp-cp">
+  <div class="smp-cp-body">
+    <div class="smp-cp-list">
+      <div class="smp-cp-filters">
+        <input type="search" name="smp-cp-search" value="{{query}}"
+               placeholder="{{localize "sargas-mythic-powers.callingPicker.search"}}" autocomplete="off" />
+        {{#if (gt sources.length 1)}}
+          <select name="smp-cp-source">
+            <option value="">{{localize "sargas-mythic-powers.callingPicker.allSources"}}</option>
+            {{#each sources}}
+              <option value="{{value}}" {{#if selected}}selected{{/if}}>{{value}}</option>
+            {{/each}}
+          </select>
+        {{/if}}
+      </div>
+      <div class="smp-cp-grid">
+        {{#each callings}}
+          <button type="button" class="smp-cp-card{{#if on}} on{{/if}}{{#if current}} current{{/if}}"
+                  data-action="select" data-uuid="{{uuid}}" {{#if hidden}}hidden{{/if}}>
+            <img src="{{img}}" alt="" />
+            <span class="smp-cp-card-text">
+              <b>{{name}}</b>
+              <span class="smp-cp-card-actions">{{actionsShort}}</span>
+            </span>
+          </button>
+        {{/each}}
+        <p class="smp-cp-empty" hidden>{{localize "sargas-mythic-powers.callingPicker.none"}}</p>
+      </div>
+    </div>
+
+    <aside class="smp-cp-detail">
+      {{#if selected}}
+        <div><span class="smp-trait">{{localize "sargas-mythic-powers.mythic"}}</span>
+          <span class="smp-trait">{{localize "sargas-mythic-powers.callingPicker.callingTrait"}}</span></div>
+        <h3>{{selected.name}}</h3>
+        <div class="smp-cp-source">{{selected.source}} · {{localize "sargas-mythic-powers.callingPicker.grants"}}</div>
+        {{#if selected.summary}}<p class="smp-cp-summary">{{selected.summary}}</p>{{/if}}
+        <p><b>{{localize "sargas-mythic-powers.callingPicker.proficiency"}}:</b> {{selected.actions}}</p>
+        <p><b>{{localize "sargas-mythic-powers.callingPicker.regain"}}:</b> {{selected.regain}}</p>
+        {{#if selected.edicts}}
+          <div class="smp-cp-ea">
+            <div class="smp-cp-edicts"><b>{{localize "sargas-mythic-powers.callingPicker.edicts"}}</b>{{selected.edicts}}</div>
+            <div class="smp-cp-anathema"><b>{{localize "sargas-mythic-powers.callingPicker.anathema"}}</b>{{selected.anathema}}</div>
+          </div>
+        {{/if}}
+        <p class="smp-cp-note">{{localize "sargas-mythic-powers.callingPicker.changeNote"}}</p>
+      {{else}}
+        <p class="smp-cp-note">{{localize "sargas-mythic-powers.callingPicker.selectPrompt"}}</p>
+      {{/if}}
+      {{#if current}}
+        <p class="smp-cp-note">{{localize "sargas-mythic-powers.callingPicker.current" calling=current}}</p>
+      {{/if}}
+    </aside>
+  </div>
+
+  <footer class="smp-cp-footer">
+    <button type="button" data-action="later">{{localize "sargas-mythic-powers.callingPicker.decideLater"}}</button>
+    <button type="button" class="smp-primary" data-action="take" {{#unless canTake}}disabled{{/unless}}>{{takeLabel}}</button>
+  </footer>
+</div>

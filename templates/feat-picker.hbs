@@ -1,0 +1,92 @@
+<div class="smp-feat-picker">
+  <aside class="smp-fp-filters">
+    <div class="smp-fp-label">{{localize "sargas-mythic-powers.feats.picker.level"}}</div>
+    <select data-filter="level">
+      {{#each levels}}
+        <option value="{{value}}" {{#if selected}}selected{{/if}}>≤ {{value}}</option>
+      {{/each}}
+    </select>
+
+    <div class="smp-fp-label">{{localize "sargas-mythic-powers.feats.picker.show"}}</div>
+    <label class="smp-fp-check">
+      <input type="checkbox" data-filter="eligible" {{#if filters.eligible}}checked{{/if}} />
+      {{localize "sargas-mythic-powers.feats.picker.eligible"}}
+    </label>
+    <label class="smp-fp-check">
+      <input type="checkbox" data-filter="ineligible" {{#if filters.ineligible}}checked{{/if}} />
+      {{localize "sargas-mythic-powers.feats.picker.ineligible"}}
+    </label>
+    <label class="smp-fp-check">
+      <input type="checkbox" data-filter="owned" {{#if filters.owned}}checked{{/if}} />
+      {{localize "sargas-mythic-powers.feats.picker.owned"}}
+    </label>
+
+    <div class="smp-fp-label">{{localize "sargas-mythic-powers.feats.picker.source"}}</div>
+    {{#each sources}}
+      <label class="smp-fp-check">
+        <input type="checkbox" data-filter="source" value="{{name}}" {{#if checked}}checked{{/if}} />
+        {{name}}
+      </label>
+    {{/each}}
+  </aside>
+
+  <section class="smp-fp-main">
+    {{#if slotPending}}
+      <p class="smp-fp-banner"><i class="fa-solid fa-hourglass-half"></i> {{pendingText}}</p>
+    {{/if}}
+    {{#if filled}}
+      <p class="smp-fp-banner">{{localize "sargas-mythic-powers.feats.picker.slotFilled"}}</p>
+    {{/if}}
+    <input
+      type="search"
+      class="smp-fp-search"
+      data-filter="search"
+      value="{{filters.search}}"
+      placeholder="{{localize 'sargas-mythic-powers.feats.picker.search'}}"
+    />
+    <ol class="smp-fp-list">
+      {{#each feats}}
+        <li
+          class="smp-fp-row smp-fp-{{status}}"
+          data-uuid="{{uuid}}"
+          data-name="{{name}}"
+          data-level="{{level}}"
+          data-status="{{status}}"
+          data-source="{{publication}}"
+          draggable="{{#if draggable}}true{{else}}false{{/if}}"
+        >
+          <span class="smp-fp-lv">{{level}}</span>
+          <img class="smp-fp-img" src="{{img}}" alt="" />
+          <div class="smp-fp-info">
+            <a class="smp-fp-name" data-action="openFeat">{{name}}</a>
+            <span class="smp-trait">{{localize "sargas-mythic-powers.mythic"}}</span>
+            {{#if destiny}}
+              <span class="smp-trait smp-fp-destiny">{{localize "sargas-mythic-powers.feats.picker.destiny"}}</span>
+            {{/if}}
+            {{#if reasons}}<div class="smp-fp-why">{{reasons}}</div>{{/if}}
+            {{#if warnings}}<div class="smp-fp-warn"><i class="fa-solid fa-triangle-exclamation"></i> {{warnings}}</div>{{/if}}
+          </div>
+          {{#if canAdd}}
+            <button type="button" class="smp-fp-add" data-action="addFeat">
+              {{localize "sargas-mythic-powers.feats.picker.add"}}
+            </button>
+          {{else if isPending}}
+            <span class="smp-fp-wait">{{localize "sargas-mythic-powers.feats.picker.waiting"}}</span>
+          {{else if (eq status "owned")}}
+            <span class="smp-fp-wait">{{localize "sargas-mythic-powers.feats.picker.ownedTag"}}</span>
+          {{else}}
+            <span></span>
+          {{/if}}
+        </li>
+      {{/each}}
+    </ol>
+    <p class="smp-fp-empty" hidden>{{localize "sargas-mythic-powers.feats.picker.empty"}}</p>
+  </section>
+
+  <footer class="smp-fp-footer">
+    <span class="smp-fp-note">
+      {{#if approval}}{{localize "sargas-mythic-powers.feats.picker.approvalOn"}}{{/if}}
+    </span>
+    <button type="button" data-action="closePicker">{{localize "sargas-mythic-powers.feats.picker.close"}}</button>
+  </footer>
+</div>

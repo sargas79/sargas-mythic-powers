@@ -1,0 +1,254 @@
+/* Mythic Console (mockup M5), its launcher button and the neutral points card. Agent D. */
+.smp-console .window-content {
+  padding: 0;
+}
+.smp-console-root {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+}
+.smp-console-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--smp-line);
+}
+.smp-console-spacer {
+  flex: 1;
+}
+.smp-console-session,
+.smp-console-muted {
+  color: var(--smp-muted);
+  font-size: 11.5px;
+}
+.smp-console-scroll {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 0 10px 10px;
+}
+
+.smp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  width: auto;
+  padding: 3px 8px;
+  border: 1px solid var(--smp-line);
+  border-radius: 4px;
+  background: transparent;
+  font-size: 12px;
+  line-height: 1.4;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.smp-btn:hover {
+  border-color: var(--smp-myth-2);
+}
+.smp-btn-sm {
+  padding: 1px 6px;
+  font-size: 11px;
+}
+.smp-btn-primary {
+  background: var(--smp-myth);
+  border-color: var(--smp-myth);
+  color: var(--smp-myth-ink);
+}
+.smp-btn-danger {
+  color: var(--smp-bad);
+  border-color: var(--smp-bad);
+}
+.smp-btn-ok {
+  color: var(--smp-ok);
+  border-color: var(--smp-ok);
+}
+
+.smp-console-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 6px 0 10px;
+}
+.smp-console-table th {
+  text-align: left;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--smp-muted);
+  border-bottom: 1px solid var(--smp-line);
+  padding: 4px 6px;
+}
+.smp-console-table td {
+  padding: 6px;
+  border-bottom: 1px solid var(--smp-line);
+  vertical-align: middle;
+}
+.smp-console-row.is-disabled {
+  opacity: 0.75;
+}
+.smp-console-row.is-never {
+  opacity: 0.65;
+}
+
+.smp-console-who {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.smp-console-ava {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--smp-line);
+  object-fit: cover;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  flex: none;
+}
+.smp-console-name {
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.smp-toggle {
+  position: relative;
+  display: inline-block;
+  width: 34px;
+  height: 18px;
+  padding: 0;
+  border: none;
+  border-radius: 9px;
+  background: var(--smp-line);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.smp-toggle::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #fff;
+  transition: left 0.15s;
+}
+.smp-toggle.on {
+  background: var(--smp-myth);
+}
+.smp-toggle.on::after {
+  left: 18px;
+}
+.smp-toggle.smp-toggle-off {
+  cursor: default;
+  opacity: 0.5;
+}
+
+.smp-console-pips .smp-pip {
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+}
+.smp-console-pips .smp-pip.on {
+  background: radial-gradient(circle at 35% 35%, #c6a2f0, var(--smp-myth) 70%);
+}
+
+.smp-console-bar {
+  height: 5px;
+  margin: 3px 0;
+  max-width: 140px;
+  border-radius: 3px;
+  background: var(--smp-myth-soft);
+  overflow: hidden;
+}
+.smp-console-bar > span {
+  display: block;
+  height: 100%;
+  background: var(--smp-myth-2);
+}
+.smp-console-chip {
+  display: inline-block;
+  margin-left: 4px;
+  padding: 0 5px;
+  border-radius: 8px;
+  font-size: 10.5px;
+}
+.smp-console-warn {
+  background: var(--smp-gold);
+  color: #fff;
+}
+
+.smp-console-acts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+}
+.smp-console-pending {
+  margin-bottom: 4px;
+}
+.smp-console-pending-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11.5px;
+}
+.smp-console-pending-item > span {
+  flex: 1;
+}
+
+.smp-console-ledger h3 {
+  margin: 0 0 4px;
+  font-size: 13px;
+  color: var(--smp-myth);
+  border-bottom: 1px solid var(--smp-line);
+}
+.smp-console-ledger-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 12px;
+  padding: 2px 0;
+}
+.smp-console-ledger-msg {
+  flex: 1;
+}
+.smp-console-ledger-row.is-undone .smp-console-ledger-msg {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+.smp-console-time {
+  font-family: monospace;
+  color: var(--smp-muted);
+}
+
+.smp-console-sources {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+.smp-console-source {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.smp-console-launch {
+  flex: 0 0 100%;
+}
+
+.smp-points-card h3 {
+  margin: 0 0 4px;
+}
+.smp-points-card p {
+  margin: 0 0 2px;
+}
+.smp-points-card-value {
+  font-size: 11px;
+  opacity: 0.8;
+}

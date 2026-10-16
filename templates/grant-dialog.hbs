@@ -1,0 +1,63 @@
+<div class="smp-grant">
+  <div class="form-group stacked">
+    <label>{{localize "sargas-mythic-powers.grant.dialog.source"}}</label>
+    <input type="text" name="source" placeholder="{{sourcePlaceholder}}" autofocus>
+  </div>
+
+  <fieldset class="smp-grant-progression">
+    <legend>{{localize "sargas-mythic-powers.grant.dialog.progression"}}</legend>
+    {{#each progressions}}
+    <label class="smp-grant-radio">
+      <input type="radio" name="progression" value="{{value}}" {{checked checked}}>
+      <span>
+        <b>{{label}}</b>
+        <small>{{hint}}</small>
+      </span>
+    </label>
+    {{/each}}
+  </fieldset>
+
+  <fieldset class="smp-grant-calling">
+    <legend>{{localize "sargas-mythic-powers.grant.dialog.calling"}}</legend>
+    <div class="smp-grant-row">
+      <label class="smp-grant-radio">
+        <input type="radio" name="callingChoice" value="player" checked>
+        <b>{{localize "sargas-mythic-powers.grant.dialog.playerChooses"}}</b>
+      </label>
+      <label class="smp-grant-radio">
+        <input type="radio" name="callingChoice" value="gm">
+        <b>{{localize "sargas-mythic-powers.grant.dialog.gmAssigns"}}</b>
+      </label>
+    </div>
+    <div class="smp-grant-calling-select" hidden>
+      {{#if hasCallings}}
+      <select name="callingUuid">
+        <option value="">{{localize "sargas-mythic-powers.grant.dialog.pickCalling"}}</option>
+        {{#each callings}}
+        <option value="{{uuid}}">{{name}} ({{source}})</option>
+        {{/each}}
+      </select>
+      {{else}}
+      <p class="hint">{{localize "sargas-mythic-powers.grant.dialog.noCallings"}}</p>
+      {{/if}}
+    </div>
+  </fieldset>
+
+  <fieldset class="smp-grant-options">
+    <legend>{{localize "sargas-mythic-powers.grant.dialog.options"}}</legend>
+    <label class="smp-grant-check">
+      <input type="checkbox" name="announce" {{checked announce}}>
+      {{announceLabel}}
+    </label>
+    <label class="smp-grant-check">
+      <input type="checkbox" name="startWithFullPoints" checked>
+      {{localize "sargas-mythic-powers.grant.dialog.fullPoints"}}
+    </label>
+  </fieldset>
+</div>
+<footer class="form-footer">
+  <button type="button" data-action="close">{{localize "Cancel"}}</button>
+  <button type="submit" class="smp-grant-submit">
+    <i class="fa-solid fa-star"></i> {{localize "sargas-mythic-powers.grant.dialog.submit"}}
+  </button>
+</footer>

@@ -1,0 +1,101 @@
+{
+  "sargas-mythic-powers": {
+    "grant": {
+      "menu": {
+        "grant": "Grant Mythic Power…",
+        "disable": "Disable Mythic Power",
+        "enable": "Enable Mythic Power",
+        "revoke": "Revoke Mythic Power…"
+      },
+      "badge": {
+        "active": "Mythic",
+        "disabled": "Disabled",
+        "activeHint": "Mythic power granted and enabled (only the GM sees this badge).",
+        "disabledHint": "Mythic power granted but disabled (only the GM sees this badge)."
+      },
+      "header": {
+        "label": "Mythic"
+      },
+      "status": {
+        "title": "Mythic Power: {name}",
+        "content": "{name} has mythic power ({status}, {progression}).",
+        "close": "Close"
+      },
+      "dialog": {
+        "title": "Grant Mythic Power: {name}",
+        "source": "Source of power (shown on the sheet)",
+        "sourcePlaceholder": "Touched by the Godsrain…",
+        "progression": "Progression",
+        "calling": "Calling",
+        "playerChooses": "Player chooses",
+        "gmAssigns": "GM assigns",
+        "pickCalling": "Choose a Calling…",
+        "noCallings": "No Callings found in the allowed sources.",
+        "options": "Announce",
+        "announce": "Whisper the announcement to {name}'s owners",
+        "fullPoints": "Start with 3 Mythic Points",
+        "submit": "Grant Mythic Power"
+      },
+      "progression": {
+        "standard": {
+          "label": "Standard",
+          "hint": "A mythic feat at every even level. {name} is level {level}, so {count} feats are owed now."
+        },
+        "lateStart": {
+          "label": "Late start (catch-up)",
+          "hint": "{name} is level {level}: {count} owed feats are released one per session until caught up."
+        },
+        "trials": {
+          "label": "Mythic trials (tiers)",
+          "hint": "Tier grows from trials, separately from level. The first trial grants the Calling (tier 0).",
+          "hintNoTiers": "Tier grows from trials, separately from level. Needs the PF2e setting \"Mythic Rules\" set to Alternate Mythic Progression."
+        }
+      },
+      "trialNote": "First trial: mythic power granted",
+      "card": {
+        "whisper": "Whisper to {name}'s owners and the GM",
+        "grantTitle": "Mythic Power Awakens",
+        "grantBody": "{name} gains mythic power.",
+        "grantBodySource": "{name} gains mythic power: {source}.",
+        "callingHint": "{name} must choose a Calling.",
+        "chooseCalling": "Choose Calling",
+        "enableTitle": "Mythic Power Returns",
+        "enableBody": "{name}'s mythic power returns."
+      },
+      "revoke": {
+        "title": "Revoke Mythic Power: {name}",
+        "content": "Remove {name}'s Calling, mythic and destiny feats and all mythic data? This can't be undone. Use Disable to switch mythic power off and keep the choices."
+      },
+      "ledger": {
+        "grant": "Granted mythic power to {name} ({progression}).",
+        "disable": "Disabled mythic power for {name} ({count} items stored).",
+        "enable": "Enabled mythic power for {name} ({count} items restored).",
+        "revoke": "Revoked mythic power from {name} ({count} items removed)."
+      },
+      "notify": {
+        "granted": "{name} now has mythic power.",
+        "disabled": "Mythic power disabled for {name}.",
+        "enabled": "Mythic power enabled for {name}.",
+        "revoked": "Mythic power revoked from {name}.",
+        "hasCalling": "{name} already has a Calling."
+      },
+      "errors": {
+        "notCharacter": "Only player characters can be granted mythic power.",
+        "trialsNeedTiers": "Mythic trials need the PF2e setting \"Mythic Rules\" set to Alternate Mythic Progression.",
+        "callingFailed": "Couldn't add the Calling to {name}. See the console for details.",
+        "pickCalling": "Choose a Calling, or let the player choose.",
+        "notOwner": "Only the character's owners can choose its Calling."
+      }
+    },
+    "settingCheck": {
+      "title": "Mythic Powers: PF2e Mythic Rules are off",
+      "content": "Mythic Powers needs the PF2e system setting \"Mythic Rules\" to add Callings, mythic feats and Mythic Points.",
+      "hidden": "Characters without a grant from you won't see any mythic slots: the module hides them.",
+      "trials": "Some characters use mythic trials, so Alternate Mythic Progression will be selected.",
+      "enable": "Enable",
+      "later": "Not now",
+      "enabled": "PF2e Mythic Rules enabled.",
+      "trialsWarning": "Mythic Powers: {names} use mythic trials, but the PF2e setting \"Mythic Rules\" isn't set to Alternate Mythic Progression, so tiers won't apply."
+    }
+  }
+}
