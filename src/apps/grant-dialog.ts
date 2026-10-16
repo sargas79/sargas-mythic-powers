@@ -38,6 +38,7 @@ function buildClass(): any {
 
     static PARTS = {
       form: { template: `${TEMPLATE_PATH}/grant-dialog.hbs` },
+      footer: { template: `${TEMPLATE_PATH}/grant-dialog-footer.hbs` },
     };
 
     get title(): string {

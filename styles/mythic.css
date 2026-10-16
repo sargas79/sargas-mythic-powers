@@ -340,9 +340,10 @@ li.slot .item-controls .smp-slot-choose {
   white-space: nowrap;
 }
 .smp-cp-card.on {
-  border-color: var(--smp-myth);
-  box-shadow: 0 0 0 1px var(--smp-myth);
-  background: var(--smp-myth-soft);
+  border-color: var(--smp-myth-2);
+  box-shadow: 0 0 0 1px var(--smp-myth-2);
+  /* Tinted, not light: keeps the inherited text color readable in dark and light themes. */
+  background: color-mix(in srgb, var(--smp-myth-2) 30%, transparent);
 }
 .smp-cp-card.current b::after {
   content: " ✓";
@@ -712,6 +713,12 @@ li.slot .item-controls .smp-slot-choose {
 }
 
 .smp-console-pips .smp-pip {
+  flex: 0 0 14px;
+  width: 14px;
+  min-width: 14px;
+  height: 14px;
+  min-height: 14px;
+  line-height: 0;
   padding: 0;
   background: transparent;
   cursor: pointer;
