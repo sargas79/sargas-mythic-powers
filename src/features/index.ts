@@ -11,6 +11,8 @@ import { feature as mythic_kill } from "./mythic-kill.js";
 import { feature as daily_regain } from "./daily-regain.js";
 import { feature as mythic_death } from "./mythic-death.js";
 import { feature as progression } from "./progression.js";
+import { feature as npc_template } from "./npc-template.js";
+import { feature as npc_mythic } from "./npc-mythic.js";
 
 /** Every feature, in registration order. */
 export const FEATURES: Feature[] = [
@@ -26,4 +28,6 @@ export const FEATURES: Feature[] = [
   daily_regain,
   mythic_death,
   progression,
+  npc_template,
+  npc_mythic,
 ];

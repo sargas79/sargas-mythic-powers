@@ -37,6 +37,18 @@
       "lateStartPerSession": {
         "name": "Late start: feats released per session",
         "hint": "How many catch-up mythic feat slots open for a late-start character at each Start Session."
+      },
+      "npcResetOnCombat": {
+        "name": "Mythic NPCs: reset Mythic Points at combat start",
+        "hint": "When a combat starts, every mythic NPC in it goes back to its maximum Mythic Points."
+      },
+      "undyingPrompt": {
+        "name": "Mythic NPCs: Undying Myth prompt",
+        "hint": "When a mythic NPC with Undying Myth and at least 1 Mythic Point drops to 0 HP, ask the GM whether it uses Undying Myth."
+      },
+      "defensesPrompt": {
+        "name": "Mythic NPCs: Mythic Defenses prompt",
+        "hint": "When an attack critically hits a creature with Mythic Defenses, ask the GM to have the attack rerolled."
       }
     }
   }

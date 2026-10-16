@@ -16,6 +16,12 @@ export const SETTINGS = {
   /** string[] of publication titles allowed in the Calling picker. Empty = all. */
   callingSources: "callingSources",
   lateStartPerSession: "lateStartPerSession",
+  /** Mythic NPCs: reset Mythic Points to max when a combat starts. */
+  npcResetOnCombat: "npcResetOnCombat",
+  /** Mythic NPCs: prompt the GM to use Undying Myth when the NPC drops to 0 HP. */
+  undyingPrompt: "undyingPrompt",
+  /** Mythic NPCs: prompt the GM when an attack critically hits a creature with Mythic Defenses. */
+  defensesPrompt: "defensesPrompt",
   /** Hidden: number, incremented by Start Session. */
   session: "session",
   /** Hidden: timestamp of the last Start Session. */
@@ -36,6 +42,8 @@ export const PF2E = {
   callingsPack: "pf2e.classfeatures",
   featsPack: "pf2e.feats-srd",
   mythicPointsResource: "mythic-points",
+  /** Glossary of mythic monster abilities (War of Immortals). */
+  npcAbilityPack: "pf2e.bestiary-family-ability-glossary",
 } as const;
 
 /** Module hook names other features can listen to. */
