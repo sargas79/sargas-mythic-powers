@@ -220,13 +220,28 @@ function onRenderChatMessage(message: { flags?: Record<string, { card?: CardFlag
   });
 }
 
+/** Re-renders grant cards still offering Choose Calling once the actor has a Calling (every client). */
+function refreshGrantCards(item: ItemPF2e): void {
+  if (item?.type !== "feat" || item.system?.category !== PF2E.callingCategory || !item.parent) return;
+  const actorUuid = item.parent.uuid;
+  for (const message of game.messages?.contents ?? []) {
+    if (message?.flags?.[MODULE_ID]?.card?.actorUuid !== actorUuid) continue;
+    if (document.querySelector(`[data-message-id="${message.id}"] .smp-choose-calling`)) {
+      ui.chat?.updateMessage?.(message);
+    }
+  }
+}
+
 export const feature: Feature = {
   id: "grant",
   register() {
     Hooks.on("getActorContextOptions", contextOptions);
     Hooks.on("renderActorDirectory", decorateDirectory);
     Hooks.on("getActorSheetHeaderButtons", headerButtons);
-    Hooks.on("createItem", (item: ItemPF2e) => void onCreateItem(item));
+    Hooks.on("createItem", (item: ItemPF2e) => {
+      void onCreateItem(item);
+      refreshGrantCards(item);
+    });
     Hooks.on("renderChatMessageHTML", onRenderChatMessage);
     Hooks.on(HOOKS.stateChanged, () => {
       if (game.user?.isGM) ui.actors?.render();

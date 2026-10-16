@@ -10,6 +10,7 @@ import {
   signedDelta,
   trialProgress,
   undoableEntryId,
+  undoableEntryIds,
 } from "../src/rules/console.js";
 
 describe("award math", () => {
@@ -87,6 +88,26 @@ describe("console helpers", () => {
       ]),
     ).toBeNull();
     expect(undoableEntryId([])).toBeNull();
+  });
+  it("offers Undo on each character's newest mythic death entry", () => {
+    const death = (id: string, actorUuid: string, undone = false) => ({
+      id,
+      kind: "death",
+      actorUuid,
+      undone,
+      undo: { type: "mythicDeath" },
+    });
+    expect([
+      ...undoableEntryIds([
+        death("d2", "A"),
+        { id: "p1", kind: "points", pointsBefore: 0 },
+        death("d1", "A"),
+        death("e1", "B"),
+      ]),
+    ]).toEqual(["p1", "d2", "e1"]);
+    // An undone newest entry hides the older one too: undoing it would restore stale values.
+    expect([...undoableEntryIds([death("d2", "A", true), death("d1", "A")])]).toEqual([]);
+    expect([...undoableEntryIds([{ id: "x", kind: "death", actorUuid: "A" }])]).toEqual([]);
   });
   it("makes initials and distinct sources", () => {
     expect(initials("Amiri")).toBe("AM");

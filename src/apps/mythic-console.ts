@@ -16,9 +16,10 @@ import {
   pipStates,
   pipTarget,
   trialProgress,
-  undoableEntryId,
+  undoableEntryIds,
 } from "../rules/console.js";
 import { lateStartOwed, tierAboveHalfLevel, tierForTrials, trialsToNextTier } from "../rules/progression.js";
+import { undoDeathEntry } from "../features/mythic-death.js";
 import { loadCallings } from "../services/callings.js";
 import { approvePending, rejectPending } from "../services/feat-requests.js";
 import { disableMythic, enableMythic, openGrantDialog, revokeMythic } from "../services/mythic-service.js";
@@ -149,7 +150,7 @@ function buildRow(actor: ActorPF2e): Record<string, unknown> {
 
 function buildContext(): Record<string, unknown> {
   const ledger = getLedger();
-  const undoId = undoableEntryId(ledger);
+  const undoIds = undoableEntryIds(ledger);
   const startedAt = sessionStartedAt();
   return {
     rows: consoleActors().map(buildRow),
@@ -162,7 +163,7 @@ function buildContext(): Record<string, unknown> {
       time: formatTime(e.at),
       message: e.message,
       undone: !!e.undone,
-      canUndo: e.id === undoId,
+      canUndo: undoIds.has(e.id),
     })),
   };
 }
@@ -273,6 +274,10 @@ async function sourcesDialog(): Promise<void> {
 
 async function undoEntry(id: string): Promise<void> {
   const entry = getLedger().find((e) => e.id === id);
+  if (entry?.kind === "death") {
+    if (!(await undoDeathEntry(id))) notify.warn("console.notify.undoMissing");
+    return;
+  }
   if (!entry || entry.undone || typeof entry.pointsBefore !== "number" || !entry.actorUuid) return;
   const actor = await fromUuid(entry.actorUuid);
   if (!actor) {

@@ -6,7 +6,7 @@
  */
 import { MODULE_ID } from "../constants.js";
 import { esc, notify, t } from "../foundry/i18n.js";
-import { appendLedger, markUndone } from "../foundry/ledger.js";
+import { appendLedger, getLedger, markUndone } from "../foundry/ledger.js";
 import { getSetting } from "../foundry/settings.js";
 import { registerGMAction, runAsGM } from "../foundry/socket.js";
 import { MYTHIC_DEATH_DOOMED, mythicDeathDecision } from "../rules/death.js";
@@ -199,6 +199,13 @@ export async function undoMythicDeath(undo: Record<string, unknown>): Promise<bo
   if (!actor) return false;
   await setCondition(actor, "doomed", data.doomedBefore);
   await actor.update({ "system.attributes.hp.value": data.hpBefore });
+  if (data.dyingBefore > 0) {
+    // Restored dying grants its own unconscious: drop the one added when the character stabilized.
+    const extra = (actor.itemTypes?.condition ?? []).filter(
+      (c: ItemPF2e) => c.slug === "unconscious" && !c.flags?.pf2e?.grantedBy,
+    );
+    for (const c of extra) await c.delete();
+  }
   await setCondition(actor, "dying", data.dyingBefore);
   if (!data.unconsciousBefore && data.dyingBefore <= 0) {
     const unconscious = condition(actor, "unconscious");
@@ -207,12 +214,40 @@ export async function undoMythicDeath(undo: Record<string, unknown>): Promise<bo
   return true;
 }
 
+/** Marks the death cards of a ledger entry as undone (removes their Undo button). */
+async function markCardsUndone(ledgerId: string): Promise<void> {
+  for (const message of game.messages?.contents ?? []) {
+    const flag = cardFlag(message) as DeathFlag | null;
+    if (flag?.kind !== "death" || flag.ledgerId !== ledgerId || flag.status !== "applied") continue;
+    const next: DeathFlag = { ...flag, status: "undone" };
+    await updateCard(message, TEMPLATE, cardData(next), next);
+  }
+}
+
+/**
+ * GM only. Undoes a mythic death ledger entry: restores the actor, marks the entry and its chat cards
+ * undone. Used by the card's Undo button and the Mythic Console ledger, so either one undoes it once.
+ */
+export async function undoDeathEntry(ledgerId: string): Promise<boolean> {
+  if (!game.user.isGM) return false;
+  const entry = getLedger().find((e) => e.id === ledgerId);
+  if (!entry || entry.undone || !entry.undo) return false;
+  if (!(await undoMythicDeath(entry.undo))) return false;
+  await markUndone(ledgerId);
+  await markCardsUndone(ledgerId);
+  return true;
+}
+
 async function onUndo(message: Doc): Promise<void> {
   const flag = cardFlag(message) as DeathFlag | null;
   if (!game.user.isGM || flag?.kind !== "death" || flag.status !== "applied") return;
   try {
+    if (flag.ledgerId) {
+      // Already undone from the console: just bring the card up to date.
+      if (!(await undoDeathEntry(flag.ledgerId))) await markCardsUndone(flag.ledgerId);
+      return;
+    }
     if (!(await undoMythicDeath(flag.undo))) return;
-    if (flag.ledgerId) await markUndone(flag.ledgerId);
     const next: DeathFlag = { ...flag, status: "undone" };
     await updateCard(message, TEMPLATE, cardData(next), next);
   } catch (error) {

@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.1.1
+
+Fixes from a two-client live test (GM + player).
+
+- Calling daily regain: checks rolled against a DC instead of a target statistic (Recall Knowledge against
+  a creature) now use the roller's target, so the card names the creature and Sage's or Hunter's Calling
+  no longer asks the GM to confirm the target is an enemy.
+- Mythic death: the Mythic Console ledger offers Undo on mythic death entries, not only on points
+  entries. Undo from the console or the chat card restores the character once and updates both.
+- Mythic death undo no longer leaves a second Unconscious (and Blinded) condition when dying comes back.
+- Mythic feat requests resolved from the Mythic Console no longer leave live Approve / Reject buttons on
+  the GM chat card.
+- The grant card's **Choose Calling** button disappears once the character has a Calling.
+
 ## 0.1.0
 
 First release.

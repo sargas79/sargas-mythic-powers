@@ -108,6 +108,19 @@ function isEnemy(actor: ActorPF2e, target: ActorPF2e, token: Doc): boolean {
   return token?.disposition === hostile;
 }
 
+/**
+ * PF2e leaves `context.target` empty on checks rolled against a DC rather than a target statistic (Recall
+ * Knowledge uses the target's identification DC). The roller's targets are broadcast, so a single target
+ * of the message author stands in.
+ */
+function authorTarget(message: Doc): { actor: ActorPF2e; token: Doc } | null {
+  const targets = Array.from(message.author?.targets ?? []) as Doc[];
+  if (targets.length !== 1) return null;
+  const token = targets[0]?.document ?? null;
+  const actor = targets[0]?.actor ?? token?.actor ?? null;
+  return actor ? { actor, token } : null;
+}
+
 async function onCreateMessage(message: Doc): Promise<void> {
   const context = message?.flags?.pf2e?.context;
   if (!context || context.outcome !== "criticalSuccess") return;
@@ -118,7 +131,7 @@ async function onCreateMessage(message: Doc): Promise<void> {
   if (!calling) return;
   const slug = calling.slug || calling.system?.slug || callingSlug(calling.name);
 
-  const target = message.target ?? null;
+  const target = message.target ?? authorTarget(message);
   const targetActor = target?.actor ?? null;
   const inCombat = !!game.combat?.started && !!game.combat.combatants?.some((c: Doc) => c.actor === actor);
   const match = regainMatches(slug, {

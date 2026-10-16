@@ -66,10 +66,27 @@ function onRenderMessage(message: { flags?: Record<string, Record<string, unknow
   });
 }
 
+/**
+ * Re-renders the GM request cards of an actor whose pending queue changed, so a request resolved elsewhere
+ * (the Mythic Console, another GM) stops showing live Approve / Reject buttons.
+ */
+function onUpdateActor(actor: ActorPF2e, changes: Record<string, unknown>): void {
+  if (!game.user.isGM) return;
+  if (foundry.utils.getProperty(changes ?? {}, `flags.${MODULE_ID}`) === undefined) return;
+  const pendingIds = new Set(getState(actor).pending.map((p) => p.id));
+  for (const message of game.messages?.contents ?? []) {
+    const flag = message?.flags?.[MODULE_ID]?.featRequest as RequestCardFlag | undefined;
+    if (!flag || flag.actorUuid !== actor.uuid || pendingIds.has(flag.pendingId)) continue;
+    const live = document.querySelector(`[data-message-id="${message.id}"] .smp-feat-request .smp-buttons`);
+    if (live) ui.chat?.updateMessage?.(message);
+  }
+}
+
 export const feature: Feature = {
   id: "approval",
   register() {
     registerFeatRequestActions();
     Hooks.on("renderChatMessageHTML", onRenderMessage);
+    Hooks.on("updateActor", onUpdateActor);
   },
 };

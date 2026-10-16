@@ -78,6 +78,9 @@ window logged in as a test user).
       other enabled mythic characters. **Award**, **Change killer…** and **Ignore** work. Players see nothing.
 - [ ] Critical success with a Calling action (first time that in-game day): a card offers +1 point to the GM
       and the owner. A second critical success the same day doesn't prompt.
+      Recall Knowledge only has a DC (and an outcome) when rolled with a skill that identifies the target
+      (Nature for an animal). It is a secret check: by default only the GM gets the card; roll it publicly to
+      check the player's **Restore** button.
 - [ ] Mythic death on: A reaching dying 4 gains doomed +1 and stabilizes at 0 HP with a chat card; ledger
       undo works. Off: PF2e's normal dying applies.
 - [ ] Hero Points for non-mythic characters on: a mythic award gives C a Hero Point; the card doesn't

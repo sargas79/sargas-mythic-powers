@@ -67,6 +67,8 @@ export interface UndoCandidate {
   kind: string;
   undone?: boolean;
   pointsBefore?: number;
+  actorUuid?: string | null;
+  undo?: Record<string, unknown> | null;
 }
 
 /**
@@ -77,6 +79,23 @@ export function undoableEntryId(entries: readonly UndoCandidate[]): string | nul
   const newest = entries.find((e) => e.kind === "points" && !e.undone);
   if (!newest || typeof newest.pointsBefore !== "number") return null;
   return newest.id;
+}
+
+/**
+ * Ids of every ledger entry the console offers Undo on: the points entry from `undoableEntryId`, plus each
+ * character's newest mythic death entry when it isn't undone and carries its undo record. Newest first.
+ */
+export function undoableEntryIds(entries: readonly UndoCandidate[]): Set<string> {
+  const ids = new Set<string>();
+  const points = undoableEntryId(entries);
+  if (points) ids.add(points);
+  const seen = new Set<string>();
+  for (const e of entries) {
+    if (e.kind !== "death" || !e.actorUuid || seen.has(e.actorUuid)) continue;
+    seen.add(e.actorUuid);
+    if (!e.undone && e.undo?.type === "mythicDeath") ids.add(e.id);
+  }
+  return ids;
 }
 
 /** Initials for an avatar fallback. */
