@@ -108,6 +108,14 @@ window logged in as a test user).
       next one. Releasing when caught up shows a notice and changes nothing.
 - [ ] Level the character to 8: slot 8 opens normally even while catch-up slots are still locked.
 
+## Several GM tabs
+
+- [ ] GM: open the world in a second tab as the same Gamemaster user and wait a few seconds.
+- [ ] Player1: request a mythic feat. The GM gets exactly one request card and the character one pending pick;
+      the browser console shows `socket smp.requestFeat` in only one GM tab.
+- [ ] GM: close the older GM tab. Player1 requests again: one card arrives within about three seconds and
+      the remaining tab logs `gm election: ... taking over`. A further request is answered at once.
+
 ## Release install
 
 - [ ] In a clean Foundry 14 + PF2e world, install from

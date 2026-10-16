@@ -6,7 +6,7 @@
 import { MODULE_ID } from "../constants.js";
 import { esc, notify, t } from "../foundry/i18n.js";
 import { getSetting } from "../foundry/settings.js";
-import { isActiveGM } from "../foundry/socket.js";
+import { onceAsActiveGM } from "../foundry/socket.js";
 import { ASSIST_AWARD, KILLER_AWARD } from "../rules/awards.js";
 import { activeMythicCharacters, awardKill } from "../services/points.js";
 import { isMythicActive } from "../state/flags.js";
@@ -148,7 +148,8 @@ async function promptKill(actor: ActorPF2e): Promise<void> {
 }
 
 function onUpdateActor(actor: ActorPF2e, changes: Record<string, unknown>): void {
-  if (!isActiveGM() || !getSetting("killPrompt")) return;
+  // Every GM client tracks the defeated set; only one of them prompts (keyed on this update).
+  if (!game.user.isGM || !getSetting("killPrompt")) return;
   if (actor?.type !== "npc") return;
   if (foundry.utils.getProperty(changes ?? {}, "system.attributes.hp.value") === undefined) return;
   const key = actor.uuid;
@@ -158,8 +159,11 @@ function onUpdateActor(actor: ActorPF2e, changes: Record<string, unknown>): void
   }
   if (defeated.has(key) || !isMythicNpc(actor) || !inCombat(actor)) return;
   defeated.add(key);
+  const once = `kill:${key}:${actor._stats?.modifiedTime ?? ""}`;
   setTimeout(() => {
-    promptKill(actor).catch((error) => notify.error("automation.kill.failed", {}, error));
+    onceAsActiveGM(once, () => promptKill(actor)).catch((error) =>
+      notify.error("automation.kill.failed", {}, error),
+    );
   }, LAST_BLOW_DELAY);
 }
 

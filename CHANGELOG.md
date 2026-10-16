@@ -1,5 +1,12 @@
 # Changelog
 
+## Unreleased
+
+- A GM with the game open in two tabs (or two browsers) no longer gets every GM action twice. The GM's
+  clients elect one of them to run socket requests and the GM-only automation (feat requests, daily regain
+  and mythic kill prompts, first-Calling points). When that tab closes, another takes over within about
+  three seconds.
+
 ## 0.1.1
 
 Fixes from a two-client live test (GM + player).

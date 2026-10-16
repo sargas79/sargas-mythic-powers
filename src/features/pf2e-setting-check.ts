@@ -6,7 +6,7 @@
 import { PF2E } from "../constants.js";
 import { notify, t } from "../foundry/i18n.js";
 import { getPf2eMythicMode } from "../foundry/settings.js";
-import { isActiveGM } from "../foundry/socket.js";
+import { gmElectionSettled, isActiveGM } from "../foundry/socket.js";
 import { getState, isCharacter } from "../state/flags.js";
 import type { Feature } from "./types.js";
 
@@ -39,22 +39,26 @@ async function offerEnable(usesTrials: boolean): Promise<void> {
   notify.info("settingCheck.enabled");
 }
 
+async function checkSetting(): Promise<void> {
+  if (!isActiveGM()) return;
+  const mode = getPf2eMythicMode();
+  const trials = trialActors();
+  if (mode === "disabled") {
+    await offerEnable(trials.length > 0);
+    return;
+  }
+  if (trials.length && mode !== "variant-tiers") {
+    ui.notifications?.warn(t("settingCheck.trialsWarning", { names: trials.map((a) => a.name).join(", ") }), {
+      permanent: true,
+    });
+  }
+}
+
 export const feature: Feature = {
   id: "pf2e-setting-check",
   register() {},
-  async ready() {
-    if (!isActiveGM()) return;
-    const mode = getPf2eMythicMode();
-    const trials = trialActors();
-    if (mode === "disabled") {
-      await offerEnable(trials.length > 0);
-      return;
-    }
-    if (trials.length && mode !== "variant-tiers") {
-      ui.notifications?.warn(
-        t("settingCheck.trialsWarning", { names: trials.map((a) => a.name).join(", ") }),
-        { permanent: true },
-      );
-    }
+  ready() {
+    // Wait for the GM clients to elect one, without holding up the other features' ready.
+    if (game.user.isGM) void gmElectionSettled().then(checkSetting);
   },
 };
