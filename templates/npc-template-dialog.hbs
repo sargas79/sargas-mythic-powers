@@ -1,0 +1,63 @@
+<div class="smp-npct">
+  {{#if bestiary}}
+  <p class="smp-npct-note"><i class="fa-solid fa-circle-info"></i> {{bestiaryNote}}</p>
+  {{else if applied}}
+  <p class="smp-npct-note"><i class="fa-solid fa-dragon"></i> {{appliedNote}}</p>
+  {{#if appliedItems.length}}
+  <ul class="smp-npct-applied">
+    {{#each appliedItems}}
+    <li>{{this}}</li>
+    {{/each}}
+  </ul>
+  {{/if}}
+  {{else}}
+  <p class="smp-npct-intro">{{intro}}</p>
+  {{#unless hasSteps}}
+  <p class="hint">{{localize "sargas-mythic-powers.npcTemplate.dialog.noSteps"}}</p>
+  {{/unless}}
+  {{#each steps}}
+  <fieldset class="smp-npct-step">
+    <legend>{{label}}</legend>
+    {{#if single}}
+    <input type="radio" name="{{id}}.option" value="{{options.0.value}}" checked hidden>
+    <span class="smp-npct-fixed">{{singleLabel}}</span>
+    {{else}}
+    <div class="smp-npct-options">
+      {{#each options}}
+      <label class="smp-npct-radio">
+        <input type="radio" name="{{../id}}.option" value="{{value}}" {{checked checked}}>
+        <span>{{label}}</span>
+      </label>
+      {{/each}}
+    </div>
+    {{/if}}
+    {{#if hasSave}}
+    <div class="smp-npct-sub" data-save-for="{{id}}">
+      <label>{{localize "sargas-mythic-powers.npcTemplate.dialog.save"}}</label>
+      <select name="{{id}}.save">
+        {{#each saves}}
+        <option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>
+        {{/each}}
+      </select>
+    </div>
+    {{/if}}
+    {{#if skillSelects.length}}
+    <div class="smp-npct-sub" data-skills-for="{{id}}">
+      <label>{{localize "sargas-mythic-powers.npcTemplate.dialog.skills"}}</label>
+      {{#each skillSelects}}
+      <select name="{{step}}.skill{{index}}" data-skill-step="{{step}}">
+        {{#each options}}
+        <option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>
+        {{/each}}
+      </select>
+      {{/each}}
+    </div>
+    {{/if}}
+  </fieldset>
+  {{/each}}
+  <fieldset class="smp-npct-summary">
+    <legend>{{localize "sargas-mythic-powers.npcTemplate.dialog.summary"}}</legend>
+    <div class="smp-npct-summary-list"></div>
+  </fieldset>
+  {{/if}}
+</div>

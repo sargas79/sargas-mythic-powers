@@ -21,6 +21,7 @@ import {
 import { lateStartOwed, tierAboveHalfLevel, tierForTrials, trialsToNextTier } from "../rules/progression.js";
 import { undoDeathEntry } from "../features/mythic-death.js";
 import { loadCallings } from "../services/callings.js";
+import { encounterSection, onEncounterPip } from "../services/npc-points.js";
 import { approvePending, rejectPending } from "../services/feat-requests.js";
 import { disableMythic, enableMythic, openGrantDialog, revokeMythic } from "../services/mythic-service.js";
 import {
@@ -154,6 +155,7 @@ function buildContext(): Record<string, unknown> {
   const startedAt = sessionStartedAt();
   return {
     rows: consoleActors().map(buildRow),
+    encounter: encounterSection(),
     session: currentSession(),
     sessionLabel: startedAt
       ? t("console.toolbar.sessionStarted", { session: currentSession(), time: formatTime(startedAt) })
@@ -364,6 +366,9 @@ async function handleAction(action: string, target: HTMLElement): Promise<void> 
     case "undo":
       if (target.dataset.entryId) await undoEntry(target.dataset.entryId);
       return;
+    case "npcPip":
+      await onEncounterPip(target);
+      return;
   }
 }
 
@@ -385,6 +390,7 @@ const ACTIONS = [
   "kill",
   "sources",
   "undo",
+  "npcPip",
 ] as const;
 
 function consoleClass(): any {

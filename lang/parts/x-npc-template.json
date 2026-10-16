@@ -1,0 +1,87 @@
+{
+  "sargas-mythic-powers": {
+    "npcTemplate": {
+      "menu": {
+        "make": "Make Mythic…",
+        "remove": "Remove Mythic Template"
+      },
+      "header": {
+        "label": "Mythic"
+      },
+      "dialog": {
+        "title": "Make Mythic: {name}",
+        "intro": "Mythic monster template for {name} (level {level}). Choose the basic mythic abilities for each level step.",
+        "noSteps": "This creature is below level 1: it gains only the mythic trait and Mythic Points.",
+        "save": "Save",
+        "skills": "Skills",
+        "summary": "Will be added",
+        "apply": "Make Mythic",
+        "remove": "Remove Mythic Template",
+        "appliedNote": "{name} has the mythic template (applied at level {level}). Removing it deletes these abilities and the mythic trait if the template added it.",
+        "bestiaryNote": "{name} is already mythic (it has the mythic trait from its statistics). The template is only for non-mythic creatures, so nothing will be changed."
+      },
+      "steps": {
+        "l1": "Level {level}: Mythic defense",
+        "l4": "Level {level}: Mythic Power",
+        "l7": "Level {level}: Mythic defense",
+        "l10": "Level {level}: Mythic Power",
+        "l13": "Level {level}: Mythic defense",
+        "l17": "Level {level}: Mythic Power",
+        "l20": "Level {level}: Mythic Power",
+        "l23": "Level {level}: Mythic Immunity"
+      },
+      "options": {
+        "resilience": "Mythic Resilience (one save)",
+        "resistance": "Mythic Resistance",
+        "skill": "Mythic Skill",
+        "removeCondition": "Remove a Condition",
+        "recharge": "Recharge",
+        "rechargeSpell": "Recharge Spell",
+        "undyingMyth": "Undying Myth",
+        "reroll": "Reroll",
+        "defenses": "Mythic Defenses",
+        "strikes": "Strikes",
+        "spells": "Spells",
+        "both": "Strikes and spells (level 25 creatures)"
+      },
+      "immunity": {
+        "strikes": "Strikes",
+        "spells": "Spells"
+      },
+      "labels": {
+        "resistance": "Mythic Resistance (non-mythic Strikes)",
+        "strikes": "Mythic Immunity (non-mythic Strikes)",
+        "spells": "Mythic Immunity (spells from non-mythic creatures)"
+      },
+      "summary": {
+        "power": "Mythic Power (3 Mythic Points)",
+        "resilience": "Mythic Resilience: {saves}",
+        "resistance": "Mythic Resistance {value} against Strikes from non-mythic creatures",
+        "skill": "Mythic Skill: {skills}",
+        "skillAny": "Mythic Skill (any skill: the NPC lists no skills)",
+        "immunity": "Mythic Immunity: {kinds}",
+        "trait": "The mythic trait",
+        "points": "Mythic Points set to 3"
+      },
+      "remove": {
+        "title": "Remove Mythic Template: {name}",
+        "content": "Remove the mythic abilities the template added to {name}?"
+      },
+      "notify": {
+        "applied": "{name} is now mythic.",
+        "removed": "Removed the mythic template from {name}."
+      },
+      "ledger": {
+        "apply": "{name}: mythic template applied (level {level}): {abilities}.",
+        "remove": "{name}: mythic template removed ({count} abilities deleted)."
+      },
+      "errors": {
+        "notNpc": "The mythic template is only for NPCs.",
+        "applied": "{name} already has the mythic template.",
+        "notApplied": "{name} doesn't have the mythic template.",
+        "bestiary": "{name} is already mythic from its statistics; the template was not applied.",
+        "failed": "Mythic template for {name} failed. See the console for details."
+      }
+    }
+  }
+}

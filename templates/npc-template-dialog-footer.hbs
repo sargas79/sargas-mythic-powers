@@ -1,0 +1,12 @@
+<footer class="form-footer smp-npct-footer">
+  <button type="button" data-action="close">{{localize "Cancel"}}</button>
+  {{#if applied}}
+  <button type="button" data-action="remove" class="smp-npct-remove">
+    <i class="fa-solid fa-trash"></i> {{localize "sargas-mythic-powers.npcTemplate.dialog.remove"}}
+  </button>
+  {{else}}
+  <button type="submit" class="smp-npct-submit" {{disabled (not canApply)}}>
+    <i class="fa-solid fa-dragon"></i> {{localize "sargas-mythic-powers.npcTemplate.dialog.apply"}}
+  </button>
+  {{/if}}
+</footer>

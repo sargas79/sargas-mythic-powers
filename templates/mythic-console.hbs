@@ -134,6 +134,47 @@
       </tbody>
     </table>
 
+    {{#if encounter}}
+      <section class="smp-npc-encounter">
+        <h3>{{encounter.title}}</h3>
+        <table class="smp-console-table">
+          <thead>
+            <tr>
+              <th>{{encounter.cols.creature}}</th>
+              <th>{{encounter.cols.points}}</th>
+              <th>{{encounter.cols.abilities}}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each encounter.rows}}
+              <tr class="smp-npc-encounter-row" data-npc-uuid="{{uuid}}">
+                <td>
+                  <div class="smp-console-who">
+                    {{#if img}}<img class="smp-console-ava" src="{{img}}" alt="">{{/if}}
+                    <div>
+                      <span class="smp-console-name">{{name}}</span>
+                      <div class="smp-console-muted">{{levelLabel}}</div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <span class="smp-pips smp-console-pips" aria-label="{{pointsLabel}}" data-tooltip="{{pointsLabel}}">
+                    {{#each pips}}
+                      <button type="button" class="smp-pip {{#if on}}on{{/if}}" data-action="npcPip" data-value="{{value}}"
+                        aria-label="{{value}}"></button>
+                    {{/each}}
+                  </span>
+                </td>
+                <td>
+                  {{#each abilities}}<span class="smp-npc-ability">{{this}}</span>{{else}}<span class="smp-console-muted">{{noAbilities}}</span>{{/each}}
+                </td>
+              </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </section>
+    {{/if}}
+
     <section class="smp-console-ledger">
       <h3>{{localize "sargas-mythic-powers.console.ledger.title"}}</h3>
       {{#each ledger}}

@@ -1,0 +1,69 @@
+{
+  "sargas-mythic-powers": {
+    "npcMythic": {
+      "speaker": "Mythic foe",
+      "reroll": {
+        "label": "Reroll (Mythic Point)"
+      },
+      "reason": {
+        "reroll": "Reroll",
+        "skill": "Mythic Skill",
+        "removed": "{ability}: removed {condition}",
+        "combat": "combat start",
+        "set": "set by the GM",
+        "reset": "reset to max"
+      },
+      "ledger": {
+        "spent": "{name} (NPC): spent 1 Mythic Point on {reason} ({before} → {after})",
+        "set": "{name} (NPC): Mythic Points {before} → {after} ({reason})",
+        "undying": "{name} (NPC): Undying Myth, back up with {hp} HP (Mythic Points {before} → 0)"
+      },
+      "skill": {
+        "noPoints": "{name} used Mythic Skill with no Mythic Points left. The +4 bonus should not apply; the toggle was turned off."
+      },
+      "spend": {
+        "label": "Spend Mythic Point",
+        "tooltip": "GM only: spend 1 of this creature's Mythic Points on this ability.",
+        "used": "Mythic Point spent.",
+        "usedRemoved": "Mythic Point spent: removed {condition}."
+      },
+      "remove": {
+        "title": "Remove a Condition: {name}",
+        "label": "Condition",
+        "ok": "Remove and spend 1 point"
+      },
+      "undying": {
+        "title": "Undying Myth",
+        "body": "{name} dropped to 0 HP. Undying Myth: stand up with {hp} HP (spends all Mythic Points).",
+        "use": "Use",
+        "fall": "Let it fall",
+        "used": "{name} stood back up with {hp} HP.",
+        "fell": "{name} fell."
+      },
+      "defenses": {
+        "title": "Mythic Defenses",
+        "body": "{attacker} critically hit {target}. Mythic Defenses: the attack must be rerolled.",
+        "reroll": "Reroll attack",
+        "ignore": "Ignore",
+        "rerolled": "The attack was rerolled.",
+        "ignored": "Ignored."
+      },
+      "console": {
+        "title": "Encounter: mythic creatures",
+        "creature": "Creature",
+        "points": "Mythic Points",
+        "abilities": "Mythic abilities",
+        "level": "Level {level}",
+        "pointsLabel": "{value}/{max} Mythic Points",
+        "noAbilities": "No mythic abilities found"
+      },
+      "notify": {
+        "noPoints": "{name} has no Mythic Points left.",
+        "noConditions": "{name} has no condition to remove.",
+        "attackGone": "The attack message no longer exists.",
+        "actorGone": "{name} no longer exists.",
+        "failed": "Mythic Powers: a mythic NPC action failed. See the console for details."
+      }
+    }
+  }
+}

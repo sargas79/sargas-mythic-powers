@@ -14,6 +14,9 @@ export interface SettingTypes {
   heroPointsMixed: boolean;
   callingSources: string[];
   lateStartPerSession: number;
+  npcResetOnCombat: boolean;
+  undyingPrompt: boolean;
+  defensesPrompt: boolean;
   session: number;
   sessionStartedAt: number;
   ledger: LedgerEntry[];
@@ -49,6 +52,9 @@ export function registerSettings(): void {
   bool(SETTINGS.regainPrompt, true);
   bool(SETTINGS.mythicDeath, false);
   bool(SETTINGS.heroPointsMixed, false);
+  bool(SETTINGS.npcResetOnCombat, true);
+  bool(SETTINGS.undyingPrompt, true);
+  bool(SETTINGS.defensesPrompt, true);
   reg(SETTINGS.lateStartPerSession, {
     name: `${MODULE_ID}.settings.lateStartPerSession.name`,
     hint: `${MODULE_ID}.settings.lateStartPerSession.hint`,

@@ -1,0 +1,11 @@
+<div class="smp-npc-spend">
+  {{#if used}}
+    <p class="smp-npc-spend-used"><i class="fa-solid fa-circle-m"></i> {{usedText}}</p>
+  {{else}}
+    <button type="button" class="smp-npc-spend-btn" data-smp-npc-spend {{#unless canSpend}}disabled{{/unless}}
+      data-tooltip="{{tooltip}}">
+      <i class="fa-solid fa-circle-m"></i> {{label}}
+    </button>
+    <span class="smp-npc-spend-points">{{pointsLabel}}</span>
+  {{/if}}
+</div>

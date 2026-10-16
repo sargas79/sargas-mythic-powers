@@ -111,18 +111,40 @@ Every automation asks the GM first and never applies on its own.
 - **Hero Points for non-mythic characters** (mixed play): whenever mythic characters gain Mythic Points from
   a kill or deed, each other character gains a Hero Point.
 
+### Mythic NPCs
+
+Mythic monster rules from _War of Immortals_ (Mythic Monster Templates and Basic Mythic Abilities).
+
+- **Make Mythic** (GM): right-click an NPC in the Actors directory, or use the **Mythic** button on its sheet. The
+  dialog walks through the ability table for the creature's level (resilience or resistance at 1, 7 and 13; Mythic
+  Skill or Remove a Condition at 4; Recharge at 10; Undying Myth at 17; Reroll or Mythic Defenses at 20; Mythic
+  Immunity at 23+), with the usual picks preselected. It adds the `mythic` trait, PF2e's own mythic ability items
+  trimmed to your choices, and 3 Mythic Points. Mythic Resistance and Mythic Immunity apply only to Strikes (and,
+  for immunity, harmful spells) from non-mythic creatures and weapons. **Remove Mythic Template** undoes it.
+  Creatures that are already mythic in the bestiary are left as they are.
+- **Spending NPC Mythic Points** (GM): right-click a mythic NPC's failed check and choose **Reroll (Mythic Point)**;
+  Mythic Skill spends its point automatically when the toggle is on; Recharge and Remove a Condition cards get a
+  **Spend Mythic Point** button. Mythic NPCs go back to full Mythic Points when a combat starts.
+- **Undying Myth**: when a mythic NPC with Undying Myth and at least 1 Mythic Point drops to 0 HP, the GM gets a
+  card to stand it back up with half its HP for all its points. The mythic kill prompt waits for that answer.
+- **Mythic Defenses**: a critical hit against a creature with Mythic Defenses prompts the GM to reroll the attack.
+- The **Mythic Console** lists the mythic NPCs in the current combat, with their points and abilities.
+
 ### Settings
 
-| Setting                                | Default                     | What it does                                                                       |
-| -------------------------------------- | --------------------------- | ---------------------------------------------------------------------------------- |
-| Grant announcement                     | Whisper to the owners       | Who sees the card when you grant or enable mythic power (always plus the GM).      |
-| Require GM approval for mythic feats   | Off                         | Players' mythic feat picks are sent to the GM to approve.                          |
-| Prompt on mythic creature defeat       | On                          | Suggests 2 / 1 Mythic Points when a mythic creature is defeated.                   |
-| Calling daily regain prompts           | On                          | Offers 1 Mythic Point on the first critical success each day with Calling actions. |
-| Mythic death rules                     | Off                         | Doomed instead of dying 4; death at doomed 4.                                      |
-| Hero Points for non-mythic characters  | Off                         | Mixed play: a Hero Point to each non-mythic character on mythic awards.            |
-| Late start: feats released per session | 1                           | Catch-up slots released at each Start Session (1-5).                               |
-| Allowed Calling sources (console menu) | Pathfinder War of Immortals | Source books offered in the Calling picker.                                        |
+| Setting                                          | Default                     | What it does                                                                       |
+| ------------------------------------------------ | --------------------------- | ---------------------------------------------------------------------------------- |
+| Grant announcement                               | Whisper to the owners       | Who sees the card when you grant or enable mythic power (always plus the GM).      |
+| Require GM approval for mythic feats             | Off                         | Players' mythic feat picks are sent to the GM to approve.                          |
+| Prompt on mythic creature defeat                 | On                          | Suggests 2 / 1 Mythic Points when a mythic creature is defeated.                   |
+| Calling daily regain prompts                     | On                          | Offers 1 Mythic Point on the first critical success each day with Calling actions. |
+| Mythic death rules                               | Off                         | Doomed instead of dying 4; death at doomed 4.                                      |
+| Hero Points for non-mythic characters            | Off                         | Mixed play: a Hero Point to each non-mythic character on mythic awards.            |
+| Late start: feats released per session           | 1                           | Catch-up slots released at each Start Session (1-5).                               |
+| Allowed Calling sources (console menu)           | Pathfinder War of Immortals | Source books offered in the Calling picker.                                        |
+| Mythic NPCs: reset Mythic Points at combat start | On                          | Mythic NPCs in a combat go back to full Mythic Points when it starts.              |
+| Mythic NPCs: Undying Myth prompt                 | On                          | Asks the GM about Undying Myth when a mythic NPC drops to 0 HP.                    |
+| Mythic NPCs: Mythic Defenses prompt              | On                          | Asks the GM to reroll a critical hit against a creature with Mythic Defenses.      |
 
 ## Player guide
 
@@ -142,25 +164,28 @@ Every automation asks the GM first and never applies on its own.
 `game.modules.get("sargas-mythic-powers").api` exposes these functions for macros and other modules. Every
 function that changes state is GM only.
 
-| Function                             | Description                                                             |
-| ------------------------------------ | ----------------------------------------------------------------------- |
-| `getState(actor)`                    | The module's mythic state for the actor.                                |
-| `isGranted(actor)`                   | Granted (enabled or disabled).                                          |
-| `isMythicActive(actor)`              | Granted and enabled: the test for showing anything mythic.              |
-| `grantMythic(actor, options)`        | Grants mythic power (`source`, `progression`, `callingChoice`, …).      |
-| `enableMythic(actor)`                | Restores suspended mythic power.                                        |
-| `disableMythic(actor)`               | Suspends mythic power, keeping the choices.                             |
-| `revokeMythic(actor, { confirm })`   | Removes mythic power for good.                                          |
-| `openGrantDialog(actor)`             | Opens the Grant Mythic Power dialog.                                    |
-| `openCallingPicker(actor)`           | Opens the Calling picker.                                               |
-| `openFeatPicker(actor, slotId)`      | Opens the mythic feat picker for a slot (`mythic-4`, …).                |
-| `openMythicConsole()`                | Opens the Mythic Console.                                               |
-| `changePoints(actor, kind, options)` | Changes Mythic Points (edict, anathema, custom, …) with a ledger entry. |
-| `startSession()`                     | Every enabled mythic character to 3 and the session counter +1.         |
-| `awardDeed(reason?)`                 | +3 to every enabled mythic character.                                   |
-| `awardKill(killer, defeatedName)`    | 2 to the killer, 1 to every other enabled mythic character.             |
-| `logTrial(actor, note)`              | Logs a mythic trial and raises the tier when earned.                    |
-| `releaseLateStart(actor, count?)`    | Releases late-start catch-up slots (default: the per-session setting).  |
+| Function                              | Description                                                             |
+| ------------------------------------- | ----------------------------------------------------------------------- |
+| `getState(actor)`                     | The module's mythic state for the actor.                                |
+| `isGranted(actor)`                    | Granted (enabled or disabled).                                          |
+| `isMythicActive(actor)`               | Granted and enabled: the test for showing anything mythic.              |
+| `grantMythic(actor, options)`         | Grants mythic power (`source`, `progression`, `callingChoice`, …).      |
+| `enableMythic(actor)`                 | Restores suspended mythic power.                                        |
+| `disableMythic(actor)`                | Suspends mythic power, keeping the choices.                             |
+| `revokeMythic(actor, { confirm })`    | Removes mythic power for good.                                          |
+| `openGrantDialog(actor)`              | Opens the Grant Mythic Power dialog.                                    |
+| `openCallingPicker(actor)`            | Opens the Calling picker.                                               |
+| `openFeatPicker(actor, slotId)`       | Opens the mythic feat picker for a slot (`mythic-4`, …).                |
+| `openMythicConsole()`                 | Opens the Mythic Console.                                               |
+| `changePoints(actor, kind, options)`  | Changes Mythic Points (edict, anathema, custom, …) with a ledger entry. |
+| `startSession()`                      | Every enabled mythic character to 3 and the session counter +1.         |
+| `awardDeed(reason?)`                  | +3 to every enabled mythic character.                                   |
+| `awardKill(killer, defeatedName)`     | 2 to the killer, 1 to every other enabled mythic character.             |
+| `logTrial(actor, note)`               | Logs a mythic trial and raises the tier when earned.                    |
+| `releaseLateStart(actor, count?)`     | Releases late-start catch-up slots (default: the per-session setting).  |
+| `openNpcTemplateDialog(actor)`        | Opens the Make Mythic dialog for an NPC.                                |
+| `applyMythicTemplate(actor, choices)` | Applies the mythic monster template (empty choices = the defaults).     |
+| `removeMythicTemplate(actor)`         | Removes what the template added.                                        |
 
 ## Development
 

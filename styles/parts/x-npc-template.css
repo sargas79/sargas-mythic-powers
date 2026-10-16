@@ -1,0 +1,80 @@
+/* Make Mythic NPC template dialog (agent X). */
+.smp-npct-dialog .smp-npct {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.smp-npct-dialog fieldset {
+  border: 1px solid var(--smp-line);
+  border-radius: 4px;
+  padding: 6px 8px;
+  margin: 0;
+}
+.smp-npct-dialog legend {
+  font-weight: 700;
+  color: var(--smp-myth-2);
+  padding: 0 4px;
+}
+.smp-npct-dialog .smp-npct-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+}
+.smp-npct-dialog .smp-npct-radio {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.smp-npct-dialog .smp-npct-fixed {
+  font-weight: 600;
+}
+.smp-npct-dialog .smp-npct-sub {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+}
+.smp-npct-dialog .smp-npct-sub[hidden] {
+  display: none;
+}
+.smp-npct-dialog .smp-npct-sub label {
+  flex: 0 0 auto;
+  color: var(--smp-muted);
+}
+.smp-npct-dialog .smp-npct-sub select {
+  flex: 1 1 0;
+  min-width: 0;
+}
+.smp-npct-dialog .smp-npct-note {
+  border-left: 3px solid var(--smp-myth);
+  background: var(--smp-myth-soft);
+  color: #2b1d3d;
+  padding: 6px 8px;
+  margin: 0;
+  border-radius: 3px;
+}
+.smp-npct-dialog .smp-npct-intro {
+  margin: 0;
+}
+.smp-npct-dialog .smp-npct-summary ul,
+.smp-npct-dialog .smp-npct-applied {
+  margin: 0;
+  padding-left: 18px;
+}
+.smp-npct-dialog .smp-npct-remove {
+  color: var(--smp-bad);
+}
+
+/* Keep the dialog inside the screen: the steps scroll, the footer stays visible. */
+.smp-npct-dialog {
+  max-height: calc(100vh - 32px);
+}
+.smp-npct-dialog .window-content {
+  overflow-y: auto;
+}
+.smp-npct-dialog .window-content > .form-footer {
+  position: sticky;
+  bottom: 0;
+  padding-block: 8px;
+  background: var(--background, #1c1a24);
+}
