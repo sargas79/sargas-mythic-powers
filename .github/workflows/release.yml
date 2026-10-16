@@ -1,0 +1,65 @@
+name: Release
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Release tag to create (e.g. v0.1.0); created on the current commit if it does not exist"
+        required: true
+        type: string
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Check tag matches package.json and CHANGELOG.md
+        env:
+          TAG: ${{ inputs.tag || github.ref_name }}
+        run: |
+          VERSION="${TAG#v}"
+          PKG_VERSION="$(jq -r .version package.json)"
+          if [ "$VERSION" != "$PKG_VERSION" ]; then
+            echo "::error::Tag $TAG (version $VERSION) does not match package.json version $PKG_VERSION"
+            exit 1
+          fi
+          if ! grep -qxF "## $VERSION" CHANGELOG.md; then
+            echo "::error::CHANGELOG.md has no '## $VERSION' heading"
+            exit 1
+          fi
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npm run format:check
+      - run: npm test
+      # Merges lang/parts and styles/parts into lang/en.json and styles/mythic.css, then builds dist/.
+      - run: npm run build
+      - name: Stamp version and download URL from the tag
+        env:
+          TAG: ${{ inputs.tag || github.ref_name }}
+        run: |
+          VERSION="${TAG#v}"
+          DOWNLOAD="https://github.com/sargas79/sargas-mythic-powers/releases/download/${TAG}/sargas-mythic-powers.zip"
+          jq --arg v "$VERSION" --arg d "$DOWNLOAD" '.version = $v | .download = $d' module.json > module.json.tmp && mv module.json.tmp module.json
+          cat module.json
+      - name: Package module
+        run: |
+          mkdir -p package/sargas-mythic-powers
+          cp -r module.json dist lang styles templates LICENSE LICENSE-ORC.md README.md package/sargas-mythic-powers/
+          # Sourcemaps stay in local builds but are not shipped in the release zip.
+          find package/sargas-mythic-powers/dist -name '*.map' -delete
+          (cd package && zip -r ../sargas-mythic-powers.zip sargas-mythic-powers)
+      - uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ inputs.tag || github.ref_name }}
+          name: ${{ inputs.tag || github.ref_name }}
+          generate_release_notes: true
+          files: |
+            sargas-mythic-powers.zip
+            module.json

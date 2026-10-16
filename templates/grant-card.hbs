@@ -1,0 +1,11 @@
+<div class="smp-card smp-grant-card" data-smp-card="{{kind}}" data-actor-uuid="{{actorUuid}}">
+  <div class="smp-whisper">{{{whisper}}}</div>
+  <h3>&#10022; {{title}}</h3>
+  <p>{{{body}}}</p>
+  {{#if callingHint}}<p>{{{callingHint}}}</p>{{/if}}
+  {{#if showButton}}
+  <div class="smp-buttons">
+    <button type="button" class="smp-choose-calling">{{buttonLabel}}</button>
+  </div>
+  {{/if}}
+</div>

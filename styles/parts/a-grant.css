@@ -1,0 +1,69 @@
+/* Grant dialog, directory badges and grant cards (agent A). */
+.smp-grant-dialog .smp-grant {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.smp-grant-dialog fieldset {
+  border: 1px solid var(--smp-line);
+  border-radius: 4px;
+  padding: 6px 8px;
+  margin: 0;
+}
+.smp-grant-dialog legend {
+  font-weight: 700;
+  color: var(--smp-myth-2);
+  padding: 0 4px;
+}
+.smp-grant-dialog .smp-grant-radio {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  padding: 3px 0;
+}
+.smp-grant-dialog .smp-grant-radio small {
+  display: block;
+  opacity: 0.8;
+  font-size: var(--font-size-11, 11px);
+}
+.smp-grant-dialog .smp-grant-row {
+  display: flex;
+  gap: 16px;
+}
+.smp-grant-dialog .smp-grant-check {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.smp-grant-dialog .smp-grant-calling-select select {
+  width: 100%;
+  margin-top: 4px;
+}
+.smp-grant-dialog .smp-grant-submit {
+  background: var(--smp-myth);
+  color: var(--smp-myth-ink);
+}
+
+.smp-dir-badge {
+  flex: 0 0 auto;
+  align-self: center;
+  margin-left: 4px;
+  padding: 1px 6px;
+  border-radius: 3px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--smp-myth-ink);
+}
+.smp-dir-badge.smp-dir-badge-on {
+  background: var(--smp-myth);
+}
+.smp-dir-badge.smp-dir-badge-off {
+  background: #5a5560;
+}
+
+.smp-grant-card .smp-choose-calling {
+  background: var(--smp-myth);
+  color: var(--smp-myth-ink);
+}

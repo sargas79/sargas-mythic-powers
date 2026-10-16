@@ -1,0 +1,464 @@
+{
+  "sargas-mythic-powers": {
+    "title": "Mythic Powers",
+    "mythic": "Mythic",
+    "errors": {
+      "noGM": "A GM must be connected to do this.",
+      "socket": "Mythic Powers: the GM action {action} failed. See the console for details.",
+      "gmOnly": "Only the GM can do this."
+    },
+    "settings": {
+      "announce": {
+        "name": "Grant announcement",
+        "hint": "Who sees the chat card when you grant or enable mythic power. It never goes to players who don't own the character.",
+        "owners": "Whisper to the character's owners",
+        "none": "Don't send a card"
+      },
+      "gmApproval": {
+        "name": "Require GM approval for mythic feats",
+        "hint": "Players' mythic feat picks are sent to the GM to approve."
+      },
+      "killPrompt": {
+        "name": "Prompt on mythic creature defeat",
+        "hint": "When a mythic creature drops to 0 HP in combat, suggest 2 Mythic Points for the last blow and 1 for each other mythic character."
+      },
+      "regainPrompt": {
+        "name": "Calling daily regain prompts",
+        "hint": "Offer 1 Mythic Point on the first critical success each day with a character's Calling actions."
+      },
+      "mythicDeath": {
+        "name": "Mythic death rules",
+        "hint": "A mythic character who would reach dying 4 gains doomed 1 and stabilizes at 0 HP instead. They die only at doomed 4."
+      },
+      "heroPointsMixed": {
+        "name": "Hero Points for non-mythic characters",
+        "hint": "Mixed play: whenever mythic characters gain Mythic Points from a kill or deed, each other character gains a Hero Point."
+      },
+      "lateStartPerSession": {
+        "name": "Late start: feats released per session",
+        "hint": "How many catch-up mythic feat slots open for a late-start character at each Start Session."
+      }
+    },
+    "grant": {
+      "menu": {
+        "grant": "Grant Mythic Power…",
+        "disable": "Disable Mythic Power",
+        "enable": "Enable Mythic Power",
+        "revoke": "Revoke Mythic Power…"
+      },
+      "badge": {
+        "active": "Mythic",
+        "disabled": "Disabled",
+        "activeHint": "Mythic power granted and enabled (only the GM sees this badge).",
+        "disabledHint": "Mythic power granted but disabled (only the GM sees this badge)."
+      },
+      "header": {
+        "label": "Mythic"
+      },
+      "status": {
+        "title": "Mythic Power: {name}",
+        "content": "{name} has mythic power ({status}, {progression}).",
+        "close": "Close"
+      },
+      "dialog": {
+        "title": "Grant Mythic Power: {name}",
+        "source": "Source of power (shown on the sheet)",
+        "sourcePlaceholder": "Touched by the Godsrain…",
+        "progression": "Progression",
+        "calling": "Calling",
+        "playerChooses": "Player chooses",
+        "gmAssigns": "GM assigns",
+        "pickCalling": "Choose a Calling…",
+        "noCallings": "No Callings found in the allowed sources.",
+        "options": "Announce",
+        "announce": "Whisper the announcement to {name}'s owners",
+        "fullPoints": "Start with 3 Mythic Points",
+        "submit": "Grant Mythic Power"
+      },
+      "progression": {
+        "standard": {
+          "label": "Standard",
+          "hint": "A mythic feat at every even level. {name} is level {level}, so {count} feats are owed now."
+        },
+        "lateStart": {
+          "label": "Late start (catch-up)",
+          "hint": "{name} is level {level}: {count} owed feats are released one per session until caught up."
+        },
+        "trials": {
+          "label": "Mythic trials (tiers)",
+          "hint": "Tier grows from trials, separately from level. The first trial grants the Calling (tier 0).",
+          "hintNoTiers": "Tier grows from trials, separately from level. Needs the PF2e setting \"Mythic Rules\" set to Alternate Mythic Progression."
+        }
+      },
+      "trialNote": "First trial: mythic power granted",
+      "card": {
+        "whisper": "Whisper to {name}'s owners and the GM",
+        "grantTitle": "Mythic Power Awakens",
+        "grantBody": "{name} gains mythic power.",
+        "grantBodySource": "{name} gains mythic power: {source}.",
+        "callingHint": "{name} must choose a Calling.",
+        "chooseCalling": "Choose Calling",
+        "enableTitle": "Mythic Power Returns",
+        "enableBody": "{name}'s mythic power returns."
+      },
+      "revoke": {
+        "title": "Revoke Mythic Power: {name}",
+        "content": "Remove {name}'s Calling, mythic and destiny feats and all mythic data? This can't be undone. Use Disable to switch mythic power off and keep the choices."
+      },
+      "ledger": {
+        "grant": "Granted mythic power to {name} ({progression}).",
+        "disable": "Disabled mythic power for {name} ({count} items stored).",
+        "enable": "Enabled mythic power for {name} ({count} items restored).",
+        "revoke": "Revoked mythic power from {name} ({count} items removed)."
+      },
+      "notify": {
+        "granted": "{name} now has mythic power.",
+        "disabled": "Mythic power disabled for {name}.",
+        "enabled": "Mythic power enabled for {name}.",
+        "revoked": "Mythic power revoked from {name}.",
+        "hasCalling": "{name} already has a Calling."
+      },
+      "errors": {
+        "notCharacter": "Only player characters can be granted mythic power.",
+        "trialsNeedTiers": "Mythic trials need the PF2e setting \"Mythic Rules\" set to Alternate Mythic Progression.",
+        "callingFailed": "Couldn't add the Calling to {name}. See the console for details.",
+        "pickCalling": "Choose a Calling, or let the player choose.",
+        "notOwner": "Only the character's owners can choose its Calling."
+      }
+    },
+    "settingCheck": {
+      "title": "Mythic Powers: PF2e Mythic Rules are off",
+      "content": "Mythic Powers needs the PF2e system setting \"Mythic Rules\" to add Callings, mythic feats and Mythic Points.",
+      "hidden": "Characters without a grant from you won't see any mythic slots: the module hides them.",
+      "trials": "Some characters use mythic trials, so Alternate Mythic Progression will be selected.",
+      "enable": "Enable",
+      "later": "Not now",
+      "enabled": "PF2e Mythic Rules enabled.",
+      "trialsWarning": "Mythic Powers: {names} use mythic trials, but the PF2e setting \"Mythic Rules\" isn't set to Alternate Mythic Progression, so tiers won't apply."
+    },
+    "visibility": {
+      "blockedFeat": "This feat can't be added to this character.",
+      "lockedSlot": "This slot unlocks at a later session.",
+      "callingGMOnly": "Only the GM can choose or change this character's Calling."
+    },
+    "sheet": {
+      "mythic": "Mythic",
+      "title": "Mythic: {calling}",
+      "noCalling": "No Calling yet",
+      "gmChoosesCalling": "The GM will choose your Calling.",
+      "chooseCalling": "Choose your Calling",
+      "chooseCallingSlot": "Choose Calling…",
+      "chooseFeat": "Choose feat…",
+      "lockedSlot": "Unlocks at a later session",
+      "source": "Source",
+      "progression": "Progression",
+      "progressionStandard": "Standard",
+      "progressionLateStart": "Late start ({done} of {owed} caught up)",
+      "progressionLateStartDone": "Late start (caught up)",
+      "progressionTrials": "Tier {tier}, {count} trials",
+      "points": "{value} / {max}",
+      "pointsLabel": "Mythic Points",
+      "edicts": "Edicts",
+      "anathema": "Anathema",
+      "openSlots": "{count} open mythic slot(s)"
+    },
+    "callingPicker": {
+      "title": "Choose your Mythic Calling: {actor}",
+      "search": "Search callings…",
+      "allSources": "All sources",
+      "none": "No Callings match.",
+      "loading": "Loading Callings…",
+      "selectPrompt": "Select a Calling to see its details.",
+      "proficiency": "Mythic proficiency",
+      "regain": "Daily regain",
+      "edicts": "Edicts",
+      "anathema": "Anathema",
+      "grants": "grants Rewrite Fate",
+      "callingTrait": "Calling",
+      "changeNote": "You can change your Calling later only after a major turning point in the story, with the GM's approval.",
+      "current": "Current Calling: {calling}",
+      "decideLater": "Decide later",
+      "take": "Take {calling}",
+      "replace": "Replace with {calling}",
+      "notActive": "This character can't choose a Calling.",
+      "notAllowed": "Only the GM can choose or change this character's Calling.",
+      "notFound": "That Calling could not be found.",
+      "noPack": "The PF2e class features compendium is not available.",
+      "taken": "{actor} took {calling}.",
+      "ledger": "{actor} took {calling}.",
+      "ledgerReplaced": "{actor} changed Calling from {old} to {calling}."
+    },
+    "feats": {
+      "slotLabel": "mythic slot {level}",
+      "reason": {
+        "notMythic": "Not a mythic feat",
+        "owned": "Already taken",
+        "invalidSlot": "Not a mythic feat slot ({slot})",
+        "slotLocked": "This slot is still locked (late start)",
+        "slotNotOpen": "This slot isn't open yet",
+        "slotFilled": "This slot already has a feat",
+        "levelTooHigh": "Level {level} is above slot {slot}",
+        "destinySlotOnly": "Slot 12 takes a destiny dedication only",
+        "oneDestiny": "Only one destiny: you already have {name}",
+        "needsDestiny": "Requires {name}",
+        "needsCalling": "Requires {name}",
+        "needsFeat": "Requires {name}",
+        "needsAdvancedCompanion": "Requires a mature animal companion or an advanced construct companion",
+        "needsCompanion": "Requires an animal companion",
+        "needsSlotCasting": "Requires casting spells from spell slots",
+        "needsFocusPool": "Requires a focus pool"
+      },
+      "warning": {
+        "checkPrerequisite": "Check prerequisite: {text}"
+      },
+      "picker": {
+        "title": "Mythic Feats: slot {slot} · {actor}",
+        "level": "Level",
+        "show": "Show",
+        "eligible": "Can take now",
+        "ineligible": "Can't take (with reason)",
+        "owned": "Already owned",
+        "source": "Source",
+        "search": "Search…",
+        "destiny": "Destiny",
+        "add": "Add",
+        "waiting": "Waiting for GM",
+        "ownedTag": "Owned",
+        "empty": "No feats match these filters.",
+        "slotPending": "{feat} is waiting for the GM's approval.",
+        "slotFilled": "This slot already has a feat.",
+        "approvalOn": "GM approval is on. Your pick is sent to the GM.",
+        "close": "Close"
+      },
+      "card": {
+        "title": "Mythic feat",
+        "gmOnly": "To the GM only",
+        "requestTitle": "Mythic feat request",
+        "request": "{user} picked a feat for {actor} ({slot}):",
+        "approve": "Approve",
+        "reject": "Reject",
+        "rejectTitle": "Reject mythic feat",
+        "rejectReason": "Reason (optional)",
+        "resolved": "This request has been resolved.",
+        "sent": "{feat} for {actor} ({slot}) was sent to the GM.",
+        "alreadyPending": "{actor} already has a pick waiting for the GM; {feat} wasn't sent.",
+        "invalid": "{feat} can't be taken: {reasons}",
+        "approvedTitle": "Mythic feat approved",
+        "approved": "The GM approved {feat} for {actor} ({slot}).",
+        "rejectedTitle": "Mythic feat rejected",
+        "rejected": "The GM rejected {feat} for {actor} ({slot}).",
+        "reason": "Reason: {reason}"
+      },
+      "ledger": {
+        "approved": "{actor}: {feat} approved ({slot})",
+        "added": "{actor}: {feat} added ({slot})"
+      },
+      "notify": {
+        "sent": "Your pick was sent to the GM.",
+        "cannotAdd": "{feat} can't be added: {reasons}",
+        "addFailed": "The mythic feat couldn't be added. See the console for details.",
+        "noPending": "That request is no longer pending.",
+        "missingItem": "{feat} couldn't be found in the compendium.",
+        "slotFilled": "{slot} already has a feat. Clear it first or reject the request."
+      },
+      "errors": {
+        "notFeat": "Not a feat"
+      }
+    },
+    "console": {
+      "title": "Mythic Console",
+      "launchTooltip": "Open the Mythic Console (GM only)",
+      "empty": "No player characters yet.",
+      "toolbar": {
+        "startSession": "Start Session (all to 3)",
+        "deed": "Mythic Deed (+3 all)",
+        "kill": "Mythic Kill…",
+        "sources": "Calling sources…",
+        "sessionStarted": "Session {session} · started {time}",
+        "sessionNone": "Session {session}"
+      },
+      "col": {
+        "mythic": "Mythic",
+        "character": "Character",
+        "calling": "Calling",
+        "points": "Points",
+        "progression": "Tier / progress",
+        "doomed": "Doomed",
+        "actions": "Award"
+      },
+      "row": {
+        "enable": "Enable",
+        "disable": "Disable",
+        "disabled": "disabled",
+        "neverGranted": "never granted",
+        "pendingCount": "{count} feat(s) pending",
+        "noCalling": "No Calling yet",
+        "kept": "(kept)",
+        "pointsLabel": "Mythic Points {value} / {max}",
+        "hiddenFrom": "Hidden from {player}",
+        "hidden": "Hidden from players",
+        "heroPoints": "Hero Points {value} / {max}",
+        "edict": "Edict +1",
+        "customTooltip": "Add or remove Mythic Points",
+        "anathema": "Anathema",
+        "trial": "+ Trial",
+        "release": "Release feat",
+        "approve": "Approve",
+        "reject": "Reject",
+        "grant": "Grant…",
+        "revoke": "Revoke…"
+      },
+      "progress": {
+        "tier": "Tier {tier}",
+        "toNext": "{done} / {span} to tier {tier}",
+        "maxTier": "Highest tier",
+        "trialCount": "{count} trials",
+        "heldBack": "Trials allow tier {tier} (one tier per session)",
+        "aboveHalfLevel": "Tier {tier} is above half the character's level ({level}). Expect very strong encounters.",
+        "lateStart": "{released} of {owed} caught up",
+        "openSlots": "{count} open slot(s)"
+      },
+      "reason": {
+        "edict": "edict",
+        "deed": "mythic deed",
+        "deedNamed": "mythic deed: {reason}",
+        "kill": "mythic kill",
+        "killAssist": "mythic kill",
+        "killNamed": "mythic kill: {name}, last blow",
+        "killAssistNamed": "mythic kill: {name}",
+        "anathema": "anathema",
+        "custom": "adjusted",
+        "set": "set by GM",
+        "session": "session start",
+        "regain": "Calling regain"
+      },
+      "kill": {
+        "unknownFoe": "a mythic foe"
+      },
+      "dialog": {
+        "customTitle": "Adjust Mythic Points",
+        "customHint": "Points to add to {name} (negative to remove). The total stays between 0 and 3.",
+        "delta": "Change",
+        "reason": "Reason",
+        "note": "Note",
+        "trialTitle": "Log a mythic trial",
+        "trialHint": "Describe the trial {name} completed.",
+        "deedTitle": "Mythic Deed",
+        "deedHint": "Each character with active mythic power gains 3 Mythic Points (max 3).",
+        "killTitle": "Mythic Kill",
+        "killHint": "The character who defeated the mythic foe gains 2 Mythic Points; every other mythic character gains 1.",
+        "foe": "Defeated creature",
+        "killer": "Last blow",
+        "killerNone": "None (everyone gains 1)",
+        "anathemaTitle": "Anathema",
+        "anathemaBody": "{name} violated an anathema and loses all Mythic Points. Continue?",
+        "sessionTitle": "Start Session",
+        "sessionBody": "Start session {session}? Every character with active mythic power goes to 3 Mythic Points.",
+        "sourcesTitle": "Calling sources",
+        "sourcesHint": "Callings from these publications appear in the Calling picker."
+      },
+      "ledger": {
+        "title": "Ledger",
+        "empty": "No changes yet.",
+        "undo": "Undo",
+        "undone": "(undone)",
+        "points": "{name} {delta} ({reason})",
+        "session": "Session {session} started. {count} mythic character(s) set to 3.",
+        "rewriteFate": "{name} spent 1 on Rewrite Fate",
+        "heroPoint": "{name} gained a Hero Point ({value} / {max})"
+      },
+      "heroPoint": {
+        "title": "Hero Point",
+        "body": "You gain a Hero Point.",
+        "value": "Hero Points: {value} / {max}"
+      },
+      "notify": {
+        "actionFailed": "Mythic Console: that action failed. See the console for details.",
+        "noSources": "No Callings found in the PF2e compendium.",
+        "sourcesSaved": "Calling sources saved ({count}).",
+        "undoMissing": "The character for that entry no longer exists."
+      }
+    },
+    "automation": {
+      "whisperGM": "Whisper to GM",
+      "whisperOwners": "Whisper to GM and {name}'s owners",
+      "kill": {
+        "speaker": "Mythic foe defeated",
+        "title": "Mythic foe defeated",
+        "body": "{name} dropped to 0 HP.",
+        "killer": "Last blow: {name} (+{points}).",
+        "noKiller": "Last blow: unknown (choose with Change killer).",
+        "others": "Other mythic characters: {names} (+{points}).",
+        "nobody": "none",
+        "award": "Award",
+        "change": "Change killer…",
+        "ignore": "Ignore",
+        "killerLabel": "Last blow",
+        "none": "None (everyone +1)",
+        "awarded": "Awarded.",
+        "ignored": "Ignored.",
+        "failed": "Mythic Powers: the mythic kill award failed. See the console for details."
+      },
+      "regain": {
+        "title": "Calling: {calling} daily regain",
+        "body": "Critical success on {action}. This is the first time today, so {name} can regain 1 Mythic Point.",
+        "bodyTarget": "Critical success on {action} against {target}. This is the first time today, so {name} can regain 1 Mythic Point.",
+        "restore": "Restore 1 point",
+        "decline": "Not this time",
+        "restored": "{name} regained 1 Mythic Point.",
+        "declined": "Not this time.",
+        "already": "{name} already regained a Mythic Point from their Calling today.",
+        "failed": "Mythic Powers: the Calling regain failed. See the console for details.",
+        "gm": {
+          "enemy": "GM: the check had no target. Restore only if it was against an enemy.",
+          "notAlly": "GM: the check had no target. Restore only if the creature isn't an ally.",
+          "dreams": "GM: restore only if the subject was dreaming or the Dreamlands.",
+          "library": "GM: restore only if the character was researching in a library or similar facility.",
+          "tradition": "GM: restore only if the skill matches one of the character's magical traditions.",
+          "wildAnimal": "GM: restore only if the target was a wild animal.",
+          "notCompanion": "GM: restore only if the animal isn't the character's pet or companion.",
+          "words": "GM: restore only if the diversion used the character's words.",
+          "audience": "GM: restore only if the audience was indifferent or unfriendly."
+        }
+      },
+      "death": {
+        "title": "✦ Death Denied",
+        "body": "{name} reached {dying}, but mythic power holds them here. They stabilize at 0 HP.",
+        "dying": "dying {value}",
+        "doomed": "Doomed {from} → {to}",
+        "diesAt": "(dies at doomed {value})",
+        "undo": "Undo",
+        "undone": "Undone by the GM.",
+        "ledger": "{name}: death denied, doomed {from} → {to}",
+        "failed": "Mythic Powers: the mythic death rule failed. See the console for details."
+      }
+    },
+    "progression": {
+      "card": {
+        "whisper": "Whisper to {name}'s owners and the GM",
+        "tierTitle": "Mythic tier {tier}",
+        "tierBody": "A new mythic feat slot is open. {name} can now take mythic feats up to level {level}.",
+        "lateStartTitle": "Mythic feat slot open",
+        "lateStartBody": "A mythic feat slot is open for {name} ({released} of {owed} caught up)."
+      },
+      "ledger": {
+        "trial": "{name} completed a mythic trial ({count} total).",
+        "trialNote": "{name} completed a mythic trial ({count} total): {note}",
+        "tier": "{name} reached mythic tier {tier}.",
+        "lateStart": "{name}: late-start mythic feat slot released ({released} of {owed} caught up)."
+      },
+      "notify": {
+        "notActive": "{name} doesn't have active mythic power.",
+        "notTrials": "{name} doesn't use the mythic trials progression.",
+        "notLateStart": "{name} doesn't use the late start progression.",
+        "variantOff": "Mythic tiers have no effect until the PF2e setting \"Alternate Mythic Progression\" is on.",
+        "tierUp": "{name} reached mythic tier {tier}.",
+        "heldBack": "{name} has enough trials for another tier, but only one tier rises per session. It will rise at the next Start Session.",
+        "aboveHalfLevel": "{name} is mythic tier {tier} at level {level}: tier is above half the character's level.",
+        "caughtUp": "{name} has already caught up on late-start mythic feats.",
+        "nowCaughtUp": "{name} has caught up and now gains mythic feats normally.",
+        "sessionError": "Mythic progression for {name} failed at Start Session. See the console for details."
+      }
+    }
+  }
+}

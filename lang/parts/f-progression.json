@@ -1,0 +1,31 @@
+{
+  "sargas-mythic-powers": {
+    "progression": {
+      "card": {
+        "whisper": "Whisper to {name}'s owners and the GM",
+        "tierTitle": "Mythic tier {tier}",
+        "tierBody": "A new mythic feat slot is open. {name} can now take mythic feats up to level {level}.",
+        "lateStartTitle": "Mythic feat slot open",
+        "lateStartBody": "A mythic feat slot is open for {name} ({released} of {owed} caught up)."
+      },
+      "ledger": {
+        "trial": "{name} completed a mythic trial ({count} total).",
+        "trialNote": "{name} completed a mythic trial ({count} total): {note}",
+        "tier": "{name} reached mythic tier {tier}.",
+        "lateStart": "{name}: late-start mythic feat slot released ({released} of {owed} caught up)."
+      },
+      "notify": {
+        "notActive": "{name} doesn't have active mythic power.",
+        "notTrials": "{name} doesn't use the mythic trials progression.",
+        "notLateStart": "{name} doesn't use the late start progression.",
+        "variantOff": "Mythic tiers have no effect until the PF2e setting \"Alternate Mythic Progression\" is on.",
+        "tierUp": "{name} reached mythic tier {tier}.",
+        "heldBack": "{name} has enough trials for another tier, but only one tier rises per session. It will rise at the next Start Session.",
+        "aboveHalfLevel": "{name} is mythic tier {tier} at level {level}: tier is above half the character's level.",
+        "caughtUp": "{name} has already caught up on late-start mythic feats.",
+        "nowCaughtUp": "{name} has caught up and now gains mythic feats normally.",
+        "sessionError": "Mythic progression for {name} failed at Start Session. See the console for details."
+      }
+    }
+  }
+}

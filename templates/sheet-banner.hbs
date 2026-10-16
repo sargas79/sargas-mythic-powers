@@ -1,0 +1,35 @@
+<div class="smp-banner" data-smp-banner>
+  <div class="smp-banner-main">
+    <h4 class="smp-banner-title">
+      <i class="fa-solid fa-star"></i>
+      {{#if calling}}
+        {{title}}
+      {{else}}
+        {{mythicLabel}}
+        {{#if canChoose}}
+          <button type="button" class="smp-banner-choose" data-smp-action="choose-calling">{{chooseLabel}}</button>
+        {{else}}
+          <span class="smp-banner-nocalling">{{noCallingLabel}}</span>
+        {{/if}}
+      {{/if}}
+    </h4>
+    <div class="smp-banner-meta">
+      {{#if source}}<span>{{sourceLabel}}: <b>{{source}}</b></span>{{/if}}
+      <span>{{progressionLabel}}: <b>{{progression}}</b></span>
+    </div>
+  </div>
+  {{#if points.max}}
+    <div class="smp-banner-points" data-tooltip="{{pointsLabel}}">
+      <span class="smp-pips">
+        {{#each pips}}<span class="smp-pip{{#if this}} on{{/if}}"></span>{{/each}}
+      </span>
+      <div class="smp-banner-meta">{{pointsText}}</div>
+    </div>
+  {{/if}}
+  {{#if hasEA}}
+    <div class="smp-banner-ea">
+      {{#if edicts}}<span class="smp-banner-edicts" data-tooltip="{{edicts}}"><b>{{edictsLabel}}:</b> {{edicts}}</span>{{/if}}
+      {{#if anathema}}<span class="smp-banner-anathema" data-tooltip="{{anathema}}"><b>{{anathemaLabel}}:</b> {{anathema}}</span>{{/if}}
+    </div>
+  {{/if}}
+</div>

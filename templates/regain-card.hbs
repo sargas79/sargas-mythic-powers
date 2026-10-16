@@ -1,0 +1,14 @@
+<div class="smp-card smp-auto-card smp-auto-regain">
+  <div class="smp-whisper">{{whisper}}</div>
+  <h3>{{title}}</h3>
+  <p>{{{body}}}</p>
+  {{#if gmNote}}<p class="smp-auto-gm-note">{{gmNote}}</p>{{/if}}
+  {{#if pending}}
+    <div class="smp-buttons">
+      <button type="button" class="smp-auto-primary" data-smp-action="restore">{{labels.restore}}</button>
+      <button type="button" data-smp-action="decline">{{labels.decline}}</button>
+    </div>
+  {{else}}
+    <p class="smp-auto-status smp-auto-{{status}}">{{statusText}}</p>
+  {{/if}}
+</div>

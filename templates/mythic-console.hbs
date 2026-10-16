@@ -1,0 +1,153 @@
+{{!-- Mythic Console (GM only, mockup M5). Context built in src/apps/mythic-console.ts. --}}
+<div class="smp-console-root">
+  <div class="smp-console-toolbar">
+    <button type="button" class="smp-btn smp-btn-primary" data-action="startSession">
+      <i class="fa-solid fa-play"></i> {{localize "sargas-mythic-powers.console.toolbar.startSession"}}
+    </button>
+    <button type="button" class="smp-btn" data-action="deed">
+      <i class="fa-solid fa-star"></i> {{localize "sargas-mythic-powers.console.toolbar.deed"}}
+    </button>
+    <button type="button" class="smp-btn" data-action="kill">
+      <i class="fa-solid fa-skull"></i> {{localize "sargas-mythic-powers.console.toolbar.kill"}}
+    </button>
+    <button type="button" class="smp-btn" data-action="sources">
+      <i class="fa-solid fa-book"></i> {{localize "sargas-mythic-powers.console.toolbar.sources"}}
+    </button>
+    <span class="smp-console-spacer"></span>
+    <span class="smp-console-session">{{sessionLabel}}</span>
+  </div>
+
+  <div class="smp-console-scroll">
+    <table class="smp-console-table">
+      <thead>
+        <tr>
+          <th>{{localize "sargas-mythic-powers.console.col.mythic"}}</th>
+          <th>{{localize "sargas-mythic-powers.console.col.character"}}</th>
+          <th>{{localize "sargas-mythic-powers.console.col.calling"}}</th>
+          <th>{{localize "sargas-mythic-powers.console.col.points"}}</th>
+          <th>{{localize "sargas-mythic-powers.console.col.progression"}}</th>
+          <th>{{localize "sargas-mythic-powers.console.col.doomed"}}</th>
+          <th>{{localize "sargas-mythic-powers.console.col.actions"}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each rows}}
+          <tr class="smp-console-row {{#if active}}is-active{{else if disabled}}is-disabled{{else}}is-never{{/if}}" data-actor-id="{{id}}">
+            <td>
+              {{#if granted}}
+                <button type="button" class="smp-toggle {{#if active}}on{{/if}}" data-action="toggle"
+                  role="switch" aria-checked="{{#if active}}true{{else}}false{{/if}}"
+                  aria-label="{{toggleLabel}}" data-tooltip="{{toggleLabel}}"></button>
+              {{else}}
+                <span class="smp-toggle smp-toggle-off" aria-hidden="true"></span>
+              {{/if}}
+            </td>
+            <td>
+              <div class="smp-console-who">
+                {{#if img}}
+                  <img class="smp-console-ava" src="{{img}}" alt="{{initials}}">
+                {{else}}
+                  <span class="smp-console-ava">{{initials}}</span>
+                {{/if}}
+                <div>
+                  <a class="smp-console-name" data-action="openSheet">{{name}}</a>
+                  <div class="smp-console-muted">{{subtitle}}</div>
+                </div>
+              </div>
+            </td>
+
+            {{#if active}}
+              <td>
+                {{#if callingName}}{{callingName}}{{else}}<span class="smp-console-muted">{{localize "sargas-mythic-powers.console.row.noCalling"}}</span>{{/if}}
+              </td>
+              <td>
+                <span class="smp-pips smp-console-pips" aria-label="{{pointsLabel}}" data-tooltip="{{pointsLabel}}">
+                  {{#each pips}}
+                    <button type="button" class="smp-pip {{#if on}}on{{/if}}" data-action="pip" data-value="{{value}}"
+                      aria-label="{{value}}"></button>
+                  {{/each}}
+                </span>
+              </td>
+              <td>
+                {{#if progression.trials}}
+                  <div>
+                    {{progression.tierLabel}}
+                    {{#if warning}}<span class="smp-console-chip smp-console-warn" data-tooltip="{{warning}}"><i class="fa-solid fa-triangle-exclamation"></i></span>{{/if}}
+                  </div>
+                  <div class="smp-console-bar"><span style="width: {{progression.percent}}%"></span></div>
+                  <div class="smp-console-muted">{{progression.detail}} · {{progression.trialsLabel}}</div>
+                  {{#if progression.heldBack}}<div class="smp-console-muted">{{progression.heldBackLabel}}</div>{{/if}}
+                {{else}}
+                  <span class="smp-console-muted">{{progression.detail}}</span>
+                {{/if}}
+              </td>
+              <td>{{doomed}}</td>
+              <td>
+                {{#if pending.length}}
+                  <div class="smp-console-pending">
+                    {{#each pending}}
+                      <div class="smp-console-pending-item">
+                        <span>{{name}}</span>
+                        <button type="button" class="smp-btn smp-btn-sm smp-btn-ok" data-action="approve" data-pending-id="{{id}}">{{localize "sargas-mythic-powers.console.row.approve"}}</button>
+                        <button type="button" class="smp-btn smp-btn-sm smp-btn-danger" data-action="reject" data-pending-id="{{id}}">{{localize "sargas-mythic-powers.console.row.reject"}}</button>
+                      </div>
+                    {{/each}}
+                  </div>
+                {{/if}}
+                <div class="smp-console-acts">
+                  <button type="button" class="smp-btn smp-btn-sm" data-action="edict">{{localize "sargas-mythic-powers.console.row.edict"}}</button>
+                  <button type="button" class="smp-btn smp-btn-sm" data-action="custom" data-tooltip="{{localize "sargas-mythic-powers.console.row.customTooltip"}}">±</button>
+                  <button type="button" class="smp-btn smp-btn-sm smp-btn-danger" data-action="anathema">{{localize "sargas-mythic-powers.console.row.anathema"}}</button>
+                  {{#if progression.trials}}
+                    <button type="button" class="smp-btn smp-btn-sm" data-action="trial">{{localize "sargas-mythic-powers.console.row.trial"}}</button>
+                  {{/if}}
+                  {{#if progression.lateStart}}
+                    {{#unless progression.caughtUp}}
+                      <button type="button" class="smp-btn smp-btn-sm" data-action="release">{{localize "sargas-mythic-powers.console.row.release"}}</button>
+                    {{/unless}}
+                  {{/if}}
+                </div>
+              </td>
+            {{else if disabled}}
+              <td>
+                {{#if callingName}}{{callingName}}{{#if callingKept}} <span class="smp-console-muted">{{localize "sargas-mythic-powers.console.row.kept"}}</span>{{/if}}{{/if}}
+              </td>
+              <td colspan="3"><span class="smp-console-muted">{{hiddenLabel}} · {{heroLabel}}</span></td>
+              <td>
+                <div class="smp-console-acts">
+                  <button type="button" class="smp-btn smp-btn-sm" data-action="toggle"><i class="fa-solid fa-play"></i> {{localize "sargas-mythic-powers.console.row.enable"}}</button>
+                  <button type="button" class="smp-btn smp-btn-sm smp-btn-danger" data-action="revoke">{{localize "sargas-mythic-powers.console.row.revoke"}}</button>
+                </div>
+              </td>
+            {{else}}
+              <td colspan="4"><span class="smp-console-muted">{{heroLabel}}</span></td>
+              <td>
+                <div class="smp-console-acts">
+                  <button type="button" class="smp-btn smp-btn-sm smp-btn-primary" data-action="grant"><i class="fa-solid fa-star"></i> {{localize "sargas-mythic-powers.console.row.grant"}}</button>
+                </div>
+              </td>
+            {{/if}}
+          </tr>
+        {{else}}
+          <tr><td colspan="7" class="smp-console-muted">{{localize "sargas-mythic-powers.console.empty"}}</td></tr>
+        {{/each}}
+      </tbody>
+    </table>
+
+    <section class="smp-console-ledger">
+      <h3>{{localize "sargas-mythic-powers.console.ledger.title"}}</h3>
+      {{#each ledger}}
+        <div class="smp-console-ledger-row {{#if undone}}is-undone{{/if}}">
+          <span class="smp-console-time">{{time}}</span>
+          <span class="smp-console-ledger-msg">{{message}}</span>
+          {{#if undone}}<span class="smp-console-muted">{{localize "sargas-mythic-powers.console.ledger.undone"}}</span>{{/if}}
+          {{#if canUndo}}
+            <button type="button" class="smp-btn smp-btn-sm" data-action="undo" data-entry-id="{{id}}"><i class="fa-solid fa-rotate-left"></i> {{localize "sargas-mythic-powers.console.ledger.undo"}}</button>
+          {{/if}}
+        </div>
+      {{else}}
+        <div class="smp-console-muted">{{localize "sargas-mythic-powers.console.ledger.empty"}}</div>
+      {{/each}}
+    </section>
+  </div>
+</div>

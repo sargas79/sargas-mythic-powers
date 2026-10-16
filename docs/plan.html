@@ -1,0 +1,2277 @@
+<title>Sargas Mythic Powers</title>
+<meta name="claude:viewport-fit-sides" content="cover" />
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Eczar:wght@500;600;700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap"
+/>
+<style>
+  /* Layout: one reading column for the plan; mockups break out wider and imitate Foundry v14 windows with PF2e parchment sheets. */
+  :root {
+    --bg: #f6f4f8;
+    --surface: #ffffff;
+    --fg: #231d2b;
+    --muted: #6a6175;
+    --line: #ddd6e4;
+    --accent: #6b3fa0;
+    --accent-soft: #efe7f8;
+    --gold: #a8771c;
+    --ok: #2f7a4b;
+    --warn: #a2611a;
+    --bad: #a3333d;
+    --display: "Eczar", Georgia, "Times New Roman", serif;
+    --body: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
+    /* Foundry mock chrome (fixed look, readable on both page themes) */
+    --fw-chrome: #1d1a21;
+    --fw-chrome-fg: #e9e3d6;
+    --fw-body: #f1ead9;
+    --fw-ink: #2b2219;
+    --fw-line: #cdbf9f;
+    --fw-red: #5e0000;
+    --fw-myth: #5b2d8e;
+    --fw-myth-2: #8a5cc4;
+    --fw-gold: #c99a2e;
+    --fw-muted: #6e5e48;
+    --fw-input: #fbf7ec;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #16131b;
+      --surface: #1f1b26;
+      --fg: #ece6f3;
+      --muted: #a59cb2;
+      --line: #363044;
+      --accent: #b993ea;
+      --accent-soft: #2c2340;
+      --gold: #e0b25a;
+      --ok: #6cc48f;
+      --warn: #e3a35a;
+      --bad: #ec7a83;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #16131b;
+    --surface: #1f1b26;
+    --fg: #ece6f3;
+    --muted: #a59cb2;
+    --line: #363044;
+    --accent: #b993ea;
+    --accent-soft: #2c2340;
+    --gold: #e0b25a;
+    --ok: #6cc48f;
+    --warn: #e3a35a;
+    --bad: #ec7a83;
+    color-scheme: dark;
+  }
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font: 16px/1.6 var(--body);
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    padding-block: 32px 80px;
+  }
+  .wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+  }
+  .prose {
+    max-width: 760px;
+  }
+  h1,
+  h2,
+  h3 {
+    font-family: var(--display);
+    line-height: 1.15;
+    text-wrap: balance;
+    margin: 0;
+  }
+  h1 {
+    font-size: clamp(2.1rem, 5vw, 3rem);
+    font-weight: 700;
+  }
+  h2 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: 14px;
+  }
+  h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 22px 0 8px;
+  }
+  p {
+    margin: 0 0 12px;
+  }
+  a {
+    color: var(--accent);
+  }
+  code,
+  .mono {
+    font-family: var(--mono);
+    font-size: 0.86em;
+  }
+  code {
+    background: var(--accent-soft);
+    padding: 1px 5px;
+    border-radius: 4px;
+  }
+  .eyebrow {
+    font: 600 0.78rem/1 var(--body);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .lede {
+    font-size: 1.15rem;
+    color: var(--muted);
+    max-width: 720px;
+  }
+  .status {
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 4px 12px;
+    font-size: 0.85rem;
+    color: var(--muted);
+    background: var(--surface);
+  }
+  .status b {
+    color: var(--warn);
+  }
+  header {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  nav.toc {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 16px;
+    font-size: 0.92rem;
+  }
+  nav.toc a {
+    text-decoration: none;
+    border-bottom: 1px solid var(--line);
+  }
+  section {
+    scroll-margin-top: 20px;
+  }
+  .tablewrap {
+    overflow-x: auto;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--surface);
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 0.93rem;
+  }
+  th,
+  td {
+    text-align: left;
+    padding: 9px 12px;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+  th {
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+  }
+  tr:last-child td {
+    border-bottom: 0;
+  }
+  .pill {
+    display: inline-block;
+    font-size: 0.74rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+  .pill.native {
+    background: color-mix(in srgb, var(--ok) 16%, transparent);
+    color: var(--ok);
+  }
+  .pill.partial {
+    background: color-mix(in srgb, var(--warn) 18%, transparent);
+    color: var(--warn);
+  }
+  .pill.missing {
+    background: color-mix(in srgb, var(--bad) 15%, transparent);
+    color: var(--bad);
+  }
+  .features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 14px;
+  }
+  .feature {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 16px 18px;
+    min-width: 0;
+  }
+  .feature h3 {
+    margin: 0 0 6px;
+    display: flex;
+    gap: 10px;
+    align-items: baseline;
+  }
+  .feature .id {
+    font: 600 0.8rem var(--mono);
+    color: var(--accent);
+  }
+  .feature ul {
+    margin: 6px 0 0;
+    padding-left: 18px;
+  }
+  .feature li {
+    margin: 3px 0;
+  }
+  .tag {
+    font-size: 0.72rem;
+    color: var(--muted);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 0 6px;
+    margin-left: auto;
+    white-space: nowrap;
+  }
+  pre.code {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 14px 16px;
+    overflow-x: auto;
+    font: 0.82rem/1.55 var(--mono);
+    margin: 0;
+  }
+  .callout {
+    border-left: 3px solid var(--accent);
+    background: var(--accent-soft);
+    padding: 12px 16px;
+    border-radius: 0 6px 6px 0;
+  }
+  .milestones {
+    display: grid;
+    gap: 10px;
+  }
+  .ms {
+    display: grid;
+    grid-template-columns: 70px 1fr;
+    gap: 14px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 14px 16px;
+  }
+  .ms .n {
+    font: 700 1.4rem var(--display);
+    color: var(--accent);
+  }
+  .ms ul {
+    margin: 4px 0 0;
+    padding-left: 18px;
+  }
+  .q {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 14px 18px;
+  }
+  .q h3 {
+    margin: 0 0 6px;
+    font-size: 1.05rem;
+  }
+  .q .rec {
+    color: var(--ok);
+    font-weight: 600;
+  }
+
+  /* ---------- Mockups ---------- */
+  .mock-intro {
+    max-width: 760px;
+    color: var(--muted);
+  }
+  .mock {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 28px;
+  }
+  .mock-cap {
+    display: flex;
+    gap: 12px;
+    align-items: baseline;
+    flex-wrap: wrap;
+  }
+  .mock-cap .id {
+    font: 600 0.8rem var(--mono);
+    color: var(--accent);
+  }
+  .mock-cap h3 {
+    margin: 0;
+  }
+  .mock-cap p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.93rem;
+    flex-basis: 100%;
+  }
+  .stage {
+    overflow-x: auto;
+    padding: 22px;
+    border-radius: 10px;
+    background:
+      radial-gradient(circle at 20% 10%, #3b4a3a 0, transparent 50%),
+      radial-gradient(circle at 80% 90%, #2c3a4a 0, transparent 55%), #262a2b;
+  }
+  .stage-inner {
+    display: flex;
+    gap: 22px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    min-width: min-content;
+  }
+  .fw {
+    background: var(--fw-body);
+    color: var(--fw-ink);
+    border-radius: 6px;
+    box-shadow:
+      0 10px 30px rgba(0, 0, 0, 0.55),
+      0 0 0 1px #000;
+    font: 13px/1.45 var(--body);
+    overflow: hidden;
+    flex: none;
+  }
+  .fw-h {
+    background: var(--fw-chrome);
+    color: var(--fw-chrome-fg);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 10px;
+    font: 600 13px var(--body);
+  }
+  .fw-h .t {
+    flex: 1;
+  }
+  .fw-h .x {
+    opacity: 0.7;
+    font-size: 12px;
+  }
+  .fw-h .ic {
+    width: 16px;
+    height: 16px;
+    border-radius: 3px;
+    background: var(--fw-myth);
+    display: grid;
+    place-items: center;
+    font: 700 10px var(--display);
+    color: #fff;
+  }
+  .fw-b {
+    padding: 12px 14px;
+  }
+  .fw-f {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+    padding: 10px 14px;
+    border-top: 1px solid var(--fw-line);
+    background: #e9e0c9;
+  }
+  .btn {
+    font: 600 12.5px var(--body);
+    border: 1px solid #9c8b6a;
+    background: #ece2c7;
+    color: var(--fw-ink);
+    border-radius: 4px;
+    padding: 6px 12px;
+    cursor: default;
+    white-space: nowrap;
+  }
+  .btn.primary {
+    background: var(--fw-myth);
+    border-color: #3d1c63;
+    color: #fff;
+  }
+  .btn.sm {
+    padding: 3px 8px;
+    font-size: 11.5px;
+  }
+  .btn.danger {
+    background: #f3d9d6;
+    border-color: #a3555b;
+    color: #6a1b22;
+  }
+  .lbl {
+    font: 700 10.5px var(--body);
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--fw-muted);
+    margin: 12px 0 5px;
+  }
+  .lbl:first-child {
+    margin-top: 0;
+  }
+  .inp {
+    background: var(--fw-input);
+    border: 1px solid var(--fw-line);
+    border-radius: 4px;
+    padding: 6px 8px;
+    font: 13px var(--body);
+    color: var(--fw-ink);
+    width: 100%;
+  }
+  .row {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+  .radio {
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+    padding: 7px 9px;
+    border: 1px solid var(--fw-line);
+    border-radius: 5px;
+    background: var(--fw-input);
+    margin-bottom: 6px;
+  }
+  .radio.on {
+    border-color: var(--fw-myth);
+    box-shadow: inset 0 0 0 1px var(--fw-myth);
+    background: #f4eefb;
+  }
+  .dot {
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    border: 2px solid #8b7a5c;
+    flex: none;
+    margin-top: 2px;
+  }
+  .radio.on .dot {
+    border-color: var(--fw-myth);
+    background: radial-gradient(var(--fw-myth) 45%, transparent 50%);
+  }
+  .radio small {
+    display: block;
+    color: var(--fw-muted);
+  }
+  .chk {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin: 5px 0;
+  }
+  .box {
+    width: 13px;
+    height: 13px;
+    border: 2px solid #8b7a5c;
+    border-radius: 3px;
+    flex: none;
+  }
+  .box.on {
+    background: var(--fw-myth);
+    border-color: var(--fw-myth);
+    box-shadow: inset 0 0 0 2px #fff;
+  }
+  .mp {
+    display: inline-flex;
+    gap: 4px;
+    align-items: center;
+  }
+  .mp i {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid var(--fw-myth);
+    display: inline-block;
+  }
+  .mp i.on {
+    background: radial-gradient(circle at 35% 35%, #c6a2f0, var(--fw-myth) 70%);
+  }
+  .trait {
+    display: inline-block;
+    font: 700 10px var(--body);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 1px 6px;
+    border-radius: 3px;
+    background: #5d0000;
+    color: #fff;
+    margin-right: 3px;
+  }
+  .trait.myth {
+    background: var(--fw-myth);
+  }
+  .trait.unc {
+    background: #98513d;
+  }
+  .muted {
+    color: var(--fw-muted);
+  }
+
+  /* actor directory */
+  .dir {
+    width: 300px;
+  }
+  .dir .fw-b {
+    padding: 0;
+    background: #25212a;
+    color: #ddd;
+  }
+  .dir-row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding: 7px 10px;
+    border-bottom: 1px solid #3a3440;
+  }
+  .ava {
+    width: 30px;
+    height: 30px;
+    border-radius: 4px;
+    background: linear-gradient(135deg, #7a6650, #3b3027);
+    flex: none;
+    display: grid;
+    place-items: center;
+    font: 700 12px var(--display);
+    color: #f0e4c8;
+  }
+  .dir-row .nm {
+    flex: 1;
+  }
+  .dir-row .badge {
+    font: 700 9.5px var(--body);
+    background: var(--fw-myth);
+    color: #fff;
+    border-radius: 3px;
+    padding: 1px 5px;
+  }
+  .ctx {
+    position: relative;
+    margin: -4px 10px 8px 46px;
+    background: #110f14;
+    border: 1px solid #4b4256;
+    border-radius: 5px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.6);
+    color: #e8e3ee;
+    font-size: 12.5px;
+  }
+  .ctx div {
+    padding: 6px 10px;
+    display: flex;
+    gap: 8px;
+  }
+  .ctx div.hl {
+    background: #3b2a52;
+    color: #fff;
+  }
+  .ctx .sep {
+    height: 1px;
+    padding: 0;
+    background: #3a3440;
+  }
+
+  /* calling picker */
+  .calling-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+  }
+  .cc {
+    border: 1px solid var(--fw-line);
+    background: var(--fw-input);
+    border-radius: 5px;
+    padding: 6px 8px;
+    font-size: 12px;
+  }
+  .cc b {
+    display: block;
+    font: 600 13px var(--display);
+  }
+  .cc.on {
+    border-color: var(--fw-myth);
+    box-shadow: inset 0 0 0 1px var(--fw-myth);
+    background: #f4eefb;
+  }
+  .cc .src {
+    font-size: 10.5px;
+    color: var(--fw-muted);
+  }
+  .detail {
+    border-left: 1px solid var(--fw-line);
+    padding-left: 14px;
+  }
+  .ea {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-top: 8px;
+  }
+  .ea div {
+    border-radius: 5px;
+    padding: 7px 9px;
+    font-size: 12px;
+  }
+  .ea .e {
+    background: #e5efdf;
+    border: 1px solid #a9c39c;
+  }
+  .ea .a {
+    background: #f5e0dc;
+    border: 1px solid #d5a39b;
+  }
+  .ea b {
+    display: block;
+    font-size: 10.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* sheet */
+  .sheet {
+    width: 760px;
+  }
+  .sheet .fw-b {
+    padding: 0;
+    display: grid;
+    grid-template-columns: 180px 1fr;
+  }
+  .side {
+    background: #3b0a0a;
+    color: #f1e6d3;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .side .portrait {
+    height: 110px;
+    border-radius: 4px;
+    background: linear-gradient(160deg, #8d7457, #3a2a1d);
+  }
+  .side .res {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 5px;
+    padding: 7px 9px;
+  }
+  .side .res .k {
+    font: 700 10px var(--body);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.75;
+  }
+  .side .mythres {
+    background: linear-gradient(135deg, #4a2477, #2a1245);
+    border: 1px solid #8a5cc4;
+  }
+  .side .mythres .mp i {
+    border-color: #d8bdf7;
+  }
+  .side .mythres .mp i.on {
+    background: radial-gradient(circle at 35% 35%, #fff, #c6a2f0 70%);
+  }
+  .tabs {
+    display: flex;
+    gap: 2px;
+    background: #e4d8bc;
+    border-bottom: 1px solid var(--fw-line);
+    padding: 6px 8px 0;
+  }
+  .tabs span {
+    padding: 5px 10px;
+    font: 600 12px var(--body);
+    color: var(--fw-muted);
+    border-radius: 4px 4px 0 0;
+  }
+  .tabs span.on {
+    background: var(--fw-body);
+    color: var(--fw-ink);
+    border: 1px solid var(--fw-line);
+    border-bottom-color: var(--fw-body);
+    margin-bottom: -1px;
+  }
+  .tabs span.myth {
+    color: var(--fw-myth);
+  }
+  .main {
+    min-width: 0;
+  }
+  .mythbanner {
+    margin: 12px 12px 0;
+    padding: 10px 12px;
+    border-radius: 6px;
+    background: linear-gradient(120deg, #ece2f8, #f6f0e2);
+    border: 1px solid #c8b3e3;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 6px 14px;
+  }
+  .mythbanner h4 {
+    margin: 0;
+    font: 600 16px var(--display);
+    color: var(--fw-myth);
+  }
+  .mythbanner .meta {
+    font-size: 12px;
+    color: var(--fw-muted);
+  }
+  .mythbanner .meta b {
+    color: var(--fw-ink);
+  }
+  .featgroup {
+    margin: 12px;
+  }
+  .fg-h {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--fw-myth);
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 4px 4px 0 0;
+    font: 600 13px var(--display);
+  }
+  .fg-h .sp {
+    flex: 1;
+  }
+  .fg-h .tier {
+    font: 600 11px var(--body);
+    background: rgba(255, 255, 255, 0.15);
+    padding: 2px 8px;
+    border-radius: 3px;
+  }
+  .slot {
+    display: grid;
+    grid-template-columns: 34px 1fr auto;
+    gap: 10px;
+    align-items: center;
+    padding: 6px 10px;
+    border: 1px solid var(--fw-line);
+    border-top: 0;
+    background: var(--fw-input);
+  }
+  .slot .lv {
+    font: 700 12px var(--mono);
+    color: var(--fw-myth);
+    text-align: center;
+  }
+  .slot.empty .nm {
+    color: var(--fw-muted);
+    font-style: italic;
+  }
+  .slot.locked {
+    opacity: 0.5;
+  }
+  .slot.next {
+    background: #f4eefb;
+    box-shadow: inset 3px 0 0 var(--fw-myth);
+  }
+  .slot .nm b {
+    font-weight: 600;
+  }
+  .slot .ex {
+    font-size: 11px;
+    color: var(--fw-muted);
+  }
+
+  /* feat browser */
+  .browser {
+    width: 720px;
+  }
+  .browser .fw-b {
+    display: grid;
+    grid-template-columns: 190px 1fr;
+    gap: 12px;
+  }
+  .filt .chk {
+    font-size: 12px;
+  }
+  .fl {
+    border: 1px solid var(--fw-line);
+    border-radius: 5px;
+    background: var(--fw-input);
+  }
+  .fi {
+    display: grid;
+    grid-template-columns: 30px 1fr auto;
+    gap: 10px;
+    align-items: center;
+    padding: 7px 10px;
+    border-bottom: 1px solid #e3d8bf;
+  }
+  .fi:last-child {
+    border-bottom: 0;
+  }
+  .fi .lv {
+    font: 700 12px var(--mono);
+    color: var(--fw-myth);
+    text-align: center;
+  }
+  .fi .nm {
+    font: 600 13.5px var(--display);
+  }
+  .fi.no {
+    opacity: 0.55;
+  }
+  .fi .why {
+    font-size: 11px;
+    color: #8a3a2a;
+  }
+  .fi.sel {
+    background: #f4eefb;
+  }
+
+  /* console */
+  .console {
+    width: 780px;
+  }
+  .ptable {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12.5px;
+  }
+  .ptable th {
+    font: 700 10px var(--body);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--fw-muted);
+    text-align: left;
+    padding: 6px 8px;
+    border-bottom: 1px solid var(--fw-line);
+  }
+  .ptable td {
+    padding: 7px 8px;
+    border-bottom: 1px solid #e3d8bf;
+    vertical-align: middle;
+  }
+  .ptable .who {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+  .ptable .who .ava {
+    width: 26px;
+    height: 26px;
+    font-size: 11px;
+  }
+  .acts {
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+  }
+  .bar {
+    height: 6px;
+    border-radius: 3px;
+    background: #e0d4b8;
+    overflow: hidden;
+    width: 90px;
+  }
+  .bar span {
+    display: block;
+    height: 100%;
+    background: var(--fw-myth);
+  }
+  .toolbar {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+  }
+  .toolbar .sp {
+    flex: 1;
+  }
+  .log {
+    margin-top: 10px;
+    font-size: 11.5px;
+    color: var(--fw-muted);
+    border-top: 1px dashed var(--fw-line);
+    padding-top: 8px;
+  }
+  .log div {
+    padding: 2px 0;
+  }
+  .log .mono {
+    color: var(--fw-ink);
+  }
+
+  /* chat */
+  .chat {
+    width: 300px;
+    background: #1b181f;
+    border-radius: 6px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55);
+  }
+  .msg {
+    background: var(--fw-body);
+    color: var(--fw-ink);
+    border-radius: 5px;
+    overflow: hidden;
+    font-size: 12.5px;
+  }
+  .msg .mh {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    padding: 6px 9px;
+    border-bottom: 1px solid var(--fw-line);
+  }
+  .msg .mh .ava {
+    width: 24px;
+    height: 24px;
+    font-size: 10px;
+  }
+  .msg .mh b {
+    flex: 1;
+    font: 600 13px var(--display);
+  }
+  .msg .mh small {
+    color: var(--fw-muted);
+    font-size: 10.5px;
+  }
+  .msg .mb {
+    padding: 8px 9px;
+  }
+  .msg .mb h5 {
+    margin: 0 0 4px;
+    font: 600 14px var(--display);
+    color: var(--fw-myth);
+  }
+  .msg .mf {
+    display: flex;
+    gap: 6px;
+    padding: 0 9px 9px;
+    flex-wrap: wrap;
+  }
+  .msg.gm {
+    outline: 2px dashed #8a5cc4;
+    outline-offset: -2px;
+  }
+  .whisper {
+    font: 700 9.5px var(--body);
+    color: #8a5cc4;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  /* settings */
+  .settings {
+    width: 560px;
+  }
+  .set {
+    display: grid;
+    grid-template-columns: 1fr 170px;
+    gap: 12px;
+    padding: 9px 0;
+    border-bottom: 1px solid #e3d8bf;
+    align-items: start;
+  }
+  .set:last-child {
+    border-bottom: 0;
+  }
+  .set b {
+    font: 600 13px var(--body);
+  }
+  .set small {
+    display: block;
+    color: var(--fw-muted);
+    font-size: 11.5px;
+  }
+  .sel {
+    background: var(--fw-input);
+    border: 1px solid var(--fw-line);
+    border-radius: 4px;
+    padding: 5px 8px;
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .tog {
+    width: 34px;
+    height: 18px;
+    border-radius: 9px;
+    background: #c9bc9f;
+    position: relative;
+    justify-self: end;
+  }
+  .tog::after {
+    content: "";
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #fff;
+    top: 2px;
+    left: 2px;
+  }
+  .tog.on {
+    background: var(--fw-myth);
+  }
+  .tog.on::after {
+    left: 18px;
+  }
+
+  @media (max-width: 640px) {
+    .ms {
+      grid-template-columns: 1fr;
+    }
+    .stage {
+      padding: 14px;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      scroll-behavior: auto;
+    }
+  }
+</style>
+
+<div class="wrap">
+  <header>
+    <span class="eyebrow">Foundry VTT v14 · PF2e 8.5.1 · Module plan</span>
+    <h1>Sargas Mythic Powers</h1>
+    <p class="lede">
+      A Foundry module that lets the GM grant mythic power to one character at a time. Once granted, that
+      player chooses a Calling and starts taking mythic feats. The GM gets a console for Mythic Points, mythic
+      trials and the mythic death rules. The rules come from
+      <a href="https://2e.aonprd.com/Rules.aspx?ID=3320">Mythic Rules</a> in <i>War of Immortals</i>.
+    </p>
+    <div>
+      <span class="status">Status: <b>Draft for review, revision 2</b> · nothing implemented yet</span>
+    </div>
+    <div class="callout">
+      <b>Ground rules (from your feedback):</b> mythic power is granted to <b>one character at a time</b>, and
+      only the GM decides. The GM can <b>enable or disable</b> it per character at any time. A player whose
+      character hasn't been granted mythic power sees <b>no sign of it</b>: no slots, no points, no chat
+      cards, no menus, and no mythic entries in the feat browser.
+    </div>
+    <nav class="toc" aria-label="Sections">
+      <a href="#baseline">1. What PF2e already does</a>
+      <a href="#scope">2. Features</a>
+      <a href="#flows">3. Flows</a>
+      <a href="#mockups">4. UI mockups</a>
+      <a href="#arch">5. Architecture</a>
+      <a href="#milestones">6. Milestones</a>
+      <a href="#risks">7. Risks</a>
+      <a href="#decisions">8. Your decisions</a>
+    </nav>
+  </header>
+
+  <section id="baseline" class="prose">
+    <h2>1. What PF2e 8.5.1 already does</h2>
+    <p>
+      I checked the installed system (<code>pf2e.mjs</code>, the <code>feats</code> and
+      <code>class-features</code> compendiums) on Foundry 14.368. The system already has most of the
+      mechanics. What it lacks is a way to make one character mythic while the rest of the party stays normal.
+      Its <b>Mythic Rules</b> world setting (<code>pf2e.mythic</code>:
+      <i>disabled / enabled / variant-tiers</i>) adds mythic feat slots to <b>every</b> character sheet.
+    </p>
+    <div class="tablewrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Rule</th>
+            <th>In PF2e 8.5.1</th>
+            <th>What the module adds</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Mythic feat slots: Calling, then levels 2, 4 … 20, with the destiny slot at 12</td>
+            <td>
+              <span class="pill native">Native</span> Slot filters by <code>mythic</code> /
+              <code>destiny</code> trait
+            </td>
+            <td>
+              Because the PF2e setting affects every sheet, the module hides the group on every character that
+              isn't granted and enabled. Adds a feat picker that knows which feats each character can take.
+            </td>
+          </tr>
+          <tr>
+            <td>Character counts as mythic</td>
+            <td>
+              <span class="pill partial">Partial</span> Any character that owns a <code>calling</code> feat
+            </td>
+            <td>
+              A GM grant flag, a Calling picker, and a guard so players can't add a Calling without a grant.
+            </td>
+          </tr>
+          <tr>
+            <td>Mythic Points (3 max) replace Hero Points</td>
+            <td><span class="pill native">Native</span> <code>system.resources.mythicPoints</code></td>
+            <td>
+              Session refresh, award buttons, a ledger, and the optional Hero Point rule for non-mythic PCs.
+            </td>
+          </tr>
+          <tr>
+            <td>Rewrite Fate (reroll at mythic proficiency)</td>
+            <td><span class="pill native">Native</span> Chat reroll menu, 10 + level</td>
+            <td>Nothing. The module uses the system's version.</td>
+          </tr>
+          <tr>
+            <td>Calling content: 18 Callings, 221 mythic feats, 13 destinies</td>
+            <td>
+              <span class="pill native">Native</span> In the compendiums. Callings grant their action through
+              <code>GrantItem</code>.
+            </td>
+            <td>
+              Reads edicts and anathema from each Calling's description so they can be shown on the sheet.
+            </td>
+          </tr>
+          <tr>
+            <td>Recovering points: mythic kill (2 / 1), mythic deed (3), edict (1), anathema (lose all)</td>
+            <td><span class="pill missing">Missing</span></td>
+            <td>GM console buttons and a prompt when a mythic creature is defeated.</td>
+          </tr>
+          <tr>
+            <td>Calling daily regain (first critical success each day)</td>
+            <td><span class="pill missing">Missing</span></td>
+            <td>Detects the critical success in chat and offers to restore 1 point, once per day.</td>
+          </tr>
+          <tr>
+            <td>Alternate progression: tiers 0–10 from mythic trials</td>
+            <td>
+              <span class="pill partial">Partial</span> A tier number in
+              <code>flags.pf2e.featLimits.mythic</code>
+            </td>
+            <td>
+              Trial tracker with the tier thresholds and the limit of one tier per session. Raises the tier
+              for you.
+            </td>
+          </tr>
+          <tr>
+            <td>Mythic Late Start (catch-up feats)</td>
+            <td><span class="pill missing">Missing</span></td>
+            <td>Pacing that releases owed feats one session at a time.</td>
+          </tr>
+          <tr>
+            <td>Death: dying 4 raises doomed instead; death at doomed 4</td>
+            <td><span class="pill missing">Missing</span></td>
+            <td>Optional automation with a chat card.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="scope">
+    <h2>2. Features</h2>
+    <div class="features">
+      <div class="feature">
+        <h3><span class="id">F1</span> Grant mythic power <span class="tag">GM</span></h3>
+        <ul>
+          <li>GM only, one character at a time. There is no party-wide or automatic grant.</li>
+          <li>
+            Options: progression mode, starting tier, who picks the Calling (player or GM), catch-up pacing,
+            and a note on where the power comes from.
+          </li>
+          <li>
+            <b>Disable</b> suspends the power and keeps the character's choices so <b>Enable</b> can bring
+            them back. <b>Revoke</b> removes it for good, after a confirmation.
+          </li>
+          <li>The announcement is whispered to the character's owners only, or not sent at all.</li>
+        </ul>
+      </div>
+      <div class="feature">
+        <h3><span class="id">F2</span> Calling picker <span class="tag">Player</span></h3>
+        <ul>
+          <li>Lists the Callings from the compendium, filtered by source book or allowed by the GM.</li>
+          <li>Shows the mythic-proficiency skills, the daily regain, edicts and anathema.</li>
+          <li>
+            Adds the Calling to the <code>mythic-calling</code> slot, so the system grants Rewrite Fate and
+            turns on Mythic Points.
+          </li>
+        </ul>
+      </div>
+      <div class="feature">
+        <h3><span class="id">F3</span> Sheet integration <span class="tag">Both</span></h3>
+        <ul>
+          <li>
+            A Mythic banner on the Feats tab with Calling, tier, points, and edict and anathema reminders.
+          </li>
+          <li>
+            Characters that aren't granted, or are disabled, look exactly like characters in a world without
+            mythic rules. Mythic feats can't be dropped on them.
+          </li>
+          <li>
+            Players with no granted character don't see mythic feats, Callings or destinies in the PF2e
+            Compendium Browser.
+          </li>
+          <li>A badge counts open mythic slots.</li>
+        </ul>
+      </div>
+      <div class="feature">
+        <h3><span class="id">F4</span> Mythic feat picker <span class="tag">Player</span></h3>
+        <ul>
+          <li>
+            Shows only feats this character can take: right level or tier, prerequisites (Callings and other
+            feats), only one destiny, and at 12 only destiny feats.
+          </li>
+          <li>Ineligible feats show why. They can be shown or hidden.</li>
+          <li>Optional GM approval queue.</li>
+        </ul>
+      </div>
+      <div class="feature">
+        <h3><span class="id">F5</span> Mythic console <span class="tag">GM</span></h3>
+        <ul>
+          <li>GM only. Lists every PC with an Enable/Disable switch per character.</li>
+          <li>Shows each mythic character's points, tier, trials, doomed value and open slots.</li>
+          <li>
+            Award buttons: edict +1, mythic deed +3 to all, mythic kill 2 / 1, anathema to 0, plus a custom
+            amount.
+          </li>
+          <li>Start Session sets every enabled mythic character to 3. A ledger records every change.</li>
+        </ul>
+      </div>
+      <div class="feature">
+        <h3><span class="id">F6</span> Automation prompts <span class="tag">GM</span></h3>
+        <ul>
+          <li>
+            A defeated <code>mythic</code> NPC whispers the GM a suggested award, based on who struck the last
+            blow. Only enabled characters are counted.
+          </li>
+          <li>The first critical success each day on a character's Calling actions offers +1 point.</li>
+          <li>All of these ask the GM first and never apply on their own.</li>
+        </ul>
+      </div>
+      <div class="feature">
+        <h3><span class="id">F7</span> Trials and late start <span class="tag">Variant</span></h3>
+        <ul>
+          <li>
+            Trials needed per tier: 1 for tier 0, 2 each for tiers 1–5, 3 each for tiers 6–9, 4 for tier 10.
+          </li>
+          <li>
+            Tier rises automatically, at most once per session. A warning shows when tier is above half the
+            character's level.
+          </li>
+          <li>Late start: owed feats are released one session at a time.</li>
+        </ul>
+      </div>
+      <div class="feature">
+        <h3><span class="id">F8</span> Mythic death <span class="tag">Optional</span></h3>
+        <ul>
+          <li>
+            When a mythic character would reach dying 4, doomed goes up by 1 and they stabilize at 0 HP.
+          </li>
+          <li>They die only at doomed 4.</li>
+          <li>A chat card explains what happened. The setting is per world.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="flows" class="prose">
+    <h2>3. Flows</h2>
+    <pre class="mermaid">
+flowchart LR
+  A[GM: Grant Mythic Power] --> B{Who picks the Calling?}
+  B -- Player --> C[Player sees the Calling picker]
+  B -- GM --> D[GM picks the Calling in the grant dialog]
+  C --> E[Calling added to the mythic-calling slot]
+  D --> E
+  E --> F[PF2e grants Rewrite Fate, Mythic Points max 3, Hero Points 0]
+  F --> G{Progression}
+  G -- Standard --> H[Mythic slots open at even levels]
+  G -- Trials or late start --> I[GM logs trials, tier rises, slots open]
+  H --> J[Player picks feats in the mythic feat picker]
+  I --> J
+  J --> K{GM approval on?}
+  K -- No --> L[Feat added to the slot]
+  K -- Yes --> M[Request sent to the GM] --> L
+  </pre>
+    <p>
+      The GM can disable at any point, which hides everything again until Enable. Players only change their
+      own character. Anything that touches other actors, such as party-wide awards or approvals, goes through
+      a socket so a connected GM applies it.
+    </p>
+  </section>
+
+  <section id="mockups">
+    <h2>4. UI mockups</h2>
+    <p class="mock-intro">
+      These are static mockups drawn in Foundry v14's window style with the PF2e parchment sheet. Purple marks
+      anything the module adds, so it stands out from the system's crimson. The names and rules text are real
+      compendium entries, shortened.
+    </p>
+
+    <!-- M1 -->
+    <div class="mock">
+      <div class="mock-cap">
+        <span class="id">M1</span>
+        <h3>Grant Mythic Power (GM)</h3>
+        <p>
+          The GM right-clicks an actor in the directory and opens the grant dialog. Only the GM sees the menu
+          entries and the purple badge (and a grey one for disabled characters). Players' directories don't
+          change.
+        </p>
+      </div>
+      <div class="stage">
+        <div class="stage-inner">
+          <div class="fw dir">
+            <div class="fw-h"><span class="t">Actors</span><span class="x">✕</span></div>
+            <div class="fw-b">
+              <div class="dir-row">
+                <div class="ava">AM</div>
+                <span class="nm">Amiri</span><span class="badge">MYTHIC</span>
+              </div>
+              <div class="dir-row" style="background: #3b2a52">
+                <div class="ava">EZ</div>
+                <span class="nm">Ezren</span>
+              </div>
+              <div class="ctx">
+                <div>Configure Ownership</div>
+                <div>Duplicate</div>
+                <div class="sep"></div>
+                <div class="hl">✦ Grant Mythic Power…</div>
+                <div style="opacity: 0.45">⏸ Disable / ▶ Enable Mythic Power</div>
+                <div>Export Data</div>
+              </div>
+              <div class="dir-row">
+                <div class="ava">KY</div>
+                <span class="nm">Kyra</span><span class="badge" style="background: #5a5560">DISABLED</span>
+              </div>
+              <div class="dir-row">
+                <div class="ava">VA</div>
+                <span class="nm">Valeros</span>
+              </div>
+            </div>
+          </div>
+          <div class="fw" style="width: 430px">
+            <div class="fw-h">
+              <span class="ic">M</span><span class="t">Grant Mythic Power: Ezren</span
+              ><span class="x">✕</span>
+            </div>
+            <div class="fw-b">
+              <div class="lbl">Source of power (shown on the sheet)</div>
+              <input class="inp" value="Touched by the Godsrain at the ruins of Absalom Station" readonly />
+              <div class="lbl">Progression</div>
+              <div class="radio">
+                <span class="dot"></span>
+                <div>
+                  <b>Standard</b
+                  ><small
+                    >A mythic feat at every even level. Ezren is level 7, so 3 feats are owed now.</small
+                  >
+                </div>
+              </div>
+              <div class="radio on">
+                <span class="dot"></span>
+                <div>
+                  <b>Late start (catch-up)</b
+                  ><small>Owed feats are released one per session until he catches up.</small>
+                </div>
+              </div>
+              <div class="radio">
+                <span class="dot"></span>
+                <div>
+                  <b>Mythic trials (tiers)</b
+                  ><small
+                    >Tier grows from trials, separately from level. Needs the PF2e setting “Alternate Mythic
+                    Progression”.</small
+                  >
+                </div>
+              </div>
+              <div class="lbl">Calling</div>
+              <div class="row">
+                <div class="radio on" style="flex: 1; margin: 0">
+                  <span class="dot"></span>
+                  <div><b>Player chooses</b></div>
+                </div>
+                <div class="radio" style="flex: 1; margin: 0">
+                  <span class="dot"></span>
+                  <div><b>GM assigns</b></div>
+                </div>
+              </div>
+              <div class="lbl">Announce</div>
+              <div class="chk"><span class="box on"></span>Whisper the announcement to Ezren's owners</div>
+              <div class="chk"><span class="box on"></span>Start with 3 Mythic Points</div>
+            </div>
+            <div class="fw-f">
+              <button class="btn">Cancel</button><button class="btn primary">✦ Grant Mythic Power</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- M2 -->
+    <div class="mock">
+      <div class="mock-cap">
+        <span class="id">M2</span>
+        <h3>Choose your Calling (player)</h3>
+        <p>
+          Opens for the player right after the grant, and again from the sheet until a Calling is chosen. The
+          GM can hide some source books, such as the Pathfinder Society scenario Callings.
+        </p>
+      </div>
+      <div class="stage">
+        <div class="stage-inner">
+          <div class="fw" style="width: 800px">
+            <div class="fw-h">
+              <span class="ic">M</span><span class="t">Choose your Mythic Calling: Ezren</span
+              ><span class="x">✕</span>
+            </div>
+            <div class="fw-b" style="display: grid; grid-template-columns: 1fr 290px; gap: 14px">
+              <div>
+                <div class="row" style="margin-bottom: 8px">
+                  <input class="inp" value="Search callings…" readonly style="color: #9c8b6a" /><span
+                    class="sel"
+                    style="width: 190px"
+                    >War of Immortals ▾</span
+                  >
+                </div>
+                <div class="calling-grid">
+                  <div class="cc"><b>Acrobat's</b><span class="src">Balance · Tumble · Long Jump</span></div>
+                  <div class="cc"><b>Artisan's</b><span class="src">Craft · Repair</span></div>
+                  <div class="cc"><b>Bookkeeper's</b><span class="src">Lore: Recall · Earn Income</span></div>
+                  <div class="cc">
+                    <b>Caretaker's</b><span class="src">Treat Wounds · Battle Medicine</span>
+                  </div>
+                  <div class="cc"><b>Demagogue's</b><span class="src">Coerce · Make an Impression</span></div>
+                  <div class="cc"><b>Guardian's</b><span class="src">Disarm · Reposition · Shove</span></div>
+                  <div class="cc"><b>Handler's</b><span class="src">Command an Animal</span></div>
+                  <div class="cc"><b>Hunter's</b><span class="src">Seek · Track</span></div>
+                  <div class="cc on"><b>Sage's</b><span class="src">Recall Knowledge</span></div>
+                  <div class="cc"><b>Thespian's</b><span class="src">Perform · Earn Income</span></div>
+                  <div class="cc"><b>Thief's</b><span class="src">Pick a Lock · Steal</span></div>
+                </div>
+              </div>
+              <div class="detail">
+                <span class="trait myth">Mythic</span><span class="trait myth">Calling</span>
+                <h4 style="font: 600 19px var(--display); margin: 6px 0 2px">Sage's Calling</h4>
+                <div class="muted" style="font-size: 11.5px">War of Immortals · grants Rewrite Fate</div>
+                <p style="margin: 8px 0 4px">
+                  <b>Mythic proficiency:</b> spend a Mythic Point on Recall Knowledge.
+                </p>
+                <p style="margin: 0 0 4px">
+                  <b>Daily regain:</b> first critical success each day on Recall Knowledge against an enemy
+                  gives back 1 point.
+                </p>
+                <div class="ea">
+                  <div class="e">
+                    <b>Edicts</b>Preserve knowledge for those who come later. Search dangerous or forgotten
+                    places for lost lore.
+                  </div>
+                  <div class="a">
+                    <b>Anathema</b>Destroy books or other stores of knowledge. Lie to keep knowledge hidden.
+                  </div>
+                </div>
+                <p class="muted" style="font-size: 11.5px; margin-top: 8px">
+                  You can change your Calling later only after a major turning point in the story, with the
+                  GM's approval.
+                </p>
+              </div>
+            </div>
+            <div class="fw-f">
+              <button class="btn">Decide later</button
+              ><button class="btn primary">Take Sage's Calling</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- M3 -->
+    <div class="mock">
+      <div class="mock-cap">
+        <span class="id">M3</span>
+        <h3>Character sheet: Feats tab</h3>
+        <p>
+          A Mythic Points tracker in the sidebar replaces Hero Points (the system already does this). The
+          banner and slot states come from the module. The highlighted slot is the next one the player can
+          fill, and later slots are locked by late-start pacing.
+        </p>
+      </div>
+      <div class="stage">
+        <div class="stage-inner">
+          <div class="fw sheet">
+            <div class="fw-h">
+              <span class="t">Ezren · Wizard 7</span
+              ><span class="x" style="font-size: 11px">✦ Mythic &nbsp; ⚙ Sheet &nbsp; ✕</span>
+            </div>
+            <div class="fw-b">
+              <div class="side">
+                <div class="portrait"></div>
+                <div class="res">
+                  <div class="k">Hit Points</div>
+                  <b>58</b> / 64
+                </div>
+                <div class="res mythres">
+                  <div class="k">Mythic Points</div>
+                  <span class="mp"><i class="on"></i><i class="on"></i><i></i></span>
+                </div>
+                <div class="res">
+                  <div class="k">Doomed</div>
+                  0 <span style="opacity: 0.6">/ 4</span>
+                </div>
+              </div>
+              <div class="main">
+                <div class="tabs">
+                  <span>Character</span><span>Actions</span><span>Inventory</span><span>Spells</span
+                  ><span class="on"
+                    >Feats
+                    <span
+                      style="
+                        background: var(--fw-myth);
+                        color: #fff;
+                        border-radius: 8px;
+                        padding: 0 6px;
+                        font-size: 10px;
+                      "
+                      >1</span
+                    ></span
+                  ><span>Effects</span>
+                </div>
+                <div class="mythbanner">
+                  <div>
+                    <h4>✦ Mythic: Sage's Calling</h4>
+                    <div class="meta">
+                      Source: <b>Touched by the Godsrain</b> · Progression: <b>Late start</b> (1 of 3 caught
+                      up)
+                    </div>
+                  </div>
+                  <div style="text-align: right">
+                    <span class="mp"><i class="on"></i><i class="on"></i><i></i></span>
+                    <div class="meta">2 / 3</div>
+                  </div>
+                  <div class="meta" style="grid-column: 1/-1">
+                    <b>Edicts:</b> preserve knowledge · seek lost lore &nbsp;|&nbsp;
+                    <b style="color: #8a2a2a">Anathema:</b> destroy knowledge · lie to hide it
+                  </div>
+                </div>
+                <div class="featgroup">
+                  <div class="fg-h">
+                    <span>Mythic</span><span class="sp"></span
+                    ><span class="tier">Next release: next session</span>
+                  </div>
+                  <div class="slot">
+                    <span class="lv">C</span>
+                    <div class="nm">
+                      <b>Sage's Calling</b>
+                      <div class="ex">Grants Rewrite Fate</div>
+                    </div>
+                    <span class="trait myth">Calling</span>
+                  </div>
+                  <div class="slot">
+                    <span class="lv">2</span>
+                    <div class="nm"><b>Ears That Hear the Truth</b></div>
+                    <span class="trait myth">Mythic</span>
+                  </div>
+                  <div class="slot empty next">
+                    <span class="lv">4</span>
+                    <div class="nm">Open mythic slot (4th level or lower)</div>
+                    <button class="btn sm primary">Choose feat…</button>
+                  </div>
+                  <div class="slot empty locked">
+                    <span class="lv">6</span>
+                    <div class="nm">🔒 Unlocks after next session (late start)</div>
+                    <span></span>
+                  </div>
+                </div>
+                <div class="featgroup" style="opacity: 0.55; margin-top: 0">
+                  <div class="fg-h" style="background: var(--fw-red)"><span>Class Feats</span></div>
+                  <div class="slot">
+                    <span class="lv">1</span>
+                    <div class="nm"><b>Reach Spell</b></div>
+                    <span></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- M4 -->
+    <div class="mock">
+      <div class="mock-cap">
+        <span class="id">M4</span>
+        <h3>Mythic feat picker</h3>
+        <p>
+          Opens from an empty slot and is already filtered for that slot. Feats Ezren can't take show the
+          reason. A feat can be dragged in, or added with one click.
+        </p>
+      </div>
+      <div class="stage">
+        <div class="stage-inner">
+          <div class="fw browser">
+            <div class="fw-h">
+              <span class="ic">M</span><span class="t">Mythic Feats: slot 4 · Ezren</span
+              ><span class="x">✕</span>
+            </div>
+            <div class="fw-b">
+              <div class="filt">
+                <div class="lbl">Level</div>
+                <div class="sel"><span>≤ 4</span><span>▾</span></div>
+                <div class="lbl">Show</div>
+                <div class="chk"><span class="box on"></span>Can take now</div>
+                <div class="chk"><span class="box on"></span>Can't take (with reason)</div>
+                <div class="chk"><span class="box"></span>Already owned</div>
+                <div class="lbl">Source</div>
+                <div class="chk"><span class="box on"></span>War of Immortals</div>
+                <div class="chk"><span class="box"></span>Runelords Player's Guide</div>
+              </div>
+              <div>
+                <input class="inp" value="Search…" readonly style="color: #9c8b6a; margin-bottom: 8px" />
+                <div class="fl">
+                  <div class="fi sel">
+                    <span class="lv">4</span>
+                    <div>
+                      <div class="nm">Prescience</div>
+                      <span class="trait myth">Mythic</span>
+                    </div>
+                    <button class="btn sm primary">Add</button>
+                  </div>
+                  <div class="fi">
+                    <span class="lv">4</span>
+                    <div>
+                      <div class="nm">Godspeed</div>
+                      <span class="trait myth">Mythic</span>
+                    </div>
+                    <button class="btn sm">Add</button>
+                  </div>
+                  <div class="fi">
+                    <span class="lv">4</span>
+                    <div>
+                      <div class="nm">Become Shadow</div>
+                      <span class="trait myth">Mythic</span>
+                    </div>
+                    <button class="btn sm">Add</button>
+                  </div>
+                  <div class="fi">
+                    <span class="lv">2</span>
+                    <div>
+                      <div class="nm">Binds That Tie</div>
+                      <span class="trait myth">Mythic</span>
+                    </div>
+                    <button class="btn sm">Add</button>
+                  </div>
+                  <div class="fi no">
+                    <span class="lv">4</span>
+                    <div>
+                      <div class="nm">Read the Wind</div>
+                      <span class="trait myth">Mythic</span>
+                      <div class="why">Requires Hunter's Calling</div>
+                    </div>
+                    <span></span>
+                  </div>
+                  <div class="fi no">
+                    <span class="lv">2</span>
+                    <div>
+                      <div class="nm">Storied Companion</div>
+                      <span class="trait myth">Mythic</span>
+                      <div class="why">Requires Handler's Calling and an animal companion</div>
+                    </div>
+                    <span></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="fw-f">
+              <span class="muted" style="margin-right: auto; font-size: 11.5px"
+                >GM approval is on. Your pick is sent to the GM.</span
+              ><button class="btn">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- M5 -->
+    <div class="mock">
+      <div class="mock-cap">
+        <span class="id">M5</span>
+        <h3>Mythic console (GM)</h3>
+        <p>
+          GM only. It opens from a GM-only button in the Token Controls. The switch in the first column
+          enables or disables each character on its own. Disabling keeps the Calling and feats, so enabling
+          restores them.
+        </p>
+      </div>
+      <div class="stage">
+        <div class="stage-inner">
+          <div class="fw console">
+            <div class="fw-h">
+              <span class="ic">M</span><span class="t">Mythic Console</span><span class="x">✕</span>
+            </div>
+            <div class="fw-b">
+              <div class="toolbar">
+                <button class="btn primary">▶ Start Session (all to 3)</button>
+                <button class="btn">✦ Mythic Deed (+3 all)</button>
+                <button class="btn">☠ Mythic Kill…</button>
+                <span class="sp"></span>
+                <span class="muted" style="font-size: 11.5px">Session 14 · started 19:02</span>
+              </div>
+              <table class="ptable">
+                <thead>
+                  <tr>
+                    <th>Mythic</th>
+                    <th>Character</th>
+                    <th>Calling</th>
+                    <th>Points</th>
+                    <th>Tier / trials</th>
+                    <th>Doomed</th>
+                    <th>Award</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="tog on"></span></td>
+                    <td>
+                      <div class="who">
+                        <div class="ava">AM</div>
+                        <div>
+                          <b>Amiri</b>
+                          <div class="muted" style="font-size: 11px">Barbarian 7</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>Guardian's</td>
+                    <td>
+                      <span class="mp"><i class="on"></i><i class="on"></i><i class="on"></i></span>
+                    </td>
+                    <td>
+                      Tier 3
+                      <div class="bar"><span style="width: 50%"></span></div>
+                      <span class="muted" style="font-size: 10.5px">1 / 2 to tier 4</span>
+                    </td>
+                    <td>0</td>
+                    <td>
+                      <div class="acts">
+                        <button class="btn sm">Edict +1</button><button class="btn sm">±</button
+                        ><button class="btn sm danger">Anathema</button
+                        ><button class="btn sm">+ Trial</button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><span class="tog on"></span></td>
+                    <td>
+                      <div class="who">
+                        <div class="ava">EZ</div>
+                        <div>
+                          <b>Ezren</b>
+                          <div class="muted" style="font-size: 11px">Wizard 7 · 1 feat pending</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>Sage's</td>
+                    <td>
+                      <span class="mp"><i class="on"></i><i class="on"></i><i></i></span>
+                    </td>
+                    <td><span class="muted">Late start 1 / 3</span></td>
+                    <td>1</td>
+                    <td>
+                      <div class="acts">
+                        <button class="btn sm">Edict +1</button><button class="btn sm">±</button
+                        ><button class="btn sm danger">Anathema</button
+                        ><button class="btn sm">Release feat</button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr style="opacity: 0.7">
+                    <td><span class="tog"></span></td>
+                    <td>
+                      <div class="who">
+                        <div class="ava">KY</div>
+                        <div>
+                          <b>Kyra</b>
+                          <div class="muted" style="font-size: 11px">
+                            Cleric 7 · disabled since session 12
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>Caretaker's <span class="muted">(kept)</span></td>
+                    <td colspan="3"><span class="muted">Hidden from Kyra · Hero Points 2 / 3</span></td>
+                    <td>
+                      <div class="acts">
+                        <button class="btn sm">▶ Enable</button><button class="btn sm danger">Revoke…</button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr style="opacity: 0.6">
+                    <td><span class="tog"></span></td>
+                    <td>
+                      <div class="who">
+                        <div class="ava">VA</div>
+                        <div>
+                          <b>Valeros</b>
+                          <div class="muted" style="font-size: 11px">Fighter 7 · never granted</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td colspan="4"><span class="muted">Hero Points 1 / 3</span></td>
+                    <td>
+                      <div class="acts"><button class="btn sm primary">✦ Grant…</button></div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="log">
+                <div>
+                  <span class="mono">19:41</span> Mythic kill: <b>Ancient Mummy</b> (mythic). Amiri +2 (last
+                  blow), Ezren +1
+                </div>
+                <div><span class="mono">19:20</span> Ezren spent 1 on Rewrite Fate (Reflex save)</div>
+                <div><span class="mono">19:02</span> Session started. All mythic characters set to 3</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- M6 -->
+    <div class="mock">
+      <div class="mock-cap">
+        <span class="id">M6</span>
+        <h3>Chat cards</h3>
+        <p>
+          From left: the grant announcement, a prompt whispered to the GM when a mythic creature is defeated,
+          the daily regain from a Calling, and mythic death in place of dying 4.
+        </p>
+      </div>
+      <div class="stage">
+        <div class="stage-inner">
+          <div class="chat">
+            <div class="msg">
+              <div class="mh">
+                <div class="ava">EZ</div>
+                <b>Ezren</b><small>19:00</small>
+              </div>
+              <div class="mb">
+                <div class="whisper">Whisper to Ezren's owners and GM</div>
+                <h5>✦ Mythic Power Awakens</h5>
+                Ezren has been touched by the Godsrain. He gains mythic power and must choose a Calling.
+              </div>
+              <div class="mf"><button class="btn sm primary">Choose Calling</button></div>
+            </div>
+            <div class="msg gm">
+              <div class="mh">
+                <div class="ava">GM</div>
+                <b>Mythic foe defeated</b><small>19:41</small>
+              </div>
+              <div class="mb">
+                <div class="whisper">Whisper to GM</div>
+                <b>Ancient Mummy</b> <span class="trait myth">Mythic</span> dropped to 0 HP.<br />Last blow:
+                <b>Amiri</b> (+2). Other mythic PCs: Ezren (+1).
+              </div>
+              <div class="mf">
+                <button class="btn sm primary">Award</button><button class="btn sm">Change killer…</button
+                ><button class="btn sm">Ignore</button>
+              </div>
+            </div>
+          </div>
+          <div class="chat">
+            <div class="msg gm">
+              <div class="mh">
+                <div class="ava">EZ</div>
+                <b>Ezren</b><small>20:05</small>
+              </div>
+              <div class="mb">
+                <div class="whisper">Whisper to GM and Ezren</div>
+                <h5>Calling: Sage's daily regain</h5>
+                Critical success on Recall Knowledge against the <b>Bone Prophet</b>. This is the first time
+                today, so Ezren can regain 1 Mythic Point.
+              </div>
+              <div class="mf">
+                <button class="btn sm primary">Restore 1 point</button
+                ><button class="btn sm">Not this time</button>
+              </div>
+            </div>
+            <div class="msg">
+              <div class="mh">
+                <div class="ava">AM</div>
+                <b>Amiri</b><small>20:30</small>
+              </div>
+              <div class="mb">
+                <h5>✦ Death Denied</h5>
+                Amiri reached <b>dying 4</b>, but mythic power holds her here. She stabilizes at 0 HP.<br /><b
+                  >Doomed 1 → 2</b
+                >
+                (she dies at 4)
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- M7 -->
+    <div class="mock">
+      <div class="mock-cap">
+        <span class="id">M7</span>
+        <h3>Module settings</h3>
+        <p>
+          Each automation can be switched off on its own. Hiding from non-granted characters is always on and
+          can't be switched off. If the PF2e “Mythic Rules” setting is off, the module offers to turn it on.
+          The module hides that setting's slots everywhere except on granted characters.
+        </p>
+      </div>
+      <div class="stage">
+        <div class="stage-inner">
+          <div class="fw settings">
+            <div class="fw-h">
+              <span class="t">Configure Settings · Sargas Mythic Powers</span><span class="x">✕</span>
+            </div>
+            <div class="fw-b">
+              <div class="set">
+                <div>
+                  <b>Grant announcement</b
+                  ><small
+                    >Who sees the card when you grant or enable. It never goes to players who don't own the
+                    character.</small
+                  >
+                </div>
+                <span class="sel"><span>Whisper to owners</span><span>▾</span></span>
+              </div>
+              <div class="set">
+                <div>
+                  <b>Require GM approval for mythic feats</b
+                  ><small>Players' picks go to the GM to approve.</small>
+                </div>
+                <span class="tog"></span>
+              </div>
+              <div class="set">
+                <div>
+                  <b>Prompt on mythic creature defeat</b
+                  ><small>Suggests 2 points for the last blow and 1 for each other mythic PC.</small>
+                </div>
+                <span class="tog on"></span>
+              </div>
+              <div class="set">
+                <div><b>Calling daily regain prompts</b></div>
+                <span class="tog on"></span>
+              </div>
+              <div class="set">
+                <div>
+                  <b>Mythic death rules</b><small>Doomed instead of dying 4. Death at doomed 4.</small>
+                </div>
+                <span class="tog on"></span>
+              </div>
+              <div class="set">
+                <div>
+                  <b>Hero Points for non-mythic PCs</b
+                  ><small
+                    >Mixed play: give a Hero Point whenever mythic PCs gain Mythic Points. The card doesn't
+                    mention mythic power.</small
+                  >
+                </div>
+                <span class="tog"></span>
+              </div>
+              <div class="set">
+                <div><b>Allowed Calling sources</b></div>
+                <span class="sel"><span>War of Immortals +1</span><span>▾</span></span>
+              </div>
+              <div class="set">
+                <div><b>Late start: feats released per session</b></div>
+                <span class="sel"><span>1</span><span>▾</span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="arch" class="prose">
+    <h2>5. Architecture</h2>
+    <h3>Stack</h3>
+    <p>
+      The module uses the same stack as <code>sargas-encounter-builder</code>: TypeScript, Vite library build
+      to <code>dist/</code>, ESLint, Vitest for the rules logic, and <code>lang/en.json</code>. The UI is
+      <code>ApplicationV2</code> with <code>HandlebarsApplicationMixin</code>. Module id
+      <code>sargas-mythic-powers</code>. Compatibility: Foundry 14, PF2e 8.5 or later. There are no required
+      dependencies.
+    </p>
+    <h3>Data model (actor flags)</h3>
+    <pre class="code">
+flags["sargas-mythic-powers"] = {
+  granted: true,
+  enabled: true,                     // GM switch; false = suspended
+  suspended: { items: [/* calling + mythic feats as data */], points: 2, at: 1760900000000 },
+  grantedAt: 1760630400000,          // timestamp
+  source: "Touched by the Godsrain",
+  progression: "standard" | "lateStart" | "trials",
+  callingChoice: "player" | "gm",
+  lateStart: { owed: 3, released: 1, lastReleaseSession: 13 },
+  trials: { count: 3, log: [{ date, note }], lastTierUpSession: 12 },
+  dailyRegain: { lastDate: "4712-03-14" }, // world-calendar day
+  pending: [{ uuid, slotId, requestedAt }]   // approval queue
+}
+// Owned by PF2e, used directly by the module:
+system.resources.mythicPoints.value   flags.pf2e.featLimits.mythic (tier)
+// World setting: session counter and the last 200 ledger entries</pre>
+    <h3>Hooks into PF2e</h3>
+    <ul>
+      <li>
+        <b>Gating:</b> the <code>renderCharacterSheetPF2e</code> hook removes the Mythic feat group for every
+        actor that isn't granted and enabled. <code>preCreateItem</code> blocks feats with the
+        <code>mythic</code>, <code>calling</code> or <code>destiny</code> trait on those actors. This keeps
+        the system's prototypes untouched.
+      </li>
+      <li>
+        <b>Disable and Enable:</b> PF2e treats a character as mythic as long as it owns a Calling. That gives
+        it 3 Mythic Points and takes away Hero Points. So Disable moves the Calling and mythic feats into the
+        <code>suspended</code> flag and removes them from the actor, which brings Hero Points back. Enable
+        puts them back. Only the GM can change these flags (checked in <code>preUpdateActor</code>).
+      </li>
+      <li>
+        <b>Hiding from players:</b> players who own no enabled mythic character don't see mythic, calling or
+        destiny entries in the Compendium Browser, and the module's menus and controls are GM only. Grant
+        cards are whispered to the GM and the character's owners.
+      </li>
+      <li><b>Banner and badge:</b> added to the sheet DOM in the render hook. Purely visual.</li>
+      <li>
+        <b>Late start lock:</b> slots above the released count get a locked style, and
+        <code>preCreateItem</code> rejects feats dropped into them.
+      </li>
+      <li>
+        <b>Tier:</b> the module writes <code>flags.pf2e.featLimits.mythic</code>, which the system already
+        reads to open slots.
+      </li>
+      <li>
+        <b>Mythic kill:</b> <code>updateActor</code> on an NPC with the <code>mythic</code> trait reaching 0
+        HP during combat. The last blow is taken from the most recent damage message's origin.
+      </li>
+      <li>
+        <b>Daily regain:</b> <code>createChatMessage</code> with
+        <code>context.outcome === "criticalSuccess"</code> and roll options that match the Calling's actions.
+        The action table per Calling is kept in the module.
+      </li>
+      <li>
+        <b>Death:</b> <code>preUpdateActor</code> and condition hooks catch dying reaching its maximum for
+        granted actors.
+      </li>
+      <li>
+        <b>Socket:</b> <code>module.sargas-mythic-powers</code> handles approval requests and actions players
+        start for other actors. Only the active GM applies them.
+      </li>
+    </ul>
+    <h3>Source layout</h3>
+    <pre class="code">
+src/
+  main.ts                 init / ready / registration
+  settings.ts             world settings + PF2e setting check
+  state/flags.ts          typed flag read/write
+  rules/progression.ts    slots owed, late-start release, trial→tier table   (pure, tested)
+  rules/eligibility.ts    feat prerequisite + destiny checks                 (pure, tested)
+  rules/awards.ts         mythic kill / deed / edict math                    (pure, tested)
+  rules/callings.ts       calling → action slugs, edict/anathema parser      (pure, tested)
+  apps/GrantDialog.ts  apps/CallingPicker.ts  apps/MythicFeatPicker.ts  apps/MythicConsole.ts
+  integrations/sheet.ts  integrations/chat.ts  integrations/death.ts  integrations/socket.ts
+templates/*.hbs   styles/mythic.css   lang/en.json   tests/*.test.ts</pre>
+  </section>
+
+  <section id="milestones">
+    <h2>6. Milestones</h2>
+    <p class="prose" style="color: var(--muted)">
+      Each milestone ends with a manual pass in the <code>pf2-test</code> world, and I stop for your review
+      before starting the next.
+    </p>
+    <div class="milestones">
+      <div class="ms">
+        <span class="n">M0</span>
+        <div>
+          <b>Scaffold</b>
+          <ul>
+            <li>package.json, Vite, TypeScript and ESLint config, module.json, lang, CI lint and test.</li>
+            <li>Install into Foundry Data with a symlink for testing.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="ms">
+        <span class="n">M1</span>
+        <div>
+          <b>Grant, Calling, gating</b> (F1, F2, F3)
+          <ul>
+            <li>
+              Grant dialog, Enable/Disable/Revoke per character, Calling picker, sheet banner, hiding from
+              players who aren't granted, blocking drops, grant chat card.
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="ms">
+        <span class="n">M2</span>
+        <div>
+          <b>Mythic feat picker</b> (F4)
+          <ul>
+            <li>Eligibility engine with tests. Picker window. Optional approval queue over the socket.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="ms">
+        <span class="n">M3</span>
+        <div>
+          <b>Console and points</b> (F5)
+          <ul>
+            <li>Session start, awards, ledger, Hero Point rule for mixed play.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="ms">
+        <span class="n">M4</span>
+        <div>
+          <b>Automation</b> (F6, F8)
+          <ul>
+            <li>Mythic kill prompt, Calling daily regain, mythic death.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="ms">
+        <span class="n">M5</span>
+        <div>
+          <b>Variants and release</b> (F7)
+          <ul>
+            <li>Trials and tiers, late-start pacing, README, CHANGELOG, GitHub release workflow.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="risks" class="prose">
+    <h2>7. Risks</h2>
+    <div class="tablewrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Risk</th>
+            <th>Mitigation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>PF2e changes its sheet markup or feat-group internals in an update.</td>
+            <td>
+              Use DOM hooks and documented flags only, and never patch prototypes. Pin the verified version in
+              <code>module.json</code>, and smoke-test each PF2e release.
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Finding who struck the last blow on a mythic kill is unreliable with area damage or persistent
+              damage.
+            </td>
+            <td>The prompt always asks the GM, who can change the killer.</td>
+          </tr>
+          <tr>
+            <td>Matching Calling actions in chat is fragile across homebrew Callings.</td>
+            <td>The module keeps a table for the 18 known Callings. Unknown Callings just don't prompt.</td>
+          </tr>
+          <tr>
+            <td>Hiding the mythic group conflicts with other sheet modules.</td>
+            <td>
+              Hiding can't be turned off. Test with the sheet modules you use. Blocking drops works whatever
+              the sheet looks like.
+            </td>
+          </tr>
+          <tr>
+            <td>Players can still open the PF2e compendium packs directly and find mythic feats there.</td>
+            <td>
+              The Compendium Browser filter covers the common path. Fully hiding the pack would mean changing
+              its ownership, which also hides it from mythic players. I'd leave the packs alone unless you
+              want that.
+            </td>
+          </tr>
+          <tr>
+            <td>Disabling removes items, so their data could be lost.</td>
+            <td>
+              The full item data goes into the flag before anything is deleted. Enable recreates it exactly,
+              and the ledger records both steps.
+            </td>
+          </tr>
+          <tr>
+            <td>Automating mythic death is high-stakes at the table.</td>
+            <td>Off by default, always explained in chat, and the GM can undo it from the console ledger.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="decisions" class="prose">
+    <h2>8. Your decisions</h2>
+    <p>I need these answered before M1. My recommendation is next to each one.</p>
+    <div style="display: grid; gap: 10px">
+      <div class="q">
+        <h3>Q1. Who picks the Calling?</h3>
+        <p>
+          Player, GM, or a choice in the grant dialog.
+          <span class="rec">Recommended: a choice per grant, defaulting to the player.</span>
+        </p>
+      </div>
+      <div class="q">
+        <h3>Q2. Which progression modes are in v1?</h3>
+        <p>
+          Standard and late start are simple. Trials need the PF2e “Alternate Mythic Progression” setting,
+          which affects the whole world. <span class="rec">Recommended: all three, with trials in M5.</span>
+        </p>
+      </div>
+      <div class="q">
+        <h3>Q3. How much automation?</h3>
+        <p>
+          Mythic kill prompt, daily regain prompt, mythic death.
+          <span class="rec">Recommended: all three as GM prompts. Death off by default.</span>
+        </p>
+      </div>
+      <div class="q">
+        <h3>Q4. GM approval for feats?</h3>
+        <p><span class="rec">Recommended: a setting, off by default.</span></p>
+      </div>
+      <div class="q">
+        <h3>Q5. Disable: remove the items, or only hide them?</h3>
+        <p>
+          Removing them (and keeping a copy in a flag) gives back Hero Points and stops every mythic effect
+          while disabled. Only hiding them is simpler, but PF2e would still treat the character as mythic.
+          <span class="rec">Recommended: remove and keep a copy.</span>
+        </p>
+      </div>
+      <div class="q">
+        <h3>Q6. Hide mythic content in the Compendium Browser?</h3>
+        <p>
+          For players with no enabled mythic character.
+          <span class="rec">Recommended: yes. Leave the compendium packs themselves alone.</span>
+        </p>
+      </div>
+      <div class="q">
+        <h3>Q7. Mythic NPCs</h3>
+        <p>
+          Monster templates such as Mythic Resilience are out of scope for v1.
+          <span class="rec">Recommended: leave them for later.</span>
+        </p>
+      </div>
+    </div>
+    <div class="callout" style="margin-top: 16px">
+      Nothing is implemented. The only file written is this plan (<code>docs/plan.html</code>, not committed).
+      Approve or change the plan and I'll start with M0.
+    </div>
+  </section>
+</div>

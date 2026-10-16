@@ -1,0 +1,8 @@
+/* Progression chat card (trials, tiers, late start). Agent F. */
+.smp-progression-card {
+  border-left: 3px solid var(--smp-myth);
+  padding-left: 6px;
+}
+.smp-progression-card .smp-progression-body {
+  margin: 0;
+}

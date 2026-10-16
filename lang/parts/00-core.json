@@ -1,0 +1,43 @@
+{
+  "sargas-mythic-powers": {
+    "title": "Mythic Powers",
+    "mythic": "Mythic",
+    "errors": {
+      "noGM": "A GM must be connected to do this.",
+      "socket": "Mythic Powers: the GM action {action} failed. See the console for details.",
+      "gmOnly": "Only the GM can do this."
+    },
+    "settings": {
+      "announce": {
+        "name": "Grant announcement",
+        "hint": "Who sees the chat card when you grant or enable mythic power. It never goes to players who don't own the character.",
+        "owners": "Whisper to the character's owners",
+        "none": "Don't send a card"
+      },
+      "gmApproval": {
+        "name": "Require GM approval for mythic feats",
+        "hint": "Players' mythic feat picks are sent to the GM to approve."
+      },
+      "killPrompt": {
+        "name": "Prompt on mythic creature defeat",
+        "hint": "When a mythic creature drops to 0 HP in combat, suggest 2 Mythic Points for the last blow and 1 for each other mythic character."
+      },
+      "regainPrompt": {
+        "name": "Calling daily regain prompts",
+        "hint": "Offer 1 Mythic Point on the first critical success each day with a character's Calling actions."
+      },
+      "mythicDeath": {
+        "name": "Mythic death rules",
+        "hint": "A mythic character who would reach dying 4 gains doomed 1 and stabilizes at 0 HP instead. They die only at doomed 4."
+      },
+      "heroPointsMixed": {
+        "name": "Hero Points for non-mythic characters",
+        "hint": "Mixed play: whenever mythic characters gain Mythic Points from a kill or deed, each other character gains a Hero Point."
+      },
+      "lateStartPerSession": {
+        "name": "Late start: feats released per session",
+        "hint": "How many catch-up mythic feat slots open for a late-start character at each Start Session."
+      }
+    }
+  }
+}

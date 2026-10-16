@@ -1,0 +1,58 @@
+{
+  "sargas-mythic-powers": {
+    "automation": {
+      "whisperGM": "Whisper to GM",
+      "whisperOwners": "Whisper to GM and {name}'s owners",
+      "kill": {
+        "speaker": "Mythic foe defeated",
+        "title": "Mythic foe defeated",
+        "body": "{name} dropped to 0 HP.",
+        "killer": "Last blow: {name} (+{points}).",
+        "noKiller": "Last blow: unknown (choose with Change killer).",
+        "others": "Other mythic characters: {names} (+{points}).",
+        "nobody": "none",
+        "award": "Award",
+        "change": "Change killer…",
+        "ignore": "Ignore",
+        "killerLabel": "Last blow",
+        "none": "None (everyone +1)",
+        "awarded": "Awarded.",
+        "ignored": "Ignored.",
+        "failed": "Mythic Powers: the mythic kill award failed. See the console for details."
+      },
+      "regain": {
+        "title": "Calling: {calling} daily regain",
+        "body": "Critical success on {action}. This is the first time today, so {name} can regain 1 Mythic Point.",
+        "bodyTarget": "Critical success on {action} against {target}. This is the first time today, so {name} can regain 1 Mythic Point.",
+        "restore": "Restore 1 point",
+        "decline": "Not this time",
+        "restored": "{name} regained 1 Mythic Point.",
+        "declined": "Not this time.",
+        "already": "{name} already regained a Mythic Point from their Calling today.",
+        "failed": "Mythic Powers: the Calling regain failed. See the console for details.",
+        "gm": {
+          "enemy": "GM: the check had no target. Restore only if it was against an enemy.",
+          "notAlly": "GM: the check had no target. Restore only if the creature isn't an ally.",
+          "dreams": "GM: restore only if the subject was dreaming or the Dreamlands.",
+          "library": "GM: restore only if the character was researching in a library or similar facility.",
+          "tradition": "GM: restore only if the skill matches one of the character's magical traditions.",
+          "wildAnimal": "GM: restore only if the target was a wild animal.",
+          "notCompanion": "GM: restore only if the animal isn't the character's pet or companion.",
+          "words": "GM: restore only if the diversion used the character's words.",
+          "audience": "GM: restore only if the audience was indifferent or unfriendly."
+        }
+      },
+      "death": {
+        "title": "✦ Death Denied",
+        "body": "{name} reached {dying}, but mythic power holds them here. They stabilize at 0 HP.",
+        "dying": "dying {value}",
+        "doomed": "Doomed {from} → {to}",
+        "diesAt": "(dies at doomed {value})",
+        "undo": "Undo",
+        "undone": "Undone by the GM.",
+        "ledger": "{name}: death denied, doomed {from} → {to}",
+        "failed": "Mythic Powers: the mythic death rule failed. See the console for details."
+      }
+    }
+  }
+}
