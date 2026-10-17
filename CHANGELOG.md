@@ -1,5 +1,12 @@
 # Changelog
 
+## Unreleased
+
+- Readability: the module's windows (Mythic Console, Calling and feat pickers, grant and Make Mythic dialogs)
+  now follow Foundry's dark or light interface theme, so purple headings, hints and muted text no longer
+  vanish on dark backgrounds. Chat cards and the sheet banner keep the parchment palette. Small text is one
+  size larger, and the gold warning chip and destiny badge are easier to read.
+
 ## 0.2.0
 
 - Mythic NPCs: a Make Mythic template for any NPC following the War of Immortals ability table, with Mythic
