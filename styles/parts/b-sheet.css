@@ -16,7 +16,7 @@
   border-radius: 4px;
   background: var(--smp-myth-soft);
   color: #2b2b2b;
-  font-size: 12px;
+  font-size: 13px;
 }
 .smp-banner-main {
   min-width: 0;
@@ -27,7 +27,7 @@
   align-items: center;
   gap: 6px;
   margin: 0 0 2px;
-  color: var(--smp-myth);
+  color: var(--smp-accent);
   font-size: 14px;
   font-weight: 700;
   border: none;
@@ -37,7 +37,7 @@
   flex-wrap: wrap;
   gap: 2px 12px;
   color: var(--smp-muted);
-  font-size: 11px;
+  font-size: 12px;
 }
 .smp-banner-points {
   text-align: right;
@@ -52,7 +52,8 @@
   flex-direction: column;
   gap: 2px;
   min-width: 0;
-  font-size: 11px;
+  font-size: 12px;
+  line-height: 1.4;
 }
 .smp-banner-ea > span {
   display: -webkit-box;
@@ -65,7 +66,7 @@
   color: var(--smp-bad);
 }
 .smp-banner-nocalling {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 400;
   color: var(--smp-muted);
 }
@@ -78,7 +79,7 @@
   margin: 0;
   padding: 1px 8px;
   line-height: 18px;
-  font-size: 11px;
+  font-size: 12px;
   border: 1px solid var(--smp-myth);
   border-radius: 3px;
   background: var(--smp-myth);
@@ -104,7 +105,7 @@ nav.sheet-navigation [data-tab="feats"] {
   border-radius: 8px;
   background: var(--smp-myth);
   color: var(--smp-myth-ink);
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 700;
   line-height: 14px;
   text-align: center;
@@ -198,7 +199,7 @@ li.slot .item-controls .smp-slot-choose {
   min-width: 0;
 }
 .smp-cp-card-actions {
-  font-size: 11px;
+  font-size: 12px;
   color: var(--smp-muted);
   overflow: hidden;
   text-overflow: ellipsis;
@@ -217,18 +218,19 @@ li.slot .item-controls .smp-slot-choose {
 .smp-cp-detail {
   overflow-y: auto;
   min-height: 0;
-  padding: 8px 10px;
+  padding: 8px 12px;
   border: 1px solid var(--smp-line);
   border-radius: 4px;
+  line-height: 1.45;
 }
 .smp-cp-detail h3 {
   margin: 6px 0 2px;
   border: none;
-  color: var(--smp-myth);
+  color: var(--smp-accent);
 }
 .smp-cp-source,
 .smp-cp-note {
-  font-size: 11.5px;
+  font-size: 12px;
   color: var(--smp-muted);
 }
 .smp-cp-summary {
@@ -243,7 +245,8 @@ li.slot .item-controls .smp-slot-choose {
 .smp-cp-ea > div {
   padding: 4px 6px;
   border-left: 3px solid var(--smp-ok);
-  background: rgba(0, 0, 0, 0.03);
+  border-radius: 0 3px 3px 0;
+  background: var(--smp-panel);
 }
 .smp-cp-ea > .smp-cp-anathema {
   border-left-color: var(--smp-bad);
