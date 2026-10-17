@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 0.2.1
 
 - Readability: the module's windows (Mythic Console, Calling and feat pickers, grant and Make Mythic dialogs)
   now follow Foundry's dark or light interface theme, so purple headings, hints and muted text no longer
