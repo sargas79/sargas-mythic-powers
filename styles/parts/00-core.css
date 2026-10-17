@@ -63,7 +63,7 @@
   width: 14px;
   height: 14px;
   border-radius: 50%;
-  border: 2px solid var(--smp-myth);
+  border: 2px solid var(--smp-myth-2);
   display: inline-block;
 }
 .smp-pips .smp-pip.on {
