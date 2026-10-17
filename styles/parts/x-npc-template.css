@@ -12,7 +12,7 @@
 }
 .smp-npct-dialog legend {
   font-weight: 700;
-  color: var(--smp-myth-2);
+  color: var(--smp-accent);
   padding: 0 4px;
 }
 .smp-npct-dialog .smp-npct-options {
@@ -48,8 +48,9 @@
 .smp-npct-dialog .smp-npct-note {
   border-left: 3px solid var(--smp-myth);
   background: var(--smp-myth-soft);
-  color: #2b1d3d;
-  padding: 6px 8px;
+  color: inherit;
+  padding: 6px 10px;
+  line-height: 1.45;
   margin: 0;
   border-radius: 3px;
 }

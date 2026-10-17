@@ -4,17 +4,57 @@
 /*
  * Shared tokens for every Mythic Powers UI. Purple marks module additions so they stand apart from PF2e's
  * crimson. Prefix every class with "smp-".
+ *
+ * Text tokens follow the Foundry theme: the nearest .theme-light / .theme-dark ancestor wins. Chat cards and
+ * PF2e actor sheets are always parchment, so they are pinned to the light set whatever the interface theme.
+ * Use --smp-accent for purple text and --smp-myth for purple fills (buttons, badges, pips).
  */
-:root {
+:root,
+.theme-light,
+.chat-message,
+.sheet.actor,
+.smp-banner {
   --smp-myth: #5b2d8e;
-  --smp-myth-2: #8a5cc4;
-  --smp-myth-soft: #f1e9fa;
+  --smp-myth-2: #7a4cb5;
+  --smp-myth-soft: #efe5fa;
   --smp-myth-ink: #ffffff;
-  --smp-gold: #c99a2e;
-  --smp-muted: #6e5e48;
-  --smp-line: #cdbf9f;
-  --smp-ok: #2f7a4b;
+  --smp-accent: #5b2d8e;
+  --smp-gold: #a87a12;
+  --smp-gold-ink: #241800;
+  --smp-muted: #574836;
+  --smp-line: #b5a582;
+  --smp-ok: #1f6a3c;
   --smp-bad: #8a2a2a;
+  --smp-panel: rgba(0, 0, 0, 0.045);
+}
+.theme-dark {
+  --smp-myth: #6a37a6;
+  --smp-myth-2: #a57fdb;
+  --smp-myth-soft: rgba(165, 127, 219, 0.2);
+  --smp-myth-ink: #ffffff;
+  --smp-accent: #cfb2f7;
+  --smp-gold: #e0b450;
+  --smp-gold-ink: #241800;
+  --smp-muted: #bdb5c9;
+  --smp-line: rgba(255, 255, 255, 0.18);
+  --smp-ok: #7ad6a0;
+  --smp-bad: #ff958c;
+  --smp-panel: rgba(255, 255, 255, 0.05);
+}
+/* PF2e sheets and chat cards stay light even inside a dark-themed ancestor. */
+.theme-dark .chat-message,
+.theme-dark .sheet.actor,
+.theme-dark .smp-banner {
+  --smp-myth: #5b2d8e;
+  --smp-myth-2: #7a4cb5;
+  --smp-myth-soft: #efe5fa;
+  --smp-accent: #5b2d8e;
+  --smp-gold: #a87a12;
+  --smp-muted: #574836;
+  --smp-line: #b5a582;
+  --smp-ok: #1f6a3c;
+  --smp-bad: #8a2a2a;
+  --smp-panel: rgba(0, 0, 0, 0.045);
 }
 
 .smp-pips {
@@ -34,7 +74,7 @@
 }
 .smp-trait {
   display: inline-block;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -44,15 +84,15 @@
   color: var(--smp-myth-ink);
 }
 .smp-card h3 {
-  color: var(--smp-myth);
+  color: var(--smp-accent);
   margin: 0 0 4px;
 }
 .smp-card .smp-whisper {
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--smp-myth-2);
+  color: var(--smp-accent);
 }
 .smp-card .smp-buttons {
   display: flex;
@@ -76,7 +116,7 @@
 }
 .smp-grant-dialog legend {
   font-weight: 700;
-  color: var(--smp-myth-2);
+  color: var(--smp-accent);
   padding: 0 4px;
 }
 .smp-grant-dialog .smp-grant-radio {
@@ -87,8 +127,9 @@
 }
 .smp-grant-dialog .smp-grant-radio small {
   display: block;
-  opacity: 0.8;
-  font-size: var(--font-size-11, 11px);
+  color: var(--smp-muted);
+  line-height: 1.4;
+  font-size: var(--font-size-12, 12px);
 }
 .smp-grant-dialog .smp-grant-row {
   display: flex;
@@ -114,7 +155,7 @@
   margin-left: 4px;
   padding: 1px 6px;
   border-radius: 3px;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -151,7 +192,7 @@
   border-radius: 4px;
   background: var(--smp-myth-soft);
   color: #2b2b2b;
-  font-size: 12px;
+  font-size: 13px;
 }
 .smp-banner-main {
   min-width: 0;
@@ -162,7 +203,7 @@
   align-items: center;
   gap: 6px;
   margin: 0 0 2px;
-  color: var(--smp-myth);
+  color: var(--smp-accent);
   font-size: 14px;
   font-weight: 700;
   border: none;
@@ -172,7 +213,7 @@
   flex-wrap: wrap;
   gap: 2px 12px;
   color: var(--smp-muted);
-  font-size: 11px;
+  font-size: 12px;
 }
 .smp-banner-points {
   text-align: right;
@@ -187,7 +228,8 @@
   flex-direction: column;
   gap: 2px;
   min-width: 0;
-  font-size: 11px;
+  font-size: 12px;
+  line-height: 1.4;
 }
 .smp-banner-ea > span {
   display: -webkit-box;
@@ -200,7 +242,7 @@
   color: var(--smp-bad);
 }
 .smp-banner-nocalling {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 400;
   color: var(--smp-muted);
 }
@@ -213,7 +255,7 @@
   margin: 0;
   padding: 1px 8px;
   line-height: 18px;
-  font-size: 11px;
+  font-size: 12px;
   border: 1px solid var(--smp-myth);
   border-radius: 3px;
   background: var(--smp-myth);
@@ -239,7 +281,7 @@ nav.sheet-navigation [data-tab="feats"] {
   border-radius: 8px;
   background: var(--smp-myth);
   color: var(--smp-myth-ink);
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 700;
   line-height: 14px;
   text-align: center;
@@ -333,7 +375,7 @@ li.slot .item-controls .smp-slot-choose {
   min-width: 0;
 }
 .smp-cp-card-actions {
-  font-size: 11px;
+  font-size: 12px;
   color: var(--smp-muted);
   overflow: hidden;
   text-overflow: ellipsis;
@@ -352,18 +394,19 @@ li.slot .item-controls .smp-slot-choose {
 .smp-cp-detail {
   overflow-y: auto;
   min-height: 0;
-  padding: 8px 10px;
+  padding: 8px 12px;
   border: 1px solid var(--smp-line);
   border-radius: 4px;
+  line-height: 1.45;
 }
 .smp-cp-detail h3 {
   margin: 6px 0 2px;
   border: none;
-  color: var(--smp-myth);
+  color: var(--smp-accent);
 }
 .smp-cp-source,
 .smp-cp-note {
-  font-size: 11.5px;
+  font-size: 12px;
   color: var(--smp-muted);
 }
 .smp-cp-summary {
@@ -378,7 +421,8 @@ li.slot .item-controls .smp-slot-choose {
 .smp-cp-ea > div {
   padding: 4px 6px;
   border-left: 3px solid var(--smp-ok);
-  background: rgba(0, 0, 0, 0.03);
+  border-radius: 0 3px 3px 0;
+  background: var(--smp-panel);
 }
 .smp-cp-ea > .smp-cp-anathema {
   border-left-color: var(--smp-bad);
@@ -432,7 +476,7 @@ li.slot .item-controls .smp-slot-choose {
   gap: 4px;
 }
 .smp-fp-label {
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -446,7 +490,7 @@ li.slot .item-controls .smp-slot-choose {
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 12px;
+  font-size: 13px;
 }
 .smp-fp-main {
   display: flex;
@@ -460,8 +504,8 @@ li.slot .item-controls .smp-slot-choose {
   padding: 6px 8px;
   border-radius: 4px;
   background: var(--smp-myth-soft);
-  color: var(--smp-myth);
-  font-size: 12px;
+  color: var(--smp-accent);
+  font-size: 13px;
 }
 .smp-fp-list {
   list-style: none;
@@ -488,7 +532,7 @@ li.slot .item-controls .smp-slot-choose {
 .smp-fp-lv {
   font-weight: 700;
   text-align: center;
-  color: var(--smp-myth);
+  color: var(--smp-accent);
 }
 .smp-fp-img {
   width: 28px;
@@ -502,18 +546,19 @@ li.slot .item-controls .smp-slot-choose {
 }
 .smp-fp-destiny {
   background: var(--smp-gold);
+  color: var(--smp-gold-ink);
 }
 .smp-fp-why {
-  font-size: 11px;
+  font-size: 12px;
   color: var(--smp-bad);
 }
 .smp-fp-warn {
-  font-size: 11px;
+  font-size: 12px;
   color: var(--smp-muted);
 }
 .smp-fp-ineligible .smp-fp-name,
 .smp-fp-owned .smp-fp-name {
-  opacity: 0.65;
+  opacity: 0.75;
 }
 .smp-fp-add {
   background: var(--smp-myth);
@@ -523,7 +568,7 @@ li.slot .item-controls .smp-slot-choose {
   line-height: 22px;
 }
 .smp-fp-wait {
-  font-size: 11px;
+  font-size: 12px;
   font-style: italic;
   color: var(--smp-muted);
 }
@@ -542,7 +587,7 @@ li.slot .item-controls .smp-slot-choose {
 }
 .smp-fp-footer .smp-fp-note {
   margin-right: auto;
-  font-size: 11.5px;
+  font-size: 12px;
   color: var(--smp-muted);
 }
 .smp-fp-footer button {
@@ -552,7 +597,7 @@ li.slot .item-controls .smp-slot-choose {
 .smp-feat-request .smp-warnings {
   margin: 4px 0;
   padding-left: 16px;
-  font-size: 11px;
+  font-size: 12px;
   color: var(--smp-muted);
 }
 .smp-feat-request .smp-resolved {
@@ -585,7 +630,7 @@ li.slot .item-controls .smp-slot-choose {
 .smp-console-session,
 .smp-console-muted {
   color: var(--smp-muted);
-  font-size: 11.5px;
+  font-size: 12px;
 }
 .smp-console-scroll {
   flex: 1;
@@ -603,7 +648,7 @@ li.slot .item-controls .smp-slot-choose {
   border: 1px solid var(--smp-line);
   border-radius: 4px;
   background: transparent;
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.4;
   cursor: pointer;
   white-space: nowrap;
@@ -613,7 +658,7 @@ li.slot .item-controls .smp-slot-choose {
 }
 .smp-btn-sm {
   padding: 1px 6px;
-  font-size: 11px;
+  font-size: 12px;
 }
 .smp-btn-primary {
   background: var(--smp-myth);
@@ -636,7 +681,7 @@ li.slot .item-controls .smp-slot-choose {
 }
 .smp-console-table th {
   text-align: left;
-  font-size: 11px;
+  font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.04em;
   color: var(--smp-muted);
@@ -649,10 +694,10 @@ li.slot .item-controls .smp-slot-choose {
   vertical-align: middle;
 }
 .smp-console-row.is-disabled {
-  opacity: 0.75;
+  opacity: 0.85;
 }
 .smp-console-row.is-never {
-  opacity: 0.65;
+  opacity: 0.75;
 }
 
 .smp-console-who {
@@ -669,7 +714,7 @@ li.slot .item-controls .smp-slot-choose {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 700;
   flex: none;
 }
@@ -745,11 +790,12 @@ li.slot .item-controls .smp-slot-choose {
   margin-left: 4px;
   padding: 0 5px;
   border-radius: 8px;
-  font-size: 10.5px;
+  font-size: 11px;
 }
 .smp-console-warn {
   background: var(--smp-gold);
-  color: #fff;
+  color: var(--smp-gold-ink);
+  font-weight: 600;
 }
 
 .smp-console-acts {
@@ -764,7 +810,7 @@ li.slot .item-controls .smp-slot-choose {
   display: flex;
   align-items: center;
   gap: 4px;
-  font-size: 11.5px;
+  font-size: 12px;
 }
 .smp-console-pending-item > span {
   flex: 1;
@@ -773,14 +819,14 @@ li.slot .item-controls .smp-slot-choose {
 .smp-console-ledger h3 {
   margin: 0 0 4px;
   font-size: 13px;
-  color: var(--smp-myth);
+  color: var(--smp-accent);
   border-bottom: 1px solid var(--smp-line);
 }
 .smp-console-ledger-row {
   display: flex;
   gap: 8px;
   align-items: center;
-  font-size: 12px;
+  font-size: 13px;
   padding: 2px 0;
 }
 .smp-console-ledger-msg {
@@ -818,7 +864,7 @@ li.slot .item-controls .smp-slot-choose {
   margin: 0 0 2px;
 }
 .smp-points-card-value {
-  font-size: 11px;
+  font-size: 12px;
   opacity: 0.8;
 }
 
@@ -826,6 +872,7 @@ li.slot .item-controls .smp-slot-choose {
 /* Agent E: automation chat cards (mythic kill, Calling daily regain, mythic death). */
 .smp-auto-card p {
   margin: 4px 0;
+  line-height: 1.45;
 }
 .smp-auto-card .smp-buttons button {
   flex: 1 1 auto;
@@ -838,7 +885,7 @@ li.slot .item-controls .smp-slot-choose {
   color: var(--smp-myth-ink);
 }
 .smp-auto-card .smp-auto-gm-note {
-  font-size: 11px;
+  font-size: 12px;
   font-style: italic;
   color: var(--smp-muted);
   border-left: 3px solid var(--smp-gold);
@@ -884,7 +931,7 @@ li.slot .item-controls .smp-slot-choose {
 }
 .smp-npct-dialog legend {
   font-weight: 700;
-  color: var(--smp-myth-2);
+  color: var(--smp-accent);
   padding: 0 4px;
 }
 .smp-npct-dialog .smp-npct-options {
@@ -920,8 +967,9 @@ li.slot .item-controls .smp-slot-choose {
 .smp-npct-dialog .smp-npct-note {
   border-left: 3px solid var(--smp-myth);
   background: var(--smp-myth-soft);
-  color: #2b1d3d;
-  padding: 6px 8px;
+  color: inherit;
+  padding: 6px 10px;
+  line-height: 1.45;
   margin: 0;
   border-radius: 3px;
 }
@@ -960,7 +1008,7 @@ li.slot .item-controls .smp-slot-choose {
   color: var(--smp-bad);
 }
 .smp-npc-card .smp-npc-rerolled {
-  color: var(--smp-myth);
+  color: var(--smp-accent);
 }
 .smp-npc-warning p {
   margin: 4px 0;
@@ -987,20 +1035,20 @@ li.slot .item-controls .smp-slot-choose {
   opacity: 0.5;
 }
 .smp-npc-spend .smp-npc-spend-points {
-  font-size: 11px;
+  font-size: 12px;
   color: var(--smp-muted);
   white-space: nowrap;
 }
 .smp-npc-spend .smp-npc-spend-used {
   margin: 0;
   font-weight: 700;
-  color: var(--smp-myth);
+  color: var(--smp-accent);
 }
 
 .smp-npc-encounter h3 {
   margin: 0 0 4px;
   font-size: 13px;
-  color: var(--smp-myth);
+  color: var(--smp-accent);
   border-bottom: 1px solid var(--smp-line);
 }
 .smp-npc-encounter .smp-npc-ability {
@@ -1008,7 +1056,7 @@ li.slot .item-controls .smp-slot-choose {
   margin: 1px 4px 1px 0;
   padding: 0 6px;
   border-radius: 8px;
-  font-size: 11px;
+  font-size: 12px;
   background: var(--smp-myth-soft);
-  color: var(--smp-myth);
+  color: var(--smp-accent);
 }

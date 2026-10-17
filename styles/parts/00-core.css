@@ -1,17 +1,57 @@
 /*
  * Shared tokens for every Mythic Powers UI. Purple marks module additions so they stand apart from PF2e's
  * crimson. Prefix every class with "smp-".
+ *
+ * Text tokens follow the Foundry theme: the nearest .theme-light / .theme-dark ancestor wins. Chat cards and
+ * PF2e actor sheets are always parchment, so they are pinned to the light set whatever the interface theme.
+ * Use --smp-accent for purple text and --smp-myth for purple fills (buttons, badges, pips).
  */
-:root {
+:root,
+.theme-light,
+.chat-message,
+.sheet.actor,
+.smp-banner {
   --smp-myth: #5b2d8e;
-  --smp-myth-2: #8a5cc4;
-  --smp-myth-soft: #f1e9fa;
+  --smp-myth-2: #7a4cb5;
+  --smp-myth-soft: #efe5fa;
   --smp-myth-ink: #ffffff;
-  --smp-gold: #c99a2e;
-  --smp-muted: #6e5e48;
-  --smp-line: #cdbf9f;
-  --smp-ok: #2f7a4b;
+  --smp-accent: #5b2d8e;
+  --smp-gold: #a87a12;
+  --smp-gold-ink: #241800;
+  --smp-muted: #574836;
+  --smp-line: #b5a582;
+  --smp-ok: #1f6a3c;
   --smp-bad: #8a2a2a;
+  --smp-panel: rgba(0, 0, 0, 0.045);
+}
+.theme-dark {
+  --smp-myth: #6a37a6;
+  --smp-myth-2: #a57fdb;
+  --smp-myth-soft: rgba(165, 127, 219, 0.2);
+  --smp-myth-ink: #ffffff;
+  --smp-accent: #cfb2f7;
+  --smp-gold: #e0b450;
+  --smp-gold-ink: #241800;
+  --smp-muted: #bdb5c9;
+  --smp-line: rgba(255, 255, 255, 0.18);
+  --smp-ok: #7ad6a0;
+  --smp-bad: #ff958c;
+  --smp-panel: rgba(255, 255, 255, 0.05);
+}
+/* PF2e sheets and chat cards stay light even inside a dark-themed ancestor. */
+.theme-dark .chat-message,
+.theme-dark .sheet.actor,
+.theme-dark .smp-banner {
+  --smp-myth: #5b2d8e;
+  --smp-myth-2: #7a4cb5;
+  --smp-myth-soft: #efe5fa;
+  --smp-accent: #5b2d8e;
+  --smp-gold: #a87a12;
+  --smp-muted: #574836;
+  --smp-line: #b5a582;
+  --smp-ok: #1f6a3c;
+  --smp-bad: #8a2a2a;
+  --smp-panel: rgba(0, 0, 0, 0.045);
 }
 
 .smp-pips {
@@ -31,7 +71,7 @@
 }
 .smp-trait {
   display: inline-block;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -41,15 +81,15 @@
   color: var(--smp-myth-ink);
 }
 .smp-card h3 {
-  color: var(--smp-myth);
+  color: var(--smp-accent);
   margin: 0 0 4px;
 }
 .smp-card .smp-whisper {
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--smp-myth-2);
+  color: var(--smp-accent);
 }
 .smp-card .smp-buttons {
   display: flex;
