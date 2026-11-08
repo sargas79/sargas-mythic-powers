@@ -8,6 +8,7 @@
 import { MODULE_ID, TEMPLATE_PATH } from "../constants.js";
 import { esc, notify, t } from "../foundry/i18n.js";
 import {
+  collapseNames,
   defaultChoices,
   resolveChoices,
   savesByModifier,
@@ -24,6 +25,8 @@ import {
 } from "../rules/npc-template.js";
 import {
   applyMythicTemplate,
+  applyMythicTemplateToMany,
+  bulkTargets,
   getTemplateFlag,
   isBestiaryMythic,
   isNpc,
@@ -31,8 +34,11 @@ import {
   npcLevel,
   npcSnapshot,
   removeMythicTemplate,
+  removeMythicTemplateFromMany,
   saveLabel,
+  selectedTokenActors,
   skillLabel,
+  type BulkTarget,
 } from "../services/npc-template.js";
 
 let DialogClass: any = null;
@@ -244,6 +250,72 @@ export async function confirmRemove(actor: ActorPF2e): Promise<boolean> {
     rejectClose: false,
   });
   return result === true;
+}
+
+function bulkSection(headingKey: string, targets: BulkTarget[]): string {
+  if (!targets.length) return "";
+  const items = collapseNames(targets.map((target) => target.name))
+    .map((name) => `<li>${esc(name)}</li>`)
+    .join("");
+  return `<section><h4>${esc(t(headingKey, { count: targets.length }))}</h4><ul>${items}</ul></section>`;
+}
+
+/**
+ * GM only. Shows what the template would do to these creatures (by default the selected tokens) and lets the
+ * GM make them mythic with the default picks, or remove the template from those that have it.
+ */
+export async function openBulkTemplateDialog(actors: ActorPF2e[] = selectedTokenActors()): Promise<void> {
+  if (!game.user?.isGM) {
+    notify.warn("errors.gmOnly");
+    return;
+  }
+  if (!actors.length) {
+    notify.warn("npcTemplate.bulk.noSelection");
+    return;
+  }
+  const groups = bulkTargets(actors);
+  if (!groups.eligible.length && !groups.applied.length) {
+    notify.warn("npcTemplate.bulk.nothing");
+    return;
+  }
+
+  const buttons: Record<string, unknown>[] = [];
+  if (groups.eligible.length) {
+    buttons.push({
+      action: "apply",
+      label: t("npcTemplate.bulk.apply", { count: groups.eligible.length }),
+      icon: "fa-solid fa-dragon",
+      default: true,
+    });
+  }
+  if (groups.applied.length) {
+    buttons.push({
+      action: "remove",
+      label: t("npcTemplate.bulk.remove", { count: groups.applied.length }),
+      icon: "fa-solid fa-trash",
+    });
+  }
+  // Without creatures to make mythic, Cancel is the default so Enter can't remove templates.
+  buttons.push({ action: "cancel", label: t("npcTemplate.bulk.cancel"), default: !groups.eligible.length });
+
+  const choice = await foundry.applications.api.DialogV2.wait({
+    window: { title: t("npcTemplate.bulk.title"), icon: "fa-solid fa-dragon" },
+    classes: ["smp-npct-dialog", "smp-npct-bulk-dialog"],
+    position: { width: 420 },
+    content: [
+      `<p class="smp-npct-intro">${esc(t("npcTemplate.bulk.intro"))}</p>`,
+      bulkSection("npcTemplate.bulk.eligible", groups.eligible),
+      bulkSection("npcTemplate.bulk.hasTemplate", groups.applied),
+      bulkSection("npcTemplate.bulk.bestiary", groups.bestiary),
+      bulkSection("npcTemplate.bulk.notNpc", groups.notNpc),
+    ].join(""),
+    buttons,
+    rejectClose: false,
+  });
+
+  if (choice === "apply") await applyMythicTemplateToMany(groups.eligible.map((target) => target.actor));
+  else if (choice === "remove")
+    await removeMythicTemplateFromMany(groups.applied.map((target) => target.actor));
 }
 
 /** GM only. Opens the Make Mythic dialog for an NPC (one window per actor). */

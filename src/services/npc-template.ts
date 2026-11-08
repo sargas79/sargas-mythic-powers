@@ -10,10 +10,13 @@ import { appendLedger } from "../foundry/ledger.js";
 import {
   ABILITY_IDS,
   buildAbilityItem,
+  classifyBulk,
   formatAbilityName,
   mythicOriginOptions,
   resolveChoices,
   SAVES,
+  type BulkCandidate,
+  type BulkGroups,
   type GlossaryItemSource,
   type NpcSnapshot,
   type ResolvedAbility,
@@ -196,6 +199,51 @@ function guard(actor: ActorPF2e): boolean {
   return true;
 }
 
+/** Adds the template and logs it. Throws on failure; callers have already checked the actor qualifies. */
+async function addTemplate(actor: ActorPF2e, choices: TemplateChoices): Promise<void> {
+  const { items, level } = await buildTemplateItems(actor, choices);
+  const created: ItemPF2e[] = await actor.createEmbeddedDocuments("Item", items);
+  const itemIds = created.map((i: ItemPF2e) => i.id);
+  const traits = sourceTraits(actor);
+  const addedTrait = !traits.includes(MYTHIC_TRAIT);
+  const flag: NpcTemplateFlag = { applied: true, level, choices, itemIds, addedTrait };
+  const update: Record<string, unknown> = {
+    [`flags.${MODULE_ID}.${NPC_FLAG_KEY}`]: foundry.data.operators.ForcedReplacement.create(flag),
+  };
+  if (addedTrait) update["system.traits.value"] = [...traits, MYTHIC_TRAIT];
+  update["system.resources.mythicPoints.value"] = 3;
+  await actor.update(update, { diff: false });
+  await appendLedger({
+    kind: "grant",
+    actorUuid: actor.uuid,
+    actorName: actor.name,
+    message: t("npcTemplate.ledger.apply", {
+      name: actor.name,
+      level,
+      abilities: created.map((i: ItemPF2e) => i.name).join(", "),
+    }),
+  });
+}
+
+/** Deletes what the template added and logs it. Throws on failure. */
+async function stripTemplate(actor: ActorPF2e, flag: NpcTemplateFlag): Promise<void> {
+  const ids = (flag.itemIds ?? []).filter((id) => actor.items?.has(id));
+  if (ids.length) await actor.deleteEmbeddedDocuments("Item", ids);
+  const update: Record<string, unknown> = {
+    [`flags.${MODULE_ID}.${NPC_FLAG_KEY}`]: foundry.data.operators.ForcedDeletion.create(),
+  };
+  if (flag.addedTrait) {
+    update["system.traits.value"] = sourceTraits(actor).filter((tr) => tr !== MYTHIC_TRAIT);
+  }
+  await actor.update(update);
+  await appendLedger({
+    kind: "revoke",
+    actorUuid: actor.uuid,
+    actorName: actor.name,
+    message: t("npcTemplate.ledger.remove", { name: actor.name, count: ids.length }),
+  });
+}
+
 /** GM only. Applies the template. Returns false when nothing was done. */
 export async function applyMythicTemplate(actor: ActorPF2e, choices: TemplateChoices = {}): Promise<boolean> {
   if (!guard(actor)) return false;
@@ -208,28 +256,7 @@ export async function applyMythicTemplate(actor: ActorPF2e, choices: TemplateCho
     return false;
   }
   try {
-    const { items, level } = await buildTemplateItems(actor, choices);
-    const created: ItemPF2e[] = await actor.createEmbeddedDocuments("Item", items);
-    const itemIds = created.map((i: ItemPF2e) => i.id);
-    const traits = sourceTraits(actor);
-    const addedTrait = !traits.includes(MYTHIC_TRAIT);
-    const flag: NpcTemplateFlag = { applied: true, level, choices, itemIds, addedTrait };
-    const update: Record<string, unknown> = {
-      [`flags.${MODULE_ID}.${NPC_FLAG_KEY}`]: foundry.data.operators.ForcedReplacement.create(flag),
-    };
-    if (addedTrait) update["system.traits.value"] = [...traits, MYTHIC_TRAIT];
-    update["system.resources.mythicPoints.value"] = 3;
-    await actor.update(update, { diff: false });
-    await appendLedger({
-      kind: "grant",
-      actorUuid: actor.uuid,
-      actorName: actor.name,
-      message: t("npcTemplate.ledger.apply", {
-        name: actor.name,
-        level,
-        abilities: created.map((i: ItemPF2e) => i.name).join(", "),
-      }),
-    });
+    await addTemplate(actor, choices);
     notify.info("npcTemplate.notify.applied", { name: actor.name });
     return true;
   } catch (error) {
@@ -247,27 +274,108 @@ export async function removeMythicTemplate(actor: ActorPF2e): Promise<boolean> {
     return false;
   }
   try {
-    const ids = (flag.itemIds ?? []).filter((id) => actor.items?.has(id));
-    if (ids.length) await actor.deleteEmbeddedDocuments("Item", ids);
-    const update: Record<string, unknown> = {
-      [`flags.${MODULE_ID}.${NPC_FLAG_KEY}`]: foundry.data.operators.ForcedDeletion.create(),
-    };
-    if (flag.addedTrait) {
-      update["system.traits.value"] = sourceTraits(actor).filter((tr) => tr !== MYTHIC_TRAIT);
-    }
-    await actor.update(update);
-    await appendLedger({
-      kind: "revoke",
-      actorUuid: actor.uuid,
-      actorName: actor.name,
-      message: t("npcTemplate.ledger.remove", { name: actor.name, count: ids.length }),
-    });
+    await stripTemplate(actor, flag);
     notify.info("npcTemplate.notify.removed", { name: actor.name });
     return true;
   } catch (error) {
     notify.error("npcTemplate.errors.failed", { name: actor.name }, error);
     return false;
   }
+}
+
+export interface BulkTarget extends BulkCandidate {
+  actor: ActorPF2e;
+}
+
+/** Actor names, by outcome. */
+export interface BulkResult {
+  done: string[];
+  failed: string[];
+  /** Left alone because the action doesn't apply to them. */
+  skipped: string[];
+}
+
+/** The actors of the tokens selected on the canvas (an unlinked token's synthetic actor for unlinked tokens). */
+export function selectedTokenActors(): ActorPF2e[] {
+  const tokens: { actor?: ActorPF2e | null }[] = canvas?.tokens?.controlled ?? [];
+  return tokens.map((token) => token.actor).filter(Boolean);
+}
+
+/** Sorts actors by what the bulk action can do to them, one entry per actor. */
+export function bulkTargets(actors: ActorPF2e[]): BulkGroups<BulkTarget> {
+  return classifyBulk(
+    actors.map((actor) => ({
+      actor,
+      uuid: actor.uuid,
+      name: actor.name,
+      npc: isNpc(actor),
+      mythic: isMythicNpc(actor),
+      applied: isTemplateApplied(actor),
+    })),
+  );
+}
+
+/**
+ * Runs the action on each target in turn: the ledger is a read-modify-write of one setting, so concurrent
+ * runs would lose entries. A failure is logged and the rest carry on.
+ */
+async function runBulk(
+  targets: BulkTarget[],
+  skipped: BulkTarget[],
+  action: (actor: ActorPF2e) => Promise<void>,
+): Promise<BulkResult> {
+  const result: BulkResult = { done: [], failed: [], skipped: skipped.map((s) => s.name) };
+  for (const target of targets) {
+    try {
+      await action(target.actor);
+      result.done.push(target.name);
+    } catch (error) {
+      console.error(`${MODULE_ID} |`, error);
+      result.failed.push(target.name);
+    }
+  }
+  return result;
+}
+
+/** One summary instead of one notification per creature. */
+function reportBulk(doneKey: string, result: BulkResult): void {
+  if (result.done.length) notify.info(doneKey, { count: result.done.length });
+  if (result.failed.length) notify.error("npcTemplate.bulk.failed", { names: result.failed.join(", ") });
+  if (!result.done.length && !result.failed.length) notify.warn("npcTemplate.bulk.nothing");
+}
+
+function bulkGmOnly(): BulkResult | null {
+  if (game.user?.isGM) return null;
+  notify.warn("errors.gmOnly");
+  return { done: [], failed: [], skipped: [] };
+}
+
+/** GM only. Applies the template with the default picks to every actor that qualifies. */
+export async function applyMythicTemplateToMany(actors: ActorPF2e[]): Promise<BulkResult> {
+  const denied = bulkGmOnly();
+  if (denied) return denied;
+  const groups = bulkTargets(actors);
+  const result = await runBulk(
+    groups.eligible,
+    [...groups.applied, ...groups.bestiary, ...groups.notNpc],
+    (a) => addTemplate(a, {}),
+  );
+  reportBulk("npcTemplate.bulk.applied", result);
+  return result;
+}
+
+/** GM only. Removes the template from every actor that has it. */
+export async function removeMythicTemplateFromMany(actors: ActorPF2e[]): Promise<BulkResult> {
+  const denied = bulkGmOnly();
+  if (denied) return denied;
+  const groups = bulkTargets(actors);
+  const result = await runBulk(
+    groups.applied,
+    [...groups.eligible, ...groups.bestiary, ...groups.notNpc],
+    (a) => stripTemplate(a, getTemplateFlag(a) as NpcTemplateFlag),
+  );
+  reportBulk("npcTemplate.bulk.removed", result);
+  return result;
 }
 
 export { ABILITY_IDS };

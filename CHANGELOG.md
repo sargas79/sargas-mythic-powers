@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+- Mythic NPCs: a new Token Controls button applies the Make Mythic template, with the default picks, to every
+  selected token at once, or removes it from those that have it. A confirmation lists what will change;
+  creatures already mythic from their statistics and non-NPCs are left alone.
+
 ## 0.2.1
 
 - Readability: the module's windows (Mythic Console, Calling and feat pickers, grant and Make Mythic dialogs)

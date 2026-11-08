@@ -10,6 +10,7 @@ declare global {
   const ui: any;
   const Hooks: any;
   const CONFIG: any;
+  const canvas: any;
   const foundry: any;
   const ChatMessage: any;
   const Actor: any;

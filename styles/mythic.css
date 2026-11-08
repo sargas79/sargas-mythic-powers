@@ -985,6 +985,19 @@ li.slot .item-controls .smp-slot-choose {
   color: var(--smp-bad);
 }
 
+/* Bulk dialog for the selected tokens. */
+.smp-npct-bulk-dialog section h4 {
+  margin: 8px 0 2px;
+  font-weight: 700;
+  color: var(--smp-accent);
+}
+.smp-npct-bulk-dialog section ul {
+  margin: 0;
+  padding-left: 18px;
+  max-height: 25vh;
+  overflow-y: auto;
+}
+
 /* Keep the dialog inside the screen: the steps scroll, the footer stays visible. */
 .smp-npct-dialog {
   max-height: calc(100vh - 32px);

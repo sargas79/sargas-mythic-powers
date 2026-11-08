@@ -237,6 +237,54 @@ export function resolveChoices(
 }
 
 // ---------------------------------------------------------------------------------------------------------
+// Bulk apply and remove
+// ---------------------------------------------------------------------------------------------------------
+
+/** What the bulk action needs to know about one selected creature. */
+export interface BulkCandidate {
+  uuid: string;
+  name: string;
+  npc: boolean;
+  /** Has the `mythic` trait, from the bestiary or from the template. */
+  mythic: boolean;
+  /** The module's template is on it. */
+  applied: boolean;
+}
+
+export interface BulkGroups<T> {
+  /** Non-mythic NPCs: can be made mythic. */
+  eligible: T[];
+  /** Have the module's template: can have it removed. */
+  applied: T[];
+  /** Mythic from their statistics: left alone. */
+  bestiary: T[];
+  /** Not NPCs (player characters, hazards, ...): left alone. */
+  notNpc: T[];
+}
+
+/** Sorts the candidates by what can be done to them. Several tokens of one linked actor count once. */
+export function classifyBulk<T extends BulkCandidate>(candidates: readonly T[]): BulkGroups<T> {
+  const groups: BulkGroups<T> = { eligible: [], applied: [], bestiary: [], notNpc: [] };
+  const seen = new Set<string>();
+  for (const candidate of candidates) {
+    if (seen.has(candidate.uuid)) continue;
+    seen.add(candidate.uuid);
+    if (!candidate.npc) groups.notNpc.push(candidate);
+    else if (candidate.applied) groups.applied.push(candidate);
+    else if (candidate.mythic) groups.bestiary.push(candidate);
+    else groups.eligible.push(candidate);
+  }
+  return groups;
+}
+
+/** Collapses repeated names for display: ["Goblin", "Ogre", "Goblin"] -> ["Goblin ×2", "Ogre"]. */
+export function collapseNames(names: readonly string[]): string[] {
+  const counts = new Map<string, number>();
+  for (const name of names) counts.set(name, (counts.get(name) ?? 0) + 1);
+  return [...counts].map(([name, count]) => (count > 1 ? `${name} ×${count}` : name));
+}
+
+// ---------------------------------------------------------------------------------------------------------
 // Predicates (PF2e 8.5.1 damage roll options, as seen by applyIWR after applyDamageFromMessage)
 // ---------------------------------------------------------------------------------------------------------
 
