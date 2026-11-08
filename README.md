@@ -122,6 +122,9 @@ Mythic monster rules from _War of Immortals_ (Mythic Monster Templates and Basic
   trimmed to your choices, and 3 Mythic Points. Mythic Resistance and Mythic Immunity apply only to Strikes (and,
   for immunity, harmful spells) from non-mythic creatures and weapons. **Remove Mythic Template** undoes it.
   Creatures that are already mythic in the bestiary are left as they are.
+- **Mythic Template: Selected Tokens** (GM): select tokens on the canvas and use this **Token Controls** button to
+  make them all mythic with the default picks, or remove the template from those that have it. A confirmation lists
+  what will change first.
 - **Spending NPC Mythic Points** (GM): right-click a mythic NPC's failed check and choose **Reroll (Mythic Point)**;
   Mythic Skill spends its point automatically when the toggle is on; Recharge and Remove a Condition cards get a
   **Spend Mythic Point** button. Mythic NPCs go back to full Mythic Points when a combat starts.
@@ -164,28 +167,31 @@ Mythic monster rules from _War of Immortals_ (Mythic Monster Templates and Basic
 `game.modules.get("sargas-mythic-powers").api` exposes these functions for macros and other modules. Every
 function that changes state is GM only.
 
-| Function                              | Description                                                             |
-| ------------------------------------- | ----------------------------------------------------------------------- |
-| `getState(actor)`                     | The module's mythic state for the actor.                                |
-| `isGranted(actor)`                    | Granted (enabled or disabled).                                          |
-| `isMythicActive(actor)`               | Granted and enabled: the test for showing anything mythic.              |
-| `grantMythic(actor, options)`         | Grants mythic power (`source`, `progression`, `callingChoice`, …).      |
-| `enableMythic(actor)`                 | Restores suspended mythic power.                                        |
-| `disableMythic(actor)`                | Suspends mythic power, keeping the choices.                             |
-| `revokeMythic(actor, { confirm })`    | Removes mythic power for good.                                          |
-| `openGrantDialog(actor)`              | Opens the Grant Mythic Power dialog.                                    |
-| `openCallingPicker(actor)`            | Opens the Calling picker.                                               |
-| `openFeatPicker(actor, slotId)`       | Opens the mythic feat picker for a slot (`mythic-4`, …).                |
-| `openMythicConsole()`                 | Opens the Mythic Console.                                               |
-| `changePoints(actor, kind, options)`  | Changes Mythic Points (edict, anathema, custom, …) with a ledger entry. |
-| `startSession()`                      | Every enabled mythic character to 3 and the session counter +1.         |
-| `awardDeed(reason?)`                  | +3 to every enabled mythic character.                                   |
-| `awardKill(killer, defeatedName)`     | 2 to the killer, 1 to every other enabled mythic character.             |
-| `logTrial(actor, note)`               | Logs a mythic trial and raises the tier when earned.                    |
-| `releaseLateStart(actor, count?)`     | Releases late-start catch-up slots (default: the per-session setting).  |
-| `openNpcTemplateDialog(actor)`        | Opens the Make Mythic dialog for an NPC.                                |
-| `applyMythicTemplate(actor, choices)` | Applies the mythic monster template (empty choices = the defaults).     |
-| `removeMythicTemplate(actor)`         | Removes what the template added.                                        |
+| Function                               | Description                                                                     |
+| -------------------------------------- | ------------------------------------------------------------------------------- |
+| `getState(actor)`                      | The module's mythic state for the actor.                                        |
+| `isGranted(actor)`                     | Granted (enabled or disabled).                                                  |
+| `isMythicActive(actor)`                | Granted and enabled: the test for showing anything mythic.                      |
+| `grantMythic(actor, options)`          | Grants mythic power (`source`, `progression`, `callingChoice`, …).              |
+| `enableMythic(actor)`                  | Restores suspended mythic power.                                                |
+| `disableMythic(actor)`                 | Suspends mythic power, keeping the choices.                                     |
+| `revokeMythic(actor, { confirm })`     | Removes mythic power for good.                                                  |
+| `openGrantDialog(actor)`               | Opens the Grant Mythic Power dialog.                                            |
+| `openCallingPicker(actor)`             | Opens the Calling picker.                                                       |
+| `openFeatPicker(actor, slotId)`        | Opens the mythic feat picker for a slot (`mythic-4`, …).                        |
+| `openMythicConsole()`                  | Opens the Mythic Console.                                                       |
+| `changePoints(actor, kind, options)`   | Changes Mythic Points (edict, anathema, custom, …) with a ledger entry.         |
+| `startSession()`                       | Every enabled mythic character to 3 and the session counter +1.                 |
+| `awardDeed(reason?)`                   | +3 to every enabled mythic character.                                           |
+| `awardKill(killer, defeatedName)`      | 2 to the killer, 1 to every other enabled mythic character.                     |
+| `logTrial(actor, note)`                | Logs a mythic trial and raises the tier when earned.                            |
+| `releaseLateStart(actor, count?)`      | Releases late-start catch-up slots (default: the per-session setting).          |
+| `openNpcTemplateDialog(actor)`         | Opens the Make Mythic dialog for an NPC.                                        |
+| `applyMythicTemplate(actor, choices)`  | Applies the mythic monster template (empty choices = the defaults).             |
+| `removeMythicTemplate(actor)`          | Removes what the template added.                                                |
+| `openBulkTemplateDialog(actors?)`      | Opens the bulk dialog (default: the selected tokens' actors).                   |
+| `applyMythicTemplateToMany(actors)`    | Applies the template with default picks; returns who was done, failed, skipped. |
+| `removeMythicTemplateFromMany(actors)` | Removes the template from those that have it; same result.                      |
 
 ## Development
 

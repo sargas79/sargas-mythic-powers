@@ -57,6 +57,10 @@ Rules: _War of Immortals_ pg. 168, [Mythic Monster Templates](https://2e.aonprd.
    - stores `flags.sargas-mythic-powers.npc = { applied, level, choices, itemIds, addedTrait }` so Remove Mythic
      deletes exactly what was added.
    - NPCs that are already mythic from the bestiary (trait present, no module flag) are left alone; the dialog says so.
+   - **Selected tokens.** A Token Controls button opens one confirmation for all selected tokens: Make Mythic (default
+     picks) for non-mythic NPCs, Remove Template for those that have it. Several tokens of one linked actor count
+     once; each unlinked token is its own creature. Creatures are processed one at a time because the ledger is a
+     read-modify-write of one setting, and a failure doesn't stop the rest.
 2. **Spending Mythic Points (GM only).**
    - Chat context option "Reroll (Mythic Point)" on failed checks by mythic NPCs that own the Reroll ability and have
      points: normal reroll (keep new), then −1 point.

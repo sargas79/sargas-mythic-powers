@@ -539,6 +539,23 @@
         "title": "Remove Mythic Template: {name}",
         "content": "Remove the mythic abilities the template added to {name}?"
       },
+      "bulk": {
+        "tool": "Mythic Template: Selected Tokens",
+        "title": "Mythic Template: Selected Tokens",
+        "intro": "Make Mythic uses the default picks for each creature's level. To choose abilities yourself, use Make Mythic on one creature.",
+        "eligible": "Can be made mythic ({count})",
+        "hasTemplate": "Already have the template ({count})",
+        "bestiary": "Mythic from their statistics, left alone ({count})",
+        "notNpc": "Not NPCs, left alone ({count})",
+        "apply": "Make Mythic ({count})",
+        "remove": "Remove Template ({count})",
+        "cancel": "Cancel",
+        "noSelection": "Select one or more tokens first.",
+        "nothing": "None of these creatures can be changed: the template only works on non-mythic NPCs.",
+        "applied": "Creatures made mythic: {count}.",
+        "removed": "Mythic templates removed: {count}.",
+        "failed": "Mythic template failed for: {names}. See the console for details."
+      },
       "notify": {
         "applied": "{name} is now mythic.",
         "removed": "Removed the mythic template from {name}."
