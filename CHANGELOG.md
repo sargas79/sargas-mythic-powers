@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 0.3.0
 
 - Mythic NPCs: a new Token Controls button applies the Make Mythic template, with the default picks, to every
   selected token at once, or removes it from those that have it. A confirmation lists what will change;
