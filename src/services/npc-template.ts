@@ -236,6 +236,14 @@ async function stripTemplate(actor: ActorPF2e, flag: NpcTemplateFlag): Promise<v
     update["system.traits.value"] = sourceTraits(actor).filter((tr) => tr !== MYTHIC_TRAIT);
   }
   await actor.update(update);
+  // An unlinked token inherits the flag from its world actor when the template was applied there. Foundry
+  // drops the deletion of a key the token's own data doesn't hold, so the flag would stay and block Make
+  // Mythic. Override it on the token instead.
+  if (isTemplateApplied(actor)) {
+    const removed = foundry.data.operators.ForcedReplacement.create({ applied: false });
+    await actor.update({ [`flags.${MODULE_ID}.${NPC_FLAG_KEY}`]: removed }, { diff: false });
+  }
+  if (isTemplateApplied(actor)) throw new Error(`${MODULE_ID} | the template flag is still on ${actor.name}`);
   await appendLedger({
     kind: "revoke",
     actorUuid: actor.uuid,
