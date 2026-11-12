@@ -14,12 +14,18 @@ vi.mock("../src/foundry/ledger.js", () => ({ appendLedger: vi.fn(async () => ({}
 
 const notifications = { info: vi.fn(), warn: vi.fn(), error: vi.fn() };
 
+const FLAG_PATH = `flags.${MODULE_ID}.npc`;
+
+/**
+ * A stand-in actor whose `update` keeps the template flag and the traits. `inheritsFlag` is an unlinked token
+ * whose world actor holds the flag: Foundry drops the deletion of a key the token's own data doesn't hold.
+ */
 function makeNpc(
   name: string,
-  options: { uuid?: string; traits?: string[]; flag?: object; type?: string } = {},
+  options: { uuid?: string; traits?: string[]; flag?: object; type?: string; inheritsFlag?: boolean } = {},
 ) {
   const traits = options.traits ?? [];
-  return {
+  const npc = {
     uuid: options.uuid ?? `Actor.${name}`,
     name,
     type: options.type ?? "npc",
@@ -35,8 +41,19 @@ function makeNpc(
       items.map((item, index) => ({ id: `${name}-${index}`, name: item.name })),
     ),
     deleteEmbeddedDocuments: vi.fn(async () => []),
-    update: vi.fn(async () => undefined),
+    update: vi.fn(async (changes: Record<string, unknown>) => {
+      const newTraits = changes["system.traits.value"];
+      if (Array.isArray(newTraits)) {
+        npc._source.system.traits.value = newTraits;
+        npc.system.traits.value = newTraits;
+      }
+      if (!(FLAG_PATH in changes)) return;
+      const flag = changes[FLAG_PATH];
+      if (flag) npc.flags = { [MODULE_ID]: { npc: flag } };
+      else if (!options.inheritsFlag) npc.flags = {};
+    }),
   };
+  return npc;
 }
 
 const templated = (name: string) =>
@@ -184,6 +201,40 @@ describe("removeMythicTemplateFromMany", () => {
     expect(withTemplate.update).toHaveBeenCalledWith(expect.objectContaining({ "system.traits.value": [] }));
     expect(bestiary.deleteEmbeddedDocuments).not.toHaveBeenCalled();
     expect(bestiary.update).not.toHaveBeenCalled();
+  });
+
+  it("leaves the creature ready to be made mythic again", async () => {
+    const npc = templated("Ogre");
+
+    await removeMythicTemplateFromMany([npc]);
+    const again = await applyMythicTemplateToMany([npc]);
+
+    expect(npc.update).toHaveBeenCalledTimes(2);
+    expect(again).toEqual({ done: ["Ogre"], failed: [], skipped: [] });
+  });
+
+  it("overrides the flag on a token that inherits it from its world actor", async () => {
+    const token = makeNpc("Chimera", {
+      traits: ["mythic"],
+      flag: { applied: true, itemIds: ["a", "b"], addedTrait: true },
+      inheritsFlag: true,
+    });
+
+    const removed = await removeMythicTemplateFromMany([token]);
+
+    expect(removed).toEqual({ done: ["Chimera"], failed: [], skipped: [] });
+    expect(token.update).toHaveBeenLastCalledWith({ [FLAG_PATH]: { applied: false } }, { diff: false });
+    expect(await applyMythicTemplateToMany([token])).toMatchObject({ done: ["Chimera"], failed: [] });
+  });
+
+  it("reports a failure when the flag can't be cleared", async () => {
+    const stuck = templated("Stuck");
+    stuck.update.mockImplementation(async () => undefined);
+
+    const result = await removeMythicTemplateFromMany([stuck]);
+
+    expect(result).toMatchObject({ done: [], failed: ["Stuck"] });
+    expect(appendLedger).not.toHaveBeenCalled();
   });
 
   it("warns when nothing qualifies", async () => {

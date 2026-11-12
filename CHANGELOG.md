@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+- Mythic NPCs: removing the template from a token whose world actor had been made mythic left the token
+  marked as having the template, so it couldn't be made mythic again. Removal now clears it; for a token
+  already stuck this way, use Remove Template once more.
+
 ## 0.3.0
 
 - Mythic NPCs: a new Token Controls button applies the Make Mythic template, with the default picks, to every

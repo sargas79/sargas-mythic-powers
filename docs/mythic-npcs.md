@@ -55,7 +55,12 @@ Rules: _War of Immortals_ pg. 168, [Mythic Monster Templates](https://2e.aonprd.
      Strikes (and harmful spells), with a "Mythic Resistance" / "Mythic Immunity" label;
    - sets Mythic Points to 3;
    - stores `flags.sargas-mythic-powers.npc = { applied, level, choices, itemIds, addedTrait }` so Remove Mythic
-     deletes exactly what was added.
+     deletes exactly what was added. An unlinked token whose world actor has the template inherits that flag and
+     can't delete it (Foundry drops the deletion of a key the token's own data doesn't hold), so removing the
+     template from such a token writes `npc = { applied: false }` on the token instead.
+   - The template changes no statistics: in _War of Immortals_ a mythic creature keeps its Hit Points, AC, saves
+     and level. (First Edition's _Mythic Adventures_ adds Hit Points per mythic rank; that rule isn't in Second
+     Edition.)
    - NPCs that are already mythic from the bestiary (trait present, no module flag) are left alone; the dialog says so.
    - **Selected tokens.** A Token Controls button opens one confirmation for all selected tokens: Make Mythic (default
      picks) for non-mythic NPCs, Remove Template for those that have it. Several tokens of one linked actor count
